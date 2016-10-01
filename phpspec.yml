@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: ksec
+        psr4_prefix: ksec
+        src_path: app

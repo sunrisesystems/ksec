@@ -1,0 +1,453 @@
+/*
+	Author Name: Imran Shaikh
+	Author Url: http://www.iwebkreative.com
+	Designation: Frontend UI Developer	
+	Description: iwebkreative develop responsive website using latest technology, maintain wordpress website, create custom wordpress theme, build static & dynamic website using content management system, help to convert website from psd to html & psd to responsive mobile friendly website.
+	
+	Theme Introduction: This is custom theme created by http://www.iwebkreative.com.
+	
+*/
+body, html {
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    color: #888;
+    background-color: #FFFFFF;
+}
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+    color: #444;
+}
+h1 strong {
+    font-weight: 900;
+}
+h2 {
+    line-height: 20px;
+    margin: 0;
+    font-size: 42px;
+    font-weight: 600;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 400;
+}
+h5 {
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 20px;
+}
+p {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+}
+a {
+    color: #777;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: #1e9fb4;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+:hover,
+:active,
+:focus {
+	outline: 0 !important;
+}
+a {
+    text-decoration: none;
+    transition: all 0.25s ease 0s;
+}
+
+/*
+	header
+*/
+.very-top-header {
+    background-color: #eaebed;
+    color: #fff;
+}
+.very-top-header .header-top {
+    border-bottom: 1px solid #e9eaec;
+}
+.very-top-left {
+    color: #333;
+    float: left;
+    font-size: 14px;
+    padding: 10px 0;
+}
+.very-top-left a {
+	color: #333;
+}
+.very-top-right {
+    float: right;
+}
+.very-top-header ul.social-icons {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 12px;
+    padding-left: 0;
+}
+.social-icons li {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.social-icons li a {
+	color: #fff;
+}
+
+/*
+	main navigation
+*/
+.navbar.sticky-navigation {
+    margin-bottom: 0;
+    position: relative;
+}
+.sticky-navigation {
+    background-color: #ffffff;
+    border-bottom: 0 none;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.25);
+    min-height: 75px;
+    border: 0;
+}
+.sticky-navigation .navbar-toggle {
+    border: 0;
+    padding: 6px 10px;
+}
+.sticky-navigation.navbar-inverse .navbar-toggle:focus,
+.sticky-navigation.navbar-inverse .navbar-toggle:hover {
+    background-color: #ffc107;
+
+}
+.sticky-navigation .navbar-toggle:focus .icon-bar,
+.sticky-navigation .navbar-toggle:hover .icon-bar {
+	border-color: #fff;
+	background-color: #ffc107;
+}
+.sticky-navigation .navbar-toggle .icon-bar {
+    border: 1px solid #797979;
+    display: block;
+    height: 4px;
+    width: 28px;
+}
+.nav.main-navigation > li > a {
+    color: #313131;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.main-navigation > li {
+    border: 0 none;
+    float: left;
+}
+.main-navigation > li {
+    position: relative;
+}
+.sticky-navigation .main-navigation > li.current > a {
+    color: #f30104;
+    background-color: #eaebed;
+}
+.sticky-navigation .main-navigation > li > a:focus {
+	color: #212121;
+    background-color: transparent;
+}
+.nav.main-navigation > li > a:hover,
+.nav.main-navigation > li .dropdown-menu > li > a:hover {
+    color: #f30104;
+    text-decoration: none;
+    background-color: #eaebed;
+}
+.nav.main-navigation > li > a {
+    line-height: 82px;
+    margin: 0;
+    font-weight: 400;
+    padding: 0 15px;
+    text-transform: uppercase;
+    color: #212121;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+}
+.nav.main-navigation > li .dropdown-menu {
+    padding: 0;
+    border-radius: 0;
+}
+.nav.main-navigation > li .dropdown-menu > li > a {
+    padding: 10px;
+}
+.navbar-brand.ss-brand {
+    height: auto;
+    width: 80px;
+}
+/* ======================
+   Homepage Slider
+   ====================== */
+.banners {
+	position: relative;
+}
+.home-page-slider .item img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0px);
+}
+40% {
+    transform: translateY(-30px);
+}
+60% {
+    transform: translateY(-15px);
+}
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0px);
+}
+40% {
+    transform: translateY(-30px);
+}
+60% {
+    transform: translateY(-15px);
+}
+}
+a.bounce {
+    animation: 1.5s ease 0s normal none infinite running bounce;
+    text-decoration: none;
+}
+.arrow {
+    bottom: 0;
+    font-size: 52px;
+    height: 70px;
+    left: 50%;
+    margin-left: -27px;
+    position: absolute;
+    width: 54px;
+}
+
+
+
+/*
+	our clients
+*/
+
+.clients {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #b6b6b6;
+    padding: 25px 0;
+}
+.white-bg {
+    background-color: #ffffff;
+}
+.client-logos {
+    margin-bottom: 0;
+    text-align: center;
+    z-index: 1;
+}
+.client-logos li {
+    display: inline-block;
+    margin: 25px;
+    vertical-align: middle;
+}
+.client-logos li a {
+    display: block;
+    padding: 5px;
+}
+.client-logos li img {
+    filter: grayscale(1);
+    max-height: 40px;
+    opacity: 0.6;
+}
+.client-logos li img:hover {
+    filter: initial;
+    opacity: 1;
+}
+
+/* 
+	sections common css
+*/
+
+.section-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.colored-line-left, 
+.colored-line-right, 
+.colored-line {
+    background: #f30104;
+}
+.colored-line {
+    margin: auto;
+}
+.colored-line-left, 
+.colored-line-right, 
+.colored-line, 
+.white-line,
+.grey-line {
+    display: block;
+    height: 2px;
+    width: 80px;
+}
+.grey-bg {
+    background-color: #f5f5f6;
+}
+.my-grey-bg {
+    background-color: #eaebed;
+}
+.white-bg {background-color: #fff;}
+.sub-heading, .single-service, .content-section, .testimonials-box {
+    font-weight: 300;
+}
+.sub-heading {
+    margin-top: 20px;
+}
+
+/* 
+	our services 
+*/
+.services, .team, .reach-us {
+    padding: 60px 0;
+}
+.services-wrap .service-box {
+    display: inline-block;
+    width: 100%;
+}
+.section-header h2 {
+    font-size: 2.4rem;
+    line-height: 3.125rem;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.dark-text {
+    color: #000;
+}
+
+
+/*
+	our portfolio 
+*/
+
+/*
+	our team 
+*/
+
+/* 
+	testimonials 
+*/
+.testimonials {
+	background-color: #fff;
+	border-bottom: 1px solid #b6b6b6;
+}
+
+/*
+	contact 
+*/
+.reach-us-block a {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: #333;
+}
+.reach-us-block a:focus {
+    color: #333;
+}
+.reach-us-block a:hover {
+    color: #f30104;
+}
+.copyright {
+    text-align: center;
+}
+.copyright .logo-wrapper {
+    margin: 25px auto;
+    width: 100px;
+}
+/* scroll to top */
+.go-top {
+    position: fixed !important;
+    right: -35px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #002060;
+    line-height: 40px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    color: #fff;
+}
+.go-top.show {
+    right: 15px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+}
+.go-top:focus {
+    background-color: #002060;
+    color: #fff;
+}
+.go-top:hover {
+    background-color: #f30104;
+    color: #fff;
+}
+/**==================== preloader ======================**/
+.preloader {
+   background: #252525;
+   bottom: 0;
+   height: 100%;
+   left: 0;
+   margin: auto;
+   position: fixed;
+   right: 0;
+   top: 0;
+   width: 100%;
+   z-index: 99999;
+   overflow: hidden;
+   color: #FFF;
+}
+.la-ball-scale-multiple,
+.la-ball-scale-multiple>div{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.la-ball-scale-multiple{display:block;font-size:0;color:#fff}
+.la-ball-scale-multiple.la-dark{color:#333}
+.la-ball-scale-multiple>div{display:inline-block;float:none;background-color:currentColor;border:0 solid currentColor}
+.la-ball-scale-multiple{width:32px;height:32px}
+.la-ball-scale-multiple>div{position:absolute;top:0;left:0;width:32px;height:32px;border-radius:100%;opacity:0;-webkit-animation:ball-scale-multiple 1s 0s linear infinite;-moz-animation:ball-scale-multiple 1s 0s linear infinite;-o-animation:ball-scale-multiple 1s 0s linear infinite;animation:ball-scale-multiple 1s 0s linear infinite}
+.la-ball-scale-multiple>div:nth-child(2){-webkit-animation-delay:.2s;-moz-animation-delay:.2s;-o-animation-delay:.2s;animation-delay:.2s}
+.la-ball-scale-multiple>div:nth-child(3){-webkit-animation-delay:.4s;-moz-animation-delay:.4s;-o-animation-delay:.4s;animation-delay:.4s}
+.la-ball-scale-multiple.la-sm{width:16px;height:16px}
+.la-ball-scale-multiple.la-sm>div{width:16px;height:16px}
+.la-ball-scale-multiple.la-2x{width:64px;height:64px; left: 0; top: 0; right: 0; margin: auto; bottom: 0; position: absolute;}
+.la-ball-scale-multiple.la-2x>div{width:64px;height:64px}
+.la-ball-scale-multiple.la-3x{width:96px;height:96px}
+.la-ball-scale-multiple.la-3x>div{width:96px;height:96px}@-webkit-keyframes ball-scale-multiple{0%{opacity:0;-webkit-transform:scale(0);transform:scale(0)}5%{opacity:.75}100%{opacity:0;-webkit-transform:scale(1);transform:scale(1)}}@-moz-keyframes ball-scale-multiple{0%{opacity:0;-moz-transform:scale(0);transform:scale(0)}5%{opacity:.75}100%{opacity:0;-moz-transform:scale(1);transform:scale(1)}}@-o-keyframes ball-scale-multiple{0%{opacity:0;-o-transform:scale(0);transform:scale(0)}5%{opacity:.75}100%{opacity:0;-o-transform:scale(1);transform:scale(1)}}@keyframes ball-scale-multiple{0%{opacity:0;-webkit-transform:scale(0);-moz-transform:scale(0);-o-transform:scale(0);transform:scale(0)}5%{opacity:.75}100%{opacity:0;-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1);transform:scale(1)}}
