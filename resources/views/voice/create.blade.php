@@ -12,9 +12,7 @@
             <div class="row">
             	<div class="col-lg-12">
             		<article id="inbondForm" class="panel panel-default">
-            			<div class="panel-heading">
-            				<h2>Form Heading</h2>
-            			</div>
+            			<h2>Form Heading</h2>
             			<div class="panel-body">
             				<div class="row">
             					<div class="col-lg-12">
@@ -107,10 +105,8 @@
             			</div>
             		</article><!-- #inbond -->
 
-            		<article id="fatal" class="panel panel-default">
-            			<div class="panel-heading">
-            				<h2>Fatal</h2>
-            			</div>
+            		<article id="fatal" class="panel panel-default">            			
+        				<h2>Fatal</h2>            			
             			<div class="panel-body">
             				<div class="row">
             					<div class="col-lg-12">
@@ -149,9 +145,7 @@
             		</article><!-- #fatal -->
 			
 					<article id="adherence" class="panel panel-default">
-            			<div class="panel-heading">
-            				<h2>Adherence</h2>
-            			</div>
+        				<h2>Adherence</h2>
             			<div class="panel-body">
             				<div class="row">
             					<div class="col-lg-12">
@@ -202,44 +196,263 @@
             		</article><!-- #adherence -->
 
             		<article id="quality" class="panel panel-default">
-            			<div class="panel-heading">
-            				<h2>Quality</h2>
-            			</div>
+        				<h2>Quality</h2>
             			<div class="panel-body">
             				<div class="row">
             					<div class="col-lg-12">
             						<!-- Form 1 -->
             						<form>      
                                         <div class="form-wrapper row">
-	                                        <div class="col-lg-4">
+	                                        <div class="col-lg-6">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Tone & Manner</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Communication</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Correct Hold</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+				                                        
+				                                       	<div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>PAO</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Delighters Used</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                       	<div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>System Usage</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Tone and Manner</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>Correct CT/SCT</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+
+				                                        <div class="row">
+															<div class="col-lg-6">
+						                                        <div class="form-group">
+						                                            <label>OCR</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="max">Max</label>
+				                                        			<input class="form-control" value="Max" type="text">
+						                                        </div>
+					                                        </div>
+					                                        <div class="col-lg-3">
+					                                        	<div class="form-group">
+						                                            <label for="duration">Achieve</label>
+				                                        			<input class="form-control" type="text" id="ach" placeholder="Ach">
+						                                        </div>
+					                                        </div>
+				                                        </div>
+		                                        	</div><!-- .item -->
+												</div><!-- .row -->
+
 		                                        <div class="form-group">
-		                                            <label>Accuracy of Information/Knowledge</label>
+		                                            <label>PG</label>
 		                                            <select class="form-control">
 		                                                <option>1</option>
 		                                                <option>2</option>
 		                                            </select>
 		                                        </div>
 		                                        <div class="form-group">
-		                                            <label>Security Verfication</label>
+		                                            <label>OSAT</label>
 		                                            <select class="form-control">
 		                                                <option>1</option>
 		                                                <option>2</option>
 		                                            </select>
 		                                        </div>
 		                                        <div class="form-group">
-		                                            <label>Call Back Severity</label>
+		                                            <label>RSAT</label>
 		                                            <select class="form-control">
 		                                                <option>1</option>
 		                                                <option>2</option>
 		                                            </select>
 		                                        </div>
 		                                        <div class="form-group">
-		                                            <label>Other</label>
+		                                            <label>Appreciation</label>
 		                                            <select class="form-control">
 		                                                <option>1</option>
 		                                                <option>2</option>
 		                                            </select>
 		                                        </div>
+		                                        
 	                                        </div>
 	                                        <div class="col-lg-8">
 	                                        	<div class="form-group">
