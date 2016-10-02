@@ -15,11 +15,18 @@
 Route::get('/','AdminController@getLogin');
 Route::resource('dashboard','DashboardController');
 Route::controller('admin','AdminController');
+Route::resource('codeValue', 'CodevalueController');
 Route::resource('employees', 'EmployeeController');
+Route::resource('voice', 'VoiceController');
 Route::resource('roles','RoleController');
+Route::resource('calltype','CalltypeController');
+Route::resource('subcalltype','SubcalltypeController');
+
+
+// to be remove
 Route::resource('products', 'ProductController');
 Route::resource('product-category', 'ProductCategoryController');
 Route::resource('product-subcategory', 'ProductSubcategoryController');
 Route::resource('offers', 'OffersController');
 Route::controller('search', 'SearchController');
-Route::resource('voice', 'VoiceController');
+

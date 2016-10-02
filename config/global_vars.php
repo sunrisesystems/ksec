@@ -6,56 +6,23 @@ return [
     'PRIORITY_ARR' => ['P'=>'Primary','S'=>'Secondary'],
     'IMAGE_PATH' => base_path()."/public/data",
     'IMAGE_MIME'=>array('jpg', 'jpeg', 'JPG','png','PNG'),
+
     'PRODUCT_TYPE' => [
         'DRAWING_PRODUCT_TYPE' => 'drawingFiles',
         'MACHINE_MOLD_PRODUCT_TYPE' => 'machineModel',
         'MACHINE_MOLD_ATTACHMENT_PRODUCT_TYPE' => 'machineMoldAttachments',
         'DRAWING_ATTACHMENT_PRODUCT_TYPE' => 'drawingAttachments',
     ],
-    'CODE_ID' => [
-    	'Screw L/ D Ratio' => 1,
-    	'Actuation' => 2,
-    	'Actuator 1' => 3,
-        'Actuator 2' => 4,
-    	'Manufacturing Unit' => 5,
-        'Brand' => 6,
-        'primary_application' => 7,
-        'mother_mold' => 8,
-        'blow_mold' => 9,
-        'injection_mold' => 10,
-        'type_of_packing' => 11,
-        'change_over_time' => 1,
-    ],
-    'HARD_CODED_ID' => [ 
-        'MACHINE_GROUP_ID' => 1,
-        'MOLD_GROUP_ID' => 2,
-        'NECK_GROUP_ID' => 3,
-        'PACKING_MATERIAL_GROUP_ID' => 8,
-        'CARTON_TYPE_ID' => 13,
-    ],
-    'CCB' => [
+    
+    'ALLOW_LOGIN' => [
         'Y' =>'Yes',
         'N' => 'No',
     ],
-    'PLANNING_STATUS' => [
-        'P' => 'Planned',
-        'R' => 'Running',
-        'C' => 'Closed',
-        'SC' => 'Short Closed',
-        'CN' => 'Cancelled',
-    ],
-
-    'PLANNED_PLANNING_STATUS' => [
-        'R' => 'Running',
-        'CN' => 'Cancelled',
-    ],
-    'RUNNING_PLANNING_STATUS' => [
-        'C' => 'Closed',
-        'SC' => 'Short Closed',
-    ],
-    'SHORT_CLOSE_PLANNING_STATUS' => [
-        'R' => 'Running',
-        'CN' => 'Cancelled',
+    
+    'HARD_CODED_ID' => [
+        'managerId' => 1,
+        'teamLead' => 2,
+        'boc' => 3,
     ],
     'ADMIN_ROLE_ID' => 1,
     'DEFAULT_PERMISSIONS' => [

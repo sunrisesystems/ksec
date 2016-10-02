@@ -10,6 +10,6 @@ class City extends Model
 
     public function getAllCities()
     {
-    	return $this->lists('city','id')->orderBy('id','asc')->toArray();
+    	return $this->orderBy('id','asc')->lists('city','id')->toArray();
     }
 }

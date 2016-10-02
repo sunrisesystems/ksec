@@ -114,6 +114,7 @@ class EmployeeService {
                 'email' => $input['email'],
                 'allow_login' => $input['allowLogin'],
                 'password' => $input['password'],
+                'city_id' => $input['city'],
                 'status' => $input['status'],
             ];
             if(!empty($input['teamleadId'])){
@@ -174,6 +175,7 @@ class EmployeeService {
                 'department_id' => $input['department'],
                 'mobile' => $input['mobile'],
                 'email' => $input['email'],
+                'city_id' => $input['city'],
                 'allow_login' => $input['allowLogin'],
                 'status' => $input['status'],
             ];

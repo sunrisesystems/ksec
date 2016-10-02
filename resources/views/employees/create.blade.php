@@ -115,7 +115,7 @@
 									</div>	
 									<div class="col-sm-4"> 						
 										{!! HTML::decode(Form::label('status', 'City <small class="mandatory">*</small>')) !!}
-										{!! Form::select('status',$data['city'],null, ['id'=>'status','class'=>'form-control']) !!}
+										{!! Form::select('city',$data['city'],null, ['id'=>'city','class'=>'form-control']) !!}
 										<div id="city_alert" class="error validationAlert validationError">{!!$errors->first('city')!!}</div>
 									</div>
 									<div class="col-sm-4"> 						

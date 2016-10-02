@@ -44,6 +44,7 @@ class EmployeeRequest extends Request
                     'password' => 'required|between:6,20',
                     'profile' => 'required|exists:profiles,id',
                     'status' => 'required|in:A,I',
+                    'city' => 'required|exists:cities',
                     'allowLogin' => 'required|in:Y,N',
                     'department' => 'required|exists:departments,id,status,A',
 
@@ -63,6 +64,7 @@ class EmployeeRequest extends Request
                     'empType' => 'required|exists:emp_types,id,status,A',
                     'profile' => 'required|exists:profiles,id',
                     'status' => 'required|in:A,I',
+                    'city' => 'required|exists:cities,id',
                     'allowLogin' => 'required|in:Y,N',
                     'department' => 'required|exists:departments,id,status,A',
                 ];

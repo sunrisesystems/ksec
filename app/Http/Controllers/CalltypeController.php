@@ -7,13 +7,8 @@ use Illuminate\Http\Request;
 use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
 
-class VoiceController extends Controller
+class CalltypeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('sentinel');
-        $this->middleware('timeout');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +26,7 @@ class VoiceController extends Controller
      */
     public function create()
     {
-        return view('voice.create');
+        //
     }
 
     /**
