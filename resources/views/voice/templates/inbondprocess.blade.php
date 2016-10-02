@@ -1,5 +1,10 @@
 <article id="inbondForm" class="panel panel-default">
-   <h2>Form Heading</h2>
+   <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#inbond">Inbond</a>
+      </h4>
+   </div>
+   <div id="inbond" class="panel-collapse collapse in">
    <div class="panel-body">
       <div class="row">
          <div class="col-lg-12">
@@ -89,6 +94,8 @@
             </form>
          </div>
       </div>
+   </div>
+
    </div>
 </article>
 <!-- #inbond -->
