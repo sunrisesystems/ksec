@@ -1,4 +1,4 @@
-<article id="adherence" class="panel panel-default">
+<article class="panel panel-default">
    <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#adherence">Adherence</a>

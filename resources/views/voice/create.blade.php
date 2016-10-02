@@ -11,16 +11,20 @@
             </div>
             <div class="row">
             	<div class="col-lg-12">
-            		@include('voice.templates.inbondprocess')
+            		<div class="panel-group" id="accordion">
+	            		@include('voice.templates.inbondprocess')
 
-            		@include('voice.templates.fatal')
-			
-					@include('voice.templates.adherence')
+	            		@include('voice.templates.fatal')
+				
+						@include('voice.templates.adherence')
 
-            		@include('voice.templates.quality')
+	            		@include('voice.templates.quality')
+            		</div>
             	</div>
             </div>
         </div>
+
+  
 	</div>
 </section>
 @stop
