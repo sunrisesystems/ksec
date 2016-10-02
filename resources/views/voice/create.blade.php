@@ -421,37 +421,42 @@
 						                                        </div>
 					                                        </div>
 				                                        </div>
+				                                        <div class="row">
+				                                        	<div class="col-lg-6">
+				                                        	 	<div class="form-group">
+						                                            <label>PG</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+						                                        <div class="form-group">
+						                                            <label>OSAT</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+						                                        <div class="form-group">
+						                                            <label>RSAT</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+						                                        <div class="form-group">
+						                                            <label>Appreciation</label>
+						                                            <select class="form-control">
+						                                                <option>1</option>
+						                                                <option>2</option>
+						                                            </select>
+						                                        </div>
+					                                        </div>
+				                                        </div>
 		                                        	</div><!-- .item -->
 												</div><!-- .row -->
 
-		                                        <div class="form-group">
-		                                            <label>PG</label>
-		                                            <select class="form-control">
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                            </select>
-		                                        </div>
-		                                        <div class="form-group">
-		                                            <label>OSAT</label>
-		                                            <select class="form-control">
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                            </select>
-		                                        </div>
-		                                        <div class="form-group">
-		                                            <label>RSAT</label>
-		                                            <select class="form-control">
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                            </select>
-		                                        </div>
-		                                        <div class="form-group">
-		                                            <label>Appreciation</label>
-		                                            <select class="form-control">
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                            </select>
-		                                        </div>
+		                                       
 		                                        
 	                                        </div>
 	                                        <div class="col-lg-8">
@@ -465,7 +470,7 @@
             					</div>
             				</div>
             			</div>
-            		</article><!-- #adherence -->
+            		</article><!-- #quality -->
 
             	</div>
             </div>

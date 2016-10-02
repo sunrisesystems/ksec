@@ -10,7 +10,7 @@ use Sentinel,Lib;
 class SessionTimeout
 {
     protected $session;
-    protected $timeout = 1200;
+    protected $timeout = 120000;
 
     public function __construct(Store $session){
         $this->session=$session;
