@@ -29,7 +29,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $input = Request::all();
-        $data = $this->employeeService->getAllData();
+        $data = $this->employeeService->getAllDataWithInactive();
         $employees = $this->employeeService->getAllEmployess($input);
 
         return view('employees.index',compact('data','employees'));

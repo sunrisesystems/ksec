@@ -14,4 +14,9 @@ class EmpType extends Model
     {
     	return $this->where("status",'A')->lists('emp_type','id')->toArray();
     }
+
+    public function getEmpTypeList()
+    {
+    	return $this->lists('emp_type','id')->toArray();
+    }
 }

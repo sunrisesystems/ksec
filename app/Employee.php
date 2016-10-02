@@ -482,11 +482,23 @@ class Employee extends Model implements RoleableInterface, PermissibleInterface,
     public function getActiveManagerEmplyeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->where('status','A')->lists('emp_name','id')->toArray();
+
+    }
+
+    public function getManagerEmplyeeList()
+    {
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->lists('emp_name','id')->toArray();
     }
 
     public function getActiveTeamLeadEmplyeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->where('status','A')->lists('emp_name','id')->toArray()    ;
+        
+    }
+
+    public function getTeamLeadEmplyeeList()
+    {
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->lists('emp_name','id')->toArray()    ;
         
     }
 

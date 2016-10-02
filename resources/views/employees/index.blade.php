@@ -19,7 +19,7 @@
 
 		if($("#name").val() != "" || $("#status").val() != "" || $("#unit").val() != "" || $("#role").val() != "")
 		{
-			var $slidedown = $('.searchForm');
+			var $slidedown = $('.searchFormo');
 			$slidedown.slideDown();
 			$('.close-filter').fadeIn('slowly');
 		}  

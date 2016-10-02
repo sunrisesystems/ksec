@@ -38,6 +38,17 @@ class EmployeeService {
         return $data;
  	}
 
+    public function getAllDataWithInactive()
+    {
+        $data['profile'] = Lib::addSelect($this->profile->getRoleList());
+        $data['manager'] = Lib::addSelect($this->employee->getManagerEmplyeeList());
+        $data['department'] = Lib::addSelect($this->department->getAllDepartmentList());
+        $data['teamLead'] = Lib::addSelect($this->employee->getTeamLeadEmplyeeList());
+        $data['empType'] = Lib::addSelect($this->empType->getEmpTypeList());
+        $data['status'] = Lib::addSelect(Config::get('global_vars.STATUS_ARR'));
+        $data['allowLogin'] = Lib::addSelect(Config::get('global_vars.ALLOW_LOGIN'));
+        return $data;
+    }
     public function getAllEmployess($input)
     {
         $input['paginationLimit'] = Config::get("global_vars.PAGINATION_LIMIT");
