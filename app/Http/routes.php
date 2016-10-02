@@ -22,3 +22,4 @@ Route::resource('product-category', 'ProductCategoryController');
 Route::resource('product-subcategory', 'ProductSubcategoryController');
 Route::resource('offers', 'OffersController');
 Route::controller('search', 'SearchController');
+Route::resource('voice', 'VoiceController');
