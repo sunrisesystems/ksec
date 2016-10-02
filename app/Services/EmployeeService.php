@@ -7,6 +7,7 @@ use ksec\Employee as Employee;
 use ksec\EmpType as EmpType;
 use ksec\UserRole as UserRole;
 use ksec\Department as Department;
+use ksec\City as City;
 use Sentinel,Lang;
 use ksec\Dto\EmployeeDTO;
 use ksec\Dto\MasterDTO;
@@ -17,13 +18,15 @@ class EmployeeService {
                                 Employee $employee,
                                 UserRole $userRole,
                                 EmpType $empType,
-                                Department $department)
+                                Department $department,
+                                City $city)
     {
         $this->profile = $profile;
         $this->employee = $employee;
         $this->userRole = $userRole;
         $this->empType = $empType;
         $this->department = $department;
+        $this->city = $city;
 	}   
 
 	public function getAllData()
@@ -35,6 +38,8 @@ class EmployeeService {
         $data['empType'] = Lib::addSelect($this->empType->getActiveEmpTypeList());
         $data['status'] = Lib::addSelect(Config::get('global_vars.STATUS_ARR'));
         $data['allowLogin'] = Lib::addSelect(Config::get('global_vars.ALLOW_LOGIN'));
+        $data['city'] = Lib::addSelect($this->city->getAllCities());
+
         return $data;
  	}
 
@@ -47,6 +52,7 @@ class EmployeeService {
         $data['empType'] = Lib::addSelect($this->empType->getEmpTypeList());
         $data['status'] = Lib::addSelect(Config::get('global_vars.STATUS_ARR'));
         $data['allowLogin'] = Lib::addSelect(Config::get('global_vars.ALLOW_LOGIN'));
+        $data['city'] = Lib::addSelect($this->city->getAllCities());
         return $data;
     }
     public function getAllEmployess($input)

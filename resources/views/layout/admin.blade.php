@@ -143,7 +143,7 @@ $currentCA          = $currentController ."_".$currentAction;
 								</li>
 
 								<li <?php if($currentCA == 'search_index' || $currentCA == 'search_create' || $currentCA == 'search_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! url('search') !!}">Search</a>
+									<a href="{!! route('voice.create') !!}">Voice</a>
 								</li>
 							
 							</ul>						
