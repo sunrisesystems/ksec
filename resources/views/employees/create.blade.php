@@ -114,20 +114,26 @@
 										<div id="profile_alert" class="error validationAlert validationError">{!!$errors->first('profile')!!}</div>
 									</div>	
 									<div class="col-sm-4"> 						
+										{!! HTML::decode(Form::label('status', 'City <small class="mandatory">*</small>')) !!}
+										{!! Form::select('status',$data['city'],null, ['id'=>'status','class'=>'form-control']) !!}
+										<div id="city_alert" class="error validationAlert validationError">{!!$errors->first('city')!!}</div>
+									</div>
+									<div class="col-sm-4"> 						
 										{!! HTML::decode(Form::label('status', 'Status <small class="mandatory">*</small>')) !!}
 										{!! Form::select('status',$data['status'],'A', ['id'=>'status','class'=>'form-control']) !!}
 										<div id="status_alert" class="error validationAlert validationError">{!!$errors->first('status')!!}</div>
 									</div>
-									<div class="col-sm-4"> 						
-										{!! HTML::decode(Form::label('allowLogin', 'Allow Login <small class="mandatory">*</small>')) !!}
-										{!! Form::select('allowLogin',$data['allowLogin'],null, ['id'=>'allowLogin','class'=>'form-control']) !!}
-										<div id="allowLogin_alert" class="error validationAlert validationError">{!!$errors->first('allowLogin')!!}</div>
-									</div>									
+																		
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="row">
+								<div class="col-sm-4"> 						
+										{!! HTML::decode(Form::label('allowLogin', 'Allow Login <small class="mandatory">*</small>')) !!}
+										{!! Form::select('allowLogin',$data['allowLogin'],null, ['id'=>'allowLogin','class'=>'form-control']) !!}
+										<div id="allowLogin_alert" class="error validationAlert validationError">{!!$errors->first('allowLogin')!!}</div>
+									</div>
 									<div class="col-sm-4"> 						
 										{!! HTML::decode(Form::label('password', 'Password <small class="mandatory">*</small>')) !!}
 										{!! Form::password('password',array('placeholder'=>'Password','id'=>'password','class'=>'form-control','maxlength'=>20)) !!} 
