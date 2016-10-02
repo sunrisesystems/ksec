@@ -43,7 +43,6 @@ class EmployeeController extends Controller
     public function create()
     {
         $data = $this->employeeService->getAllData();
-        Lib::pr($data); exit;
         return view('employees.create',compact('data'));
     }
 
