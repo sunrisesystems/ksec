@@ -56,8 +56,8 @@ return [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
             'database'  => env('DB_DATABASE', 'ksec_sq_db'),
-               /* 'username'  => env('DB_USERNAME', 'supriyak'),
-                'password'  => env('DB_PASSWORD', 'Sam@1986'),*/
+               /* 'username'  => env('DB_USERNAME', 'root'),
+                'password'  => env('DB_PASSWORD', 'pass@123'),*/
              'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'pass@123'),
             'charset'   => 'utf8',
