@@ -613,7 +613,8 @@ tr th, tr td {
 
 /* Kotak */
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+select.form-control {
   border-radius: 0;
 }
 /* inner page - voice */
