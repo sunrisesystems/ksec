@@ -1,6 +1,6 @@
 <?php 
-$currentController  = cvmapp\Libraries\Lib::currentController();
-$currentAction      = cvmapp\Libraries\Lib::currentAction();
+$currentController  = Lib::currentController();
+$currentAction      = Lib::currentAction();
 $currentCA          = $currentController ."_".$currentAction;
 //echo $currentController." ".$currentAction; 
 ?>
@@ -11,7 +11,7 @@ $currentCA          = $currentController ."_".$currentAction;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{!! csrf_token() !!}" />
-    <title>CVM Applications</title>
+    <title>Kotak Securities - SQ</title>
 	
 	<link href='//fonts.googleapis.com/css?family=Raleway:300,400,600,700,800' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
@@ -101,7 +101,7 @@ $currentCA          = $currentController ."_".$currentAction;
                 <div class="sidebar-collapse">
 					<section class="logo-wrapper">
 						<div class="logo-brand">
-							<a class="navbar-brand" href="javascript::void(0)">IDFC BANK-CVM</a>
+							<a class="navbar-brand" href="javascript::void(0)">KSEC</a>
 						</div>
 					</section>
 					<ul class="nav metismenu" id="side-menu">

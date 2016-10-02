@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Http\Middleware;
+namespace ksec\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

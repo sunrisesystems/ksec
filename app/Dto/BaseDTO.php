@@ -1,5 +1,5 @@
 <?php 
-namespace cvmapp\Dto;
+namespace ksec\Dto;
 
 use Request;
 

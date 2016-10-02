@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Console\Commands;
+namespace ksec\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

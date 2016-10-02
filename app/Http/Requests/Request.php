@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Http\Requests;
+namespace ksec\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

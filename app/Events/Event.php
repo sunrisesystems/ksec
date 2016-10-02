@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Events;
+namespace ksec\Events;
 
 abstract class Event
 {

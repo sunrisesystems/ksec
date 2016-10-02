@@ -1,5 +1,5 @@
 <?php
-namespace cvmapp\Dto;
+namespace ksec\Dto;
 
 class HourlyEntryDTO extends BaseDTO { 
 var $id; 

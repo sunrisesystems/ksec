@@ -1,15 +1,15 @@
-<?php namespace cvmapp\Services;
+<?php namespace ksec\Services;
 
 use Request,Config,DB,Validator;
-use cvmapp\Libraries\Lib;
-use cvmapp\Profile as Profile;
-use cvmapp\Employee as Employee;
-use cvmapp\EmpType as EmpType;
-use cvmapp\UserRole as UserRole;
-use cvmapp\Department as Department;
+use ksec\Libraries\Lib;
+use ksec\Profile as Profile;
+use ksec\Employee as Employee;
+use ksec\EmpType as EmpType;
+use ksec\UserRole as UserRole;
+use ksec\Department as Department;
 use Sentinel,Lang;
-use cvmapp\Dto\EmployeeDTO;
-use cvmapp\Dto\MasterDTO;
+use ksec\Dto\EmployeeDTO;
+use ksec\Dto\MasterDTO;
 
 class EmployeeService {
 

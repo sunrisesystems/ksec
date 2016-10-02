@@ -1,8 +1,8 @@
 <?php
 
-namespace cvmapp\Http\Controllers\Auth;
+namespace ksec\Http\Controllers\Auth;
 
-use cvmapp\Http\Controllers\Controller;
+use ksec\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

@@ -1,16 +1,16 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
-use cvmapp\Http\Requests;
-use cvmapp\Http\Controllers\Controller;
+use ksec\Http\Requests;
+use ksec\Http\Controllers\Controller;
 
-use cvmapp\Services\EmployeeService;
-use cvmapp\Libraries\Lib;
+use ksec\Services\EmployeeService;
+use ksec\Libraries\Lib;
 
 use Request,Lang,Config,Sentinel;
-use cvmapp\Http\Requests\EmployeeRequest;
-use cvmapp\Http\Requests\ResetPasswordRequest;
+use ksec\Http\Requests\EmployeeRequest;
+use ksec\Http\Requests\ResetPasswordRequest;
 
 class EmployeeController extends Controller
 {

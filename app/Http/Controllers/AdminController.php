@@ -1,17 +1,17 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
 use Request,Sentinel,Lang,Session,Config,Artisan;
 
-use cvmapp\Http\Requests;
-use cvmapp\Http\Controllers\Controller;
-use cvmapp\Services\AdminService;
-use cvmapp\Http\Requests\LoginRequest;
-use cvmapp\Http\Requests\ChangePasswordRequest;
-use cvmapp\Http\Requests\UpdateProfileRequest;
-use cvmapp\Libraries\Lib;
-use cvmapp\Employee;
+use ksec\Http\Requests;
+use ksec\Http\Controllers\Controller;
+use ksec\Services\AdminService;
+use ksec\Http\Requests\LoginRequest;
+use ksec\Http\Requests\ChangePasswordRequest;
+use ksec\Http\Requests\UpdateProfileRequest;
+use ksec\Libraries\Lib;
+use ksec\Employee;
 
 class AdminController extends Controller
 {
@@ -48,7 +48,7 @@ class AdminController extends Controller
     public function postLogin(LoginRequest $loginRequest)
     {
         $input = $loginRequest->all();
-
+        
         $credentials = [
             'system_id' => $input['systemId'],
             'password' => $input['password'],

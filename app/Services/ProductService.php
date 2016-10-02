@@ -1,12 +1,12 @@
-<?php namespace cvmapp\Services;
+<?php namespace ksec\Services;
 
-use cvmapp\Department;
-use cvmapp\ProductDepartment;
-use cvmapp\ProductExpert;
-use cvmapp\ProductCategory;
-use cvmapp\ProductSubcategory;
-use cvmapp\Product;
-use cvmapp\Employee;
+use ksec\Department;
+use ksec\ProductDepartment;
+use ksec\ProductExpert;
+use ksec\ProductCategory;
+use ksec\ProductSubcategory;
+use ksec\Product;
+use ksec\Employee;
 
 use Request,Config,DB,Validator,Lang,Lib,Sentinel;
 

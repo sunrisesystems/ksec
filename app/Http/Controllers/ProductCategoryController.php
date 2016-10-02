@@ -1,13 +1,13 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
-use cvmapp\Http\Requests;
-use cvmapp\Services\ProductService;
-use cvmapp\Libraries\Lib;
+use ksec\Http\Requests;
+use ksec\Services\ProductService;
+use ksec\Libraries\Lib;
 
 use Request,Lang,Config,Excel;
-use cvmapp\Http\Requests\ProductCategoryRequest;
+use ksec\Http\Requests\ProductCategoryRequest;
 
 class ProductCategoryController extends Controller
 {

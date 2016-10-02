@@ -18,7 +18,7 @@
  * @link       http://cartalyst.com
  */
 
-namespace cvmapp;
+namespace ksec;
 
 use Cartalyst\Sentinel\Permissions\PermissibleInterface;
 use Cartalyst\Sentinel\Permissions\PermissibleTrait;

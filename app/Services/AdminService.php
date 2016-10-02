@@ -1,10 +1,10 @@
-<?php namespace cvmapp\Services;
+<?php namespace ksec\Services;
 
 use Request,Config,DB,Validator;
-use cvmapp\Libraries\Lib;
-//use cvmapp\User as User;
+use ksec\Libraries\Lib;
+//use ksec\User as User;
 use Sentinel,Lang,Hash;
-//use cvmapp\Services\DrawingService as DrawingService; 
+//use ksec\Services\DrawingService as DrawingService; 
 
 class AdminService {
 

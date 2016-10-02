@@ -1,9 +1,9 @@
-<?php namespace cvmapp\Services;
+<?php namespace ksec\Services;
 
 use Request,Config,DB,Validator;
-use cvmapp\Libraries\Lib;
+use ksec\Libraries\Lib;
 use Sentinel,Lang;
-use cvmapp\Product as Product;
+use ksec\Product as Product;
 
 class SearchService {
 

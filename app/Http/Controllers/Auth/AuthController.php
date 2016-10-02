@@ -1,10 +1,10 @@
 <?php
 
-namespace cvmapp\Http\Controllers\Auth;
+namespace ksec\Http\Controllers\Auth;
 
-use cvmapp\User;
+use ksec\User;
 use Validator;
-use cvmapp\Http\Controllers\Controller;
+use ksec\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

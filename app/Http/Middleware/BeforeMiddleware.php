@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Http\Middleware;
+namespace ksec\Http\Middleware;
 use DB,Config,Session;
 use Closure,Lib,Sentinel,Lang;
 use Illuminate\Support\Str;

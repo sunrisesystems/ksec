@@ -18,7 +18,7 @@
  * @link       http://cartalyst.com
  */
 
-namespace cvmapp;
+namespace ksec;
 
 use Cartalyst\Sentinel\Permissions\PermissibleInterface;
 use Cartalyst\Sentinel\Permissions\PermissibleTrait;
@@ -48,7 +48,7 @@ class Profile extends Model implements RoleInterface, PermissibleInterface
      *
      * @var string
      */
-    protected static $usersModel = 'cvmapp\User';
+    protected static $usersModel = 'ksec\User';
     //protected static $usersModel = 'Cartalyst\Sentinel\Users\EloquentUser';
 
     /**

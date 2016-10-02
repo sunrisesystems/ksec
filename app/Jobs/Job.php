@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Jobs;
+namespace ksec\Jobs;
 
 use Illuminate\Bus\Queueable;
 

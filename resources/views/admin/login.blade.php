@@ -6,7 +6,7 @@
 		<div class="form-container">
 				<div class="innerContainer">
 					<div class="login-logo">
-						<h1>IDFC BANK - CVM Applications</h1>
+						<h1>Kotak Securities</h1>
 					</div>
 					{!! Form::open(array('action'=>'AdminController@postLogin','method'=>'POST', 'class'=>'form-signin','onsubmit' => 'return validateLoginForm()')) !!}				
 					<div class="form-heading">

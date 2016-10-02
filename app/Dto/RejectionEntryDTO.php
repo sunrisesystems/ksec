@@ -1,5 +1,5 @@
 <?php
-namespace cvmapp\Dto;
+namespace ksec\Dto;
 
 class RejectionEntryDTO extends BaseDTO { 
 var $id; 

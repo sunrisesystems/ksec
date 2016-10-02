@@ -1,11 +1,11 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
-use cvmapp\Http\Requests;
-use cvmapp\Http\Controllers\Controller;
+use ksec\Http\Requests;
+use ksec\Http\Controllers\Controller;
 use Request,Lib;
-use cvmapp\Services\SearchService;
+use ksec\Services\SearchService;
 
 class SearchController extends Controller
 {

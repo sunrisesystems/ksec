@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Exceptions;
+namespace ksec\Exceptions;
 
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;

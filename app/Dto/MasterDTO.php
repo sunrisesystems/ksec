@@ -1,5 +1,5 @@
 <?php
-namespace cvmapp\Dto;
+namespace ksec\Dto;
 
 class MasterDTO extends BaseDTO { 
 var $listDTO; 

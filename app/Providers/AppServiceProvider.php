@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Providers;
+namespace ksec\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

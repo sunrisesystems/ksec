@@ -1,8 +1,8 @@
-<?php namespace cvmapp\Services;
+<?php namespace ksec\Services;
 
-use cvmapp\Profile as Role;
+use ksec\Profile as Role;
 use Request,Config,Lang,Sentinel;
-use cvmapp\Libraries\Lib;
+use ksec\Libraries\Lib;
 
 class RoleService {
 

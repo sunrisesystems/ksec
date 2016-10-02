@@ -1,11 +1,11 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use cvmapp\Http\Requests;
-use cvmapp\Http\Controllers\Controller;
+use ksec\Http\Requests;
+use ksec\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {

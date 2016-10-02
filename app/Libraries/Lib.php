@@ -1,9 +1,9 @@
-<?php namespace cvmapp\Libraries;
+<?php namespace ksec\Libraries;
 
 use Config,DateTime,Route,PDF,File,DateInterval,DatePeriod;
 use Illuminate\Support\Str;
 use Lang,Sentinel;
-use cvmapp\AclModule;
+use ksec\AclModule;
 use Intervention\Image\ImageManagerStatic as Image;
 
 Class Lib {

@@ -1,6 +1,6 @@
 <?php
 
-namespace cvmapp\Console;
+namespace ksec\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \cvmapp\Console\Commands\Inspire::class,
+        \ksec\Console\Commands\Inspire::class,
     ];
 
     /**

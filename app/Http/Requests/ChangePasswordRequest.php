@@ -1,8 +1,8 @@
 <?php
 
-namespace cvmapp\Http\Requests;
+namespace ksec\Http\Requests;
 
-use cvmapp\Http\Requests\Request;
+use ksec\Http\Requests\Request;
 
 class ChangePasswordRequest extends Request
 {

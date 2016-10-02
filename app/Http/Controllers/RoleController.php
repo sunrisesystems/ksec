@@ -1,15 +1,15 @@
 <?php
 
-namespace cvmapp\Http\Controllers;
+namespace ksec\Http\Controllers;
 
-use cvmapp\Http\Requests;
-use cvmapp\Http\Controllers\Controller;
-use cvmapp\Services\RoleService;
-use cvmapp\Libraries\Lib;
+use ksec\Http\Requests;
+use ksec\Http\Controllers\Controller;
+use ksec\Services\RoleService;
+use ksec\Libraries\Lib;
 
 use Request,Lang,Config;
-use cvmapp\Dto\SearchRoleDTO;
-use cvmapp\Dto\RoleDTO;
+use ksec\Dto\SearchRoleDTO;
+use ksec\Dto\RoleDTO;
 
 class RoleController extends Controller
 {

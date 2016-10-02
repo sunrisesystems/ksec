@@ -1,5 +1,5 @@
 <?php
-namespace cvmapp\Dto;
+namespace ksec\Dto;
 class UserDTO extends BaseDTO { 
 var $id; 
 var $firstName; 
