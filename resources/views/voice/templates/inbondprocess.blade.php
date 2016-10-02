@@ -5,6 +5,8 @@
       </h4>
    </div>
     <div id="inbond" class="panel-collapse collapse in">
+      <div class="row">
+      <div class="col-lg-9">
       <div class="panel-body">
         <form>
            <div class="row">
@@ -89,6 +91,18 @@
               </div>
            </div>
         </form>
+      </div><!-- .panel-body -->
       </div>
+      <div class="col-lg-3">
+        <div class="panel-body">
+          <h5>Score: </h5>
+          <p>Fatal: Yes/No</p>
+          <p>Adherence: Yes/No</p>
+          <p>Quality: %</p>
+          <p>Appreciation: Yes/No</p>
+        </div>
+      </div>
+      </div>
+
     </div>
 </article>
