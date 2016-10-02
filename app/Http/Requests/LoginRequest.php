@@ -24,7 +24,6 @@ class LoginRequest extends Request
     public function rules()
     {
         return [
-            'unit' => 'required|integer|exists:units,id',
             'username' => 'required|exists:users,username',
             'password' => 'required'
         ];

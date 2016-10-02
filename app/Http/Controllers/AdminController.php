@@ -44,16 +44,11 @@ class AdminController extends Controller
 
         $credentials = [
             'username' => $input['username'],
-            'unit_id' => $input['unit'],
             'password' => $input['password'],
             'status' => 'A',
         ];
      //var_dump($credentials);
         try {
-            $timeZone = $this->adminService->getTimeZoneByUnitId($input['unit']);
-            Session::put('timezone',$timeZone);
-            date_default_timezone_set($timeZone);
-            Config::set('app.timezone',$timeZone);
                 
             if(isset($input['remeber']) && $input['remeber'] == 'Y'){
                 // get time zone from unit
@@ -64,9 +59,6 @@ class AdminController extends Controller
      
             if($user){
                 // set unit name in Session
-                $unitName = $this->adminService->getUnitName(['unitId'=>Sentinel::getUser()->unit_id]);
-                Session::put('unitName',$unitName['data']->unit_name);
-
                 $role = $this->user->findById(Sentinel::getUser()->id);
                 $role = $role->toArray();
                 Session::put('userRole',$role['user_role']['role']['name']);

@@ -19,15 +19,6 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-12 col-sm-12">											
-									{!! HTML::decode( Form::label('unit', 'Unit <small class="mandatory">*</small>')) !!}
-									{!! Form::select('unit',$units,'',['id'=>'unit','class'=>'form-control']) !!}
-									<div class="validationAlert" id="unit_alert"> {{$errors->first('unit')}}</div>
-								</div>							
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-12 col-sm-12">											
 									{!! HTML::decode( Form::label('username', 'Username <small class="mandatory">*</small>')) !!}
 									{!! Form::text('username', null, ['class'=>'form-control', 'placeholder'=>'Username','id'=>'username']) !!}
 									<div class="validationAlert" id="username_alert"> {{$errors->first('username')}}</div>
