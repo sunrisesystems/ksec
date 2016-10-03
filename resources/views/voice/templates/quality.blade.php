@@ -1,4 +1,4 @@
-<section class="panel-wrapper">
+
    <article class="panel panel-default">
       <div class="panel-heading">
          <h4 class="panel-title">
@@ -281,6 +281,6 @@
          </div>
       </div>
    </article>
-</section>
+
 <!-- #quality -->
 

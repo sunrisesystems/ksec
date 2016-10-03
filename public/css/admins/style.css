@@ -64,7 +64,7 @@ h5 {
 
 /* header */
 .fixed-nav .navbar-minimalize {
-  margin: 14px 5px 5px 0; }
+  margin: 11px 5px 5px 0; }
 
 .navbar-fixed-top {
   border-bottom: 1px solid #000000;
@@ -97,7 +97,7 @@ overflow: hidden;
   width: 200px; }
 
 .nav.navbar-top-links.setting-links.navbar-right {
-  margin-top: 10px; }
+  margin-top: 5px; }
 
 .nav.setting-links .dropdown .dropdown-menu {
   position: absolute;
@@ -916,9 +916,18 @@ select.form-control {
 /* inner page - voice */
 .page-header {
     border-bottom: 1px solid #eee;
-    margin: 20px 0 20px;
+    margin: 10px 0 20px;
     padding-bottom: 9px;
 }
-.panel-wrapper {
-  margin-bottom: 30px;
+
+.panel-wrapper div[class="row"] {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.panel-wrapper div[class*="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.panel-group .panel {
+  margin-bottom: 20px;
 }

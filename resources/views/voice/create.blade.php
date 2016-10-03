@@ -25,9 +25,8 @@
             </div>
             <div class="row">
             	<div class="col-lg-12">
-            		<div class="panel-group" id="accordion">
-	            		@include('voice.templates.inbondprocess')
-
+            		@include('voice.templates.inbondprocess')
+                    <div class="panel-group" id="accordion">
 	            		@include('voice.templates.fatal')
 				
 						@include('voice.templates.adherence')
