@@ -12,7 +12,7 @@
                <!-- Form 1 -->
                <form>
                   <div class="form-wrapper row">
-                     <div class="col-lg-4">
+                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <label>Accuracy of Information/Knowledge</label>
                            <select class="form-control">
@@ -20,6 +20,8 @@
                               <option>2</option>
                            </select>
                         </div>
+                     </div>
+                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <label>Security Verfication</label>
                            <select class="form-control">
@@ -27,6 +29,8 @@
                               <option>2</option>
                            </select>
                         </div>
+                     </div>
+                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <label>Call Back Severity</label>
                            <select class="form-control">
@@ -34,6 +38,8 @@
                               <option>2</option>
                            </select>
                         </div>
+                     </div>
+                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <label>Other</label>
                            <select class="form-control">
@@ -42,7 +48,7 @@
                            </select>
                         </div>
                      </div>
-                     <div class="col-lg-8">
+                     <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <label>Comments</label>
                            <textarea class="form-control" rows="3"></textarea>

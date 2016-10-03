@@ -9,7 +9,7 @@
          <div class="panel-body">
              <form>
                <div class="row">
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4">
                      <div class="form-group">
                         <label>Reason 1</label>
                         <select class="form-control">
@@ -17,6 +17,8 @@
                            <option>2</option>
                         </select>
                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4">
                      <div class="form-group">
                         <label>Reason 2</label>
                         <select class="form-control">
@@ -25,7 +27,7 @@
                         </select>
                      </div>
                   </div>
-                  <div class="col-lg-8">
+                  <div class="col-lg-4 col-md-4">
                      <div class="form-group">
                         <label>Comments</label>
                         <textarea class="form-control" rows="3"></textarea>
