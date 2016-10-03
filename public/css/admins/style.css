@@ -620,6 +620,9 @@ select.form-control {
 /* inner page - voice */
 .page-header {
     border-bottom: 1px solid #eee;
-    margin: 40px 0 20px;
+    margin: 20px 0 20px;
     padding-bottom: 9px;
+}
+.panel-wrapper {
+  margin-bottom: 30px;
 }
