@@ -37,6 +37,7 @@
 	</div><!-- pageHeading end -->	
 	
 	<div class="main-container-inner container-fluid">
+		@if(Session::has('message'))
 		<div class="{!! Session::get('class') !!}" id="">
 			<div class="row pageHeading">
 				<div class="col-xs-12">
@@ -44,6 +45,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 		<div class="row">
 			<div class="col-xs-12">
 				@if(count($roles))

@@ -2,13 +2,25 @@
 
 namespace ksec\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
+use ksec\Services\CallService;
+use ksec\Libraries\Lib;
+
+use Request,Lang,Config,Excel;
+use ksec\Http\Requests\CallTypeRequest;
+
 
 class CalltypeController extends Controller
 {
+     public function __construct(CallService $callService)
+    {
+        $this->middleware('sentinel');
+        $this->middleware('timeout');
+//        $this->middleware('acl');
+        $this->callService = $callService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +28,10 @@ class CalltypeController extends Controller
      */
     public function index()
     {
-        //
+        $input = Request::all();
+        $data = $this->callService->getCallTypeAllData();
+        $callTypes = $this->callService->getCallTypes($input);
+        return view('callType.index',compact('data','callTypes'));
     }
 
     /**
@@ -26,7 +41,8 @@ class CalltypeController extends Controller
      */
     public function create()
     {
-        //
+        $data = $this->callService->getCallTypeAllData();
+        return view('callType.create',compact('data'));
     }
 
     /**
@@ -35,9 +51,17 @@ class CalltypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CallTypeRequest $request)
     {
-        //
+        $input = $request->all();
+      
+        $result = $this->callService->saveCallType($input);
+
+        if($result['success']){
+            return redirect('calltype')->with('message',Lang::get('messages.ADDED_SUCC'))->with('class','alert alert-success');
+        }else{
+            return redirect()->back()->with('message',$result['data'])->with('class','alert alert-danger');
+        }
     }
 
     /**
@@ -59,7 +83,13 @@ class CalltypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $callType = $this->callService->getCallTypeById($id);
+        $data = $this->callService->getCallTypeAllData();
+        if(count($callType)){
+            return view('callType.edit',compact('callType','data'));
+        }else{
+            return redirect('callType')->with('message',Lang::get('messages.no_record'))->with('class','alert alert-info');
+        }
     }
 
     /**
@@ -69,9 +99,16 @@ class CalltypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CallTypeRequest $request, $id)
     {
-        //
+        $input = $request->all();
+
+        $result = $this->callService->updateCallType($input,$id);
+        if($result['success']){
+            return redirect('calltype')->with('message',Lang::get('messages.ADDED_SUCC'))->with('class','alert alert-success');
+        }else{
+            return redirect()->back()->with('message',$result['data'])->with('class','alert alert-danger');
+        }
     }
 
     /**

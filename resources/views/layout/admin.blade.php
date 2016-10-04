@@ -122,12 +122,12 @@ $currentCA          = $currentController ."_".$currentAction;
 						</li>
 					
 
-                       <li <?php if($currentCA == 'product_index' || $currentCA == 'product_create' || $currentCA == 'product_edit' || $currentCA == 'productcategory_index' || $currentCA == 'productcategory_create' || $currentCA == 'productcategory_edit' || $currentCA == 'productsubcategory_index' || $currentCA == 'productsubcategory_create' || $currentCA == 'productsubcategory_edit' || $currentCA == 'offers_index' || $currentCA == 'offers_create' || $currentCA == 'offers_edit' || $currentCA == 'search_index' || $currentCA == 'search_create' || $currentCA == 'search_edit') { ?> class="active" <?php } ?>>
-							<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Product <i class="fa fa-angle-right"></i></a>						
+                       <li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
+							<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
 							<ul class="nav nav-second-level ">
 													
-								<li <?php if($currentCA == 'product_index' || $currentCA == 'product_create' || $currentCA == 'product_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('products.index') !!}">Products</a>
+								<li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
+									<a href="{!! route('calltype.index') !!}">Call Type</a>
 								</li>
 								
 								<li <?php if($currentCA == 'productcategory_index' || $currentCA == 'productcategory_create' || $currentCA == 'productcategory_edit') { ?> class="active" <?php } ?>>
