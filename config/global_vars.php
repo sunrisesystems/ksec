@@ -36,6 +36,9 @@ return [
         'user.edit' => true,
         'user.view' => true,
         'user.reset_password' => true,
+        'call_type.add' => true,
+        'call_type.edit' => true,
+        'call_type.view' => true,
 
     ],
     'REJECTION_SOURCE' => [
