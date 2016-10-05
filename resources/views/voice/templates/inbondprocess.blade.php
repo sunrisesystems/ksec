@@ -10,8 +10,9 @@
            <div class="row">
               <div class="col-lg-3 col-md-4">
                  <div class="form-group">
-                    <label for="date">Date</label>
-                    <input class="form-control" type="text" id="date" placeholder="Date">
+                    {!! HTML::decode(Form::label('date', 'Date <small class="mandatory">*</small>')) !!}
+                    {!! Form::text('date',date("d-M-Y"),array("placeholder"=>"Date",'id'=>'date','class'=>'form-control','autocomplete'=>'off','readonly'=>true)) !!} 
+                    <div id="date_alert" class="error validationAlert validationError">{!!$errors->first('date')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
