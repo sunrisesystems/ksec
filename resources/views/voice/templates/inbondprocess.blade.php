@@ -63,7 +63,8 @@
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
                     <label for="client-id">Client ID</label>
-                    <input class="form-control" type="text" id="clientID" placeholder="Client ID">
+                    <!-- only alpha numeric-->
+                    <input class="form-control" type="text" id="clientID" placeholder="Client ID" maxlength="5">
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">

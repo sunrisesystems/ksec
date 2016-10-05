@@ -32,9 +32,9 @@ class EmployeeService {
 	public function getAllData()
  	{
         $data['profile'] = Lib::addSelect($this->profile->getRoleList());
-        $data['manager'] = Lib::addSelect($this->employee->getActiveManagerEmplyeeList());
+        $data['manager'] = Lib::addSelect($this->employee->getActiveManagerEmployeeList());
         $data['department'] = Lib::addSelect($this->department->getActiveDepartmentList());
-        $data['teamLead'] = Lib::addSelect($this->employee->getActiveTeamLeadEmplyeeList());
+        $data['teamLead'] = Lib::addSelect($this->employee->getActiveTeamLeadEmployeeList());
         $data['empType'] = Lib::addSelect($this->empType->getActiveEmpTypeList());
         $data['status'] = Lib::addSelect(Config::get('global_vars.STATUS_ARR'));
         $data['allowLogin'] = Lib::addSelect(Config::get('global_vars.ALLOW_LOGIN'));
@@ -46,9 +46,9 @@ class EmployeeService {
     public function getAllDataWithInactive()
     {
         $data['profile'] = Lib::addSelect($this->profile->getRoleList());
-        $data['manager'] = Lib::addSelect($this->employee->getManagerEmplyeeList());
+        $data['manager'] = Lib::addSelect($this->employee->getManagerEmployeeList());
         $data['department'] = Lib::addSelect($this->department->getAllDepartmentList());
-        $data['teamLead'] = Lib::addSelect($this->employee->getTeamLeadEmplyeeList());
+        $data['teamLead'] = Lib::addSelect($this->employee->getTeamLeadEmployeeList());
         $data['empType'] = Lib::addSelect($this->empType->getEmpTypeList());
         $data['status'] = Lib::addSelect(Config::get('global_vars.STATUS_ARR'));
         $data['allowLogin'] = Lib::addSelect(Config::get('global_vars.ALLOW_LOGIN'));

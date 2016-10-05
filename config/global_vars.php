@@ -22,9 +22,12 @@ return [
     'HARD_CODED_ID' => [
         'managerId' => 1,
         'teamLead' => 2,
-        'boc' => 3,
+        'agent' => 3,
+        'qualityAuditor' => 4,
+        'employeeCategory' => 1,
     ],
     'ADMIN_ROLE_ID' => 1,
+
     'DEFAULT_PERMISSIONS' => [
         'authentication.login' => true,
         'authentication.update_profile' => true,
@@ -41,10 +44,7 @@ return [
         'call_type.view' => true,
 
     ],
-    'REJECTION_SOURCE' => [
-        'PROD' => 'Production',
-        'CUST' => 'Customer Rejection',
-    ],
+   
     'username_min_length' => 5,
     'password_min_length' => 6,
     'available_hrs_downtime_reasons' => [3,4],

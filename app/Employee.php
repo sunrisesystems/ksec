@@ -479,24 +479,24 @@ class Employee extends Model implements RoleableInterface, PermissibleInterface,
         return $this->find($id)->update($update);
     }
 
-    public function getActiveManagerEmplyeeList()
+    public function getActiveManagerEmployeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->where('status','A')->lists('emp_name','id')->toArray();
 
     }
 
-    public function getManagerEmplyeeList()
+    public function getManagerEmployeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->lists('emp_name','id')->toArray();
     }
 
-    public function getActiveTeamLeadEmplyeeList()
+    public function getActiveTeamLeadEmployeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->where('status','A')->lists('emp_name','id')->toArray()    ;
         
     }
 
-    public function getTeamLeadEmplyeeList()
+    public function getTeamLeadEmployeeList()
     {
         return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->lists('emp_name','id')->toArray()    ;
         
@@ -505,5 +505,11 @@ class Employee extends Model implements RoleableInterface, PermissibleInterface,
     public function getActiveEmployeeEmailList()
     {
         return $this->where('status','A')->lists('email','id')->toArray();
+    }
+
+    public function getActiveAgentEmployeeList()
+    {
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.agent"))->where('status','A')->lists('emp_name','id')->toArray()    ;
+        
     }
 }
