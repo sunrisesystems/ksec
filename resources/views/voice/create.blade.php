@@ -40,4 +40,11 @@
   
 	</div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("#side-menu").hide();
+        $("body").toggleClass("mini-navbar");
+       // SmoothlyMenu();
+    })
+</script>
 @stop

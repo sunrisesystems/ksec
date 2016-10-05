@@ -10,12 +10,6 @@
            <div class="row">
               <div class="col-lg-3 col-md-4">
                  <div class="form-group">
-                    <label for="transaction-id">Transaction ID</label>
-                    <input class="form-control" type="text" id="transactionID" placeholder="Transaction ID">
-                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4">
-                 <div class="form-group">
                     <label for="date">Date</label>
                     <input class="form-control" type="text" id="date" placeholder="Date">
                  </div>
