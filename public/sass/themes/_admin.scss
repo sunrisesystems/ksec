@@ -1,0 +1,26 @@
+body {
+	&.nav-toggle {
+		.main-content {
+		    margin-left: 0;
+		    &::before {
+		    	margin-left: 0;
+		    }
+		}
+	}
+}	
+.main-content {
+    margin-left: 200px;
+    padding: 30px;
+    position: relative;
+    transition: margin-left 0.3s ease-out 0s;
+
+    &::before {
+		bottom: 0;
+		content: "";
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: -2;
+    }
+}

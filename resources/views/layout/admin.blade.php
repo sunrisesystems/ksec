@@ -92,184 +92,91 @@ $currentCA          = $currentController ."_".$currentAction;
 				</div>
 			</header>
 		<?php } ?>
-	<?php if($currentCA != 'admin_login' && $currentCA != 'admin_forgotpassword') { ?>      
 
-			<!-- sidebar -->
-            <nav class="navbar-default navbar-static-side" role="navigation">
-                <div class="sidebar-collapse">
-					<section class="logo-wrapper">
-						<div class="logo-brand">
-							<a class="navbar-brand" href="javascript::void(0)">KSEC</a>
-						</div>
-					</section>
-					<ul class="nav metismenu" id="side-menu">
-					
-						<li <?php if($currentCA == 'employee_index' || $currentCA == 'employee_create' || $currentCA == 'employee_edit' || $currentCA == 'employee_resetpassword' || $currentCA == 'role_index' || $currentCA == 'role_create' || $currentCA == 'role_edit') { ?> class="active dropdown" <?php } else {?> class="dropdown" <?php }?>>
-							<a href=""><i class="icon-left fa fa-user"></i> System <i class="fa fa-angle-right"></i></a>
-							<ul class="nav nav-second-level ">
-												
-								<li <?php if($currentCA == 'employee_index' || $currentCA == 'employee_create' || $currentCA == 'employee_edit' || $currentCA == 'employee_resetpassword') { ?> class="active" <?php } ?>>
-									<a href="{!! route('employees.index') !!}">Employees</a>
-								</li>
-														
-								<li <?php if($currentCA == 'role_index' || $currentCA == 'role_create' || $currentCA == 'role_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('roles.index') !!}">Role</a>
-								</li>
-								
-							</ul>
-						</li>
-					
-
-                       <li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
-							<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
-							<ul class="nav nav-second-level ">
-													
-								<li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('calltype.index') !!}">Call Type</a>
-								</li>
-								
-								<li <?php if($currentCA == 'productcategory_index' || $currentCA == 'productcategory_create' || $currentCA == 'productcategory_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('product-category.index') !!}">Category</a>
-								</li>
-
-								<li <?php if($currentCA == 'productsubcategory_index' || $currentCA == 'productsubcategory_create' || $currentCA == 'productsubcategory_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('product-subcategory.index') !!}">Subcategory</a>
-								</li>
-
-								<li <?php if($currentCA == 'offers_index' || $currentCA == 'offers_create' || $currentCA == 'offers_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('offers.index') !!}">Offers</a>
-								</li>
-
-								<li <?php if($currentCA == 'search_index' || $currentCA == 'search_create' || $currentCA == 'search_edit') { ?> class="active" <?php } ?>>
-									<a href="{!! route('voice.create') !!}">Voice</a>
-								</li>
-							
-							</ul>						
-						</li> 
-                   
-						@if (Lib::checkMenuAccess('drawing') || Lib::checkMenuAccess('mold') || Lib::checkMenuAccess('machinemodel') || Lib::checkMenuAccess('machine') || Lib::checkMenuAccess('downtime') || Lib::checkMenuAccess('defect') || Lib::checkMenuAccess('planning') || Lib::checkMenuAccess('hourlyentry') || Lib::checkMenuAccess('dailyentry'))
-                       <!-- <li >
-							<a href="javascript:void(0)" >
-								<i class="icon-left fa fa-industry"></i> Production <i class="fa fa-angle-right"></i>
-							</a>
-							<ul class="nav nav-second-level ">
-								@if (Lib::checkMenuAccess('drawing') || Lib::checkMenuAccess('mold') || Lib::checkMenuAccess('machinemodel') || Lib::checkMenuAccess('machine') || Lib::checkMenuAccess('downtime') || Lib::checkMenuAccess('defect'))
-								<li > 
-									<a href="#" >Masters <i class="fa fa-angle-right"></i></a>
-									<ul class="nav nav-third-level ">
-										
-									</ul>
-								</li>
-								@endif								
-							</ul>
-							 <ul class="nav nav-second-level ">
-							 	@if(Lib::checkMenuAccess('planning') || Lib::checkMenuAccess('hourlyentry') || Lib::checkMenuAccess('dailyentry'))
-								<li > 
-									<a href="javascript:void(0)" >Transactions <i class="fa fa-angle-right"></i></a>
-									<ul class="nav nav-third-level ">
-										@if (Lib::checkMenuAccess('planning'))
-										<li >
-											<a href="{!!URL::to('planning')!!}">Planning</a>
-										</li>
-										@endif
-										@if (Lib::checkMenuAccess('hourlyentry'))
-										<li >
-											<a href="{!!URL::to('hourlyEntry')!!}">Hourly Entry</a>
-										</li>
-										@endif
-										@if (Lib::checkMenuAccess('dailyentry'))
-										<li >
-											<a href="{!!URL::to('dailyEntry')!!}">Daily Entry</a>
-										</li>
-										@endif
-									</ul>
-								</li>
-								@endif								
-							</ul> 
-						</li> -->
-						@endif
-						@if (Lib::checkMenuAccess('product') || Lib::checkMenuAccess('item') || Lib::checkMenuAccess('packingmatrix') || Lib::checkMenuAccess('invert') || Lib::checkMenuAccess('rejection'))
-						<!--<li >
-							<a href="javascript:void(0)" >
-								<i class="icon-left glyphicon glyphicon-inbox"></i> Inventory <i class="fa fa-angle-right"></i>
-							</a>
-							<ul class="nav nav-second-level ">
-								@if (Lib::checkMenuAccess('product') || Lib::checkMenuAccess('item'))
-								
-								@endif								
-							</ul>
-							<ul class="nav nav-second-level ">
-								@if(Lib::checkMenuAccess('packingmatrix'))
-								
-								@endif								
-							</ul>
-							<ul class="nav nav-second-level ">
-								@if(Lib::checkMenuAccess('invert') || Lib::checkMenuAccess('rejection'))
-								<li > 
-									<a href="lavascript:void(0)" >Transaction <i class="fa fa-angle-right"></i></a>
-									<ul class="nav nav-third-level ">
-										
-									</ul>
-								</li>
-								@endif								
-							</ul>
-						</li> -->
-						@endif
-						@if (Lib::checkMenuAccess('report'))
-						<!--<li >
-							<a href="javascript:void(0)" >
-								<i class="icon-left glyphicon glyphicon-inbox"></i> Reports <i class="fa fa-angle-right"></i>
-							</a>
-							<ul class="nav nav-second-level ">
-								
-							</ul>
-						</li> -->
-						@endif
-						<!--<li>
-							<a href="#"><i class="icon-left glyphicon glyphicon-tasks"></i> Costing </a>
-						</li> -->
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->   
-			</nav><!-- /.navbar-static-side -->
-		<?php } ?>
-		<div id="page-wrapper" class="gray-bg">
+		<!-- Inner Header -->
 		<?php if($currentCA != 'admin_login' && $currentCA != 'admin_forgotpassword') { ?>
-			<div class="container-fluid">
-			<div class="row border-bottom">
-			<nav style="margin-bottom: 0" role="navigation" class="navbar navbar-static-top">
-				<div class="top-links">
-					<div class="navbar-header">
-						<a href="javascript:void(0)" class="navbar-minimalize btn btn-red ">
-							<i class="fa fa-bars"></i> 
-						</a>						
-					</div>
-					<div class="welcomeWrapper center-content">
-						<span class="m-r-sm text-muted welcome-message">Welcome {{@Sentinel::getUser()->emp_name .' '.@Sentinel::getUser()->last_name }} | Type: {!! Session::get('userRole')!!} | Last Login: {!! Lib::convertDateFormat("Y-m-d H:i:s",@Sentinel::getUser()->last_login,"d-m-Y h:i A")!!}</span></span>
-					</div>
-					<ul class="nav navbar-top-links setting-links navbar-right">
-						<!--<li>
-							<span class="m-r-sm text-muted welcome-message">Welcome {{@Sentinel::getUser()->first_name .' '.@Sentinel::getUser()->last_name }}</span>
-						</li>-->						
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="javascript::void(0)">
-								<i class="fa fa-gear fa-fw"></i> Settings <i class="fa fa-caret-down"></i>
+		<header id="header" class="inner-header">
+			<nav class="navbar navbar-default navbar-fixed-top">
+		        <div class="container-fluid">
+		            <div class="navbar-header">
+		                <div id="mobile-menu" class="visible-xs">
+		                    <div class="left-nav-toggle">
+		                        <a href="#">
+		                            <i class="fa fa-bars" aria-hidden="true"></i>
+		                        </a>
+		                    </div>
+		                </div>
+		                <a href="index.html" class="navbar-brand">
+	                   		<img src="{!! asset('images/admin/logo-kotak.jpg') !!}" class="img-responsive" />
+		                </a>
+		            </div>
+		            <div class="navbar-collapse collapse" id="navbar">
+		            	<div class="left-nav-toggle hidden-xs">
+							<a href="">
+								<i class="fa fa-bars" aria-hidden="true"></i>
 							</a>
-							<ul class="dropdown-menu dropdown-user">    
-								                   
-								<li>
-									<a href="{!!URL::to('admin/logout')!!}"><i class="fa fa-sign-out"></i> Log Out</a> 
-								</li>
-							</ul>
-							<!-- /.dropdown-user -->
-						</li>
-					</ul>
-				</div><!-- top links -->
-				</nav>
-			</div><!-- row header -->
-			</div>
-			<?php } ?>
-			<main role="main" id="maincontent"> @yield('content') </main>
+						</div>
+		                <ul class="nav navbar-nav navbar-right">
+		                    <li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript::void(0)">
+									<i class="fa fa-gear fa-fw"></i> Settings <i class="fa fa-caret-down"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-user">    
+									                   
+									<li>
+										<a href="{!!URL::to('admin/logout')!!}"><i class="fa fa-sign-out"></i> Log Out</a> 
+									</li>
+								</ul>
+								<!-- /.dropdown-user -->
+							</li>
+		                </ul>
+		            </div>
+		        </div>
+		    </nav>
+		</header><!-- .inner-header -->
+
+
+		<aside class="navigation">
+			<nav>
+				<ul class="nav metismenu" id="side-menu">					
+					<li <?php if($currentCA == 'employee_index' || $currentCA == 'employee_create' || $currentCA == 'employee_edit' || $currentCA == 'employee_resetpassword' || $currentCA == 'role_index' || $currentCA == 'role_create' || $currentCA == 'role_edit') { ?> class="active dropdown" <?php } else {?> class="dropdown" <?php }?>>
+						<a href=""><i class="icon-left fa fa-user"></i> System <i class="fa fa-angle-right"></i></a>
+						<ul class="nav nav-second-level ">											
+							<li <?php if($currentCA == 'employee_index' || $currentCA == 'employee_create' || $currentCA == 'employee_edit' || $currentCA == 'employee_resetpassword') { ?> class="active" <?php } ?>>
+								<a href="{!! route('employees.index') !!}">Employees</a>
+							</li>													
+							<li <?php if($currentCA == 'role_index' || $currentCA == 'role_create' || $currentCA == 'role_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('roles.index') !!}">Role</a>
+							</li>							
+						</ul>
+					</li>
+                    <li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
+						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
+						<ul class="nav nav-second-level ">												
+							<li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('calltype.index') !!}">Call Type</a>
+							</li>							
+							<li <?php if($currentCA == 'productcategory_index' || $currentCA == 'productcategory_create' || $currentCA == 'productcategory_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('product-category.index') !!}">Category</a>
+							</li>
+							<li <?php if($currentCA == 'productsubcategory_index' || $currentCA == 'productsubcategory_create' || $currentCA == 'productsubcategory_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('product-subcategory.index') !!}">Subcategory</a>
+							</li>
+							<li <?php if($currentCA == 'offers_index' || $currentCA == 'offers_create' || $currentCA == 'offers_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('offers.index') !!}">Offers</a>
+							</li>
+							<li <?php if($currentCA == 'search_index' || $currentCA == 'search_create' || $currentCA == 'search_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('voice.create') !!}">Voice</a>
+							</li>						
+						</ul>						
+					</li>					
+				</ul>
+			</nav>	
+		</aside>
+		<?php } ?>
+  
+		<div id="page-wrapper" class="gray-bg">		
+			<main role="main" id="maincontent" class="main-content"> @yield('content') </main>
 			<?php if($currentCA != 'admin_login' && $currentCA != 'admin_forgotpassword') { ?>
 			<!-- <div class="footer fixed">
 				<p>

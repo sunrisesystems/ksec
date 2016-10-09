@@ -1,5 +1,9 @@
-.btn-primary {
-	background-color: $k-red;
-	border-color: $k-red;
-	color: #fff;
+.btn {
+	&.btn-primary {
+		background-color: $k-red;
+		border-color: $k-red;
+		color: #fff;
+	    font: 400 15px/29px "Open Sans",Helvetica,Arial,sans-serif;
+	    border-radius: 2px;
+	}
 }

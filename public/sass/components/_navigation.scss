@@ -1,0 +1,34 @@
+body {
+	&.nav-toggle {
+		.navigation {
+		    left: -200px;
+		    &::before {
+		    	left: -200px;
+		    }
+		}
+	}
+}
+.navigation {
+    background-color: $k-blue;
+    margin-top: 55px;
+	width: 200px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	transition: left 0.3s ease-out;
+	-webkit-transition: left 0.3s ease-out;
+    &::before {
+	    background-color: $k-blue;
+	    bottom: 0;
+	    content: "";
+	    left: 0;
+	    position: fixed;
+	    top: 0;
+		transition: left 0.3s ease-out;
+		-webkit-transition: left 0.3s ease-out;
+	    width: 200px;
+	    z-index: -1;
+	        
+	}
+}

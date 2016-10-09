@@ -16,6 +16,12 @@ $(function(){
         $('body').delay(800).css({'overflow':'visible'});
     });
 	
+    // Handle minimalize left menu
+    $('.left-nav-toggle a').on('click', function(event){
+        event.preventDefault();
+        $("body").toggleClass("nav-toggle");
+    });
+
 	// Add body-small class if window less than 768px
     if ($(this).width() < 769) {
         $('body').addClass('body-small')
