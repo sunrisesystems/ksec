@@ -4,28 +4,19 @@ $currentAction      = Lib::currentAction();
 $currentCA          = $currentController ."_".$currentAction;
 //echo $currentController." ".$currentAction; 
 ?>
-<!DOCTYPE>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{!! csrf_token() !!}" />
     <title>Kotak Securities - SQ</title>
 	
 	<link href='//fonts.googleapis.com/css?family=Raleway:300,400,600,700,800' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
-	
-	
-	<!-- Bootstrap -->
-	{!! HTML::style('css/bootstrap.css') !!}
-	{!! HTML::style('css/jquery.alerts.css') !!}
-    {!! HTML::style('css/jquery-ui.css') !!}
-	{!! HTML::style('css/admins/animate.css') !!}
-	{!! HTML::style('css/admins/font-awesome.css') !!}
 	<!-- custom style sheet -->
-    {!! HTML::style('css/admins/style.css') !!}
-    {!! HTML::style('css/admins/jquery.datetimepicker.css') !!}
+    {!! HTML::style('css/admins/ksec.css') !!}
 	
 	{!! HTML::script('js/admins/jquery-1.11.1.min.js') !!}	
 	{!! HTML::script('js/admins/jquery-ui.min.js') !!}
@@ -94,6 +85,13 @@ $currentCA          = $currentController ."_".$currentAction;
 		</div>
 	</div>
 	<div id="wrapper">
+		<?php if($currentCA == 'admin_login') { ?>
+			<header id="header">
+				<div class="logo">
+					<img src="{!! asset('images/admin/logo-kotak.jpg') !!}" class="img-responsive" />
+				</div>
+			</header>
+		<?php } ?>
 	<?php if($currentCA != 'admin_login' && $currentCA != 'admin_forgotpassword') { ?>      
 
 			<!-- sidebar -->
@@ -271,13 +269,14 @@ $currentCA          = $currentController ."_".$currentAction;
 			</div><!-- row header -->
 			</div>
 			<?php } ?>
-			<div id="maincontent"> @yield('content') </div>
+			<main role="main" id="maincontent"> @yield('content') </main>
 			<?php if($currentCA != 'admin_login' && $currentCA != 'admin_forgotpassword') { ?>
-			<div class="footer fixed">
+			<!-- <div class="footer fixed">
 				<p>
-					<!-- <strong>Copyright</strong> <a href="">Sunpet</a> &copy; 2015  -->
+					<strong>Copyright</strong> <a href="">Sunpet</a> &copy; 2015 
 				</p>
-			</div><!-- footer -->
+			</div> -->
+			<!-- footer -->
 			<?php } ?>
 		</div>
 		<!-- /#page-wrapper -->

@@ -1,0 +1,22 @@
+#header {
+	background: #fff none repeat scroll 0 0;
+	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	display: block;
+	height: 55px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 999;
+	.logo {
+		position: relative;
+		img {
+			height: 40px;
+			left: 8px;
+			position: absolute;
+			top: 8px;
+			z-index: 1;
+		}
+	}
+}
