@@ -18,15 +18,15 @@ $currentCA          = $currentController ."_".$currentAction;
 	<!-- custom style sheet -->
     {!! HTML::style('css/admins/ksec.css') !!}
 	
-	{!! HTML::script('js/admins/jquery-1.11.1.min.js') !!}	
+	{!! HTML::script('js/jquery-1.11.1.min.js') !!}	
 	{!! HTML::script('js/admins/jquery-ui.min.js') !!}
-	{!! HTML::script('js/bootstrap.js') !!}
+	{!! HTML::script('js/bootstrap.min.js') !!}
 	{!! HTML::script('js/admins/jquery.metisMenu.js') !!}
 	{!! HTML::script('js/admins/lib_functions.js') !!}
 	{!! HTML::script('js/admins/jquery.slimscroll.js') !!}	
     {!! HTML::script('js/admins/jquery.alerts.js') !!}
 	{!! HTML::script('js/admins/bootstrap-filestyle.min.js') !!}
-    {!! HTML::script('js/admins/jquery-migrate-1.2.1.js')!!}
+    {!! HTML::script('js/jquery-migrate-1.2.1.js')!!}
     {!! HTML::script('js/admins/jquery.datetimepicker.full.js')!!}
     {!! HTML::script('js/admins/jquery.dynotable.js')!!}
     
