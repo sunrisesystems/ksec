@@ -5,10 +5,10 @@
 		<header>
 			<h2>Login</h2>
 		</header>
-		@if(Session::has('message'))
-	    <div id="msg" class="{!! Session::get('class') !!}">{!! Session::get('message') !!}</div>
-	    @endif
 		<fieldset>
+			@if(Session::has('message'))
+		    	<div id="msg" class="{!! Session::get('class') !!}">{!! Session::get('message') !!}</div>
+		    @endif
 			<section>											
 				{!! HTML::decode( Form::label('systemId', 'System ID <small class="mandatory">*</small>')) !!}
 				<label class="input">

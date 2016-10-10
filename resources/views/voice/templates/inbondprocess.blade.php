@@ -107,12 +107,28 @@
       <div class="panel-heading">
         <h4 class="panel-title">Score</h4>
       </div>
-      <div class="panel-body">
-        <p><strong>Fatal</strong>: Yes/No</p>
-        <p><strong>Adherence</strong>: Yes/No</p>
-        <p><strong>Quality</strong>: %</p>
-        <p><strong>Appreciation</strong>: Yes/No</p>
-      </div>
+      
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><strong>Fatal</strong></td>
+            <td>Yes/No</td>
+          </tr>
+          <tr>
+            <td><strong>Adherence</strong></td>
+            <td>Yes/No</td>
+          </tr>
+          <tr>
+            <td><strong>Quality</strong></td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td><strong>Appreciation</strong></td>
+            <td>Yes/No</td>
+          </tr>
+        </tbody>
+      </table>
+      
     </article>
   </div>   
 </div>

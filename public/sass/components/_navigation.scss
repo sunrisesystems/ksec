@@ -31,4 +31,12 @@ body {
 	    z-index: -1;
 	        
 	}
+	.nav > li > a {
+		color: #fff;
+		font-weight: 400;
+		font-size: 14px;
+		&:focus, &:hover {
+			background-color: rgba($k-red, 0.1);
+		}
+	}
 }
