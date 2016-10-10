@@ -7,6 +7,9 @@ body {
 		    }
 		}
 	}
+	&.has-no-navigation .main-content {
+		margin-left: 0;
+	}
 }	
 .main-content {
     margin-left: 200px;

@@ -79,7 +79,7 @@ $currentCA          = $currentController ."_".$currentAction;
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body <?php if($currentCA == 'admin_login') { ?> class="login-page" <?php } ?> class="pace-done fixed-sidebar fixed-nav">
+<body <?php if($currentCA == 'admin_login') { ?> class="login-page has-no-navigation" <?php } ?> class="pace-done fixed-sidebar fixed-nav">
 	<div class="busy" id="background-loader">
 		<div id="preloader">
 		</div>
