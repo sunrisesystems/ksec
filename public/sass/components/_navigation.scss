@@ -1,9 +1,9 @@
 body {
 	&.nav-toggle {
 		.navigation {
-		    left: -200px;
+		    left: -170px;
 		    &::before {
-		    	left: -200px;
+		    	left: -170px;
 		    }
 		}
 	}
@@ -11,7 +11,7 @@ body {
 .navigation {
     background-color: $k-blue;
     margin-top: 55px;
-	width: 200px;
+	width: 170px;
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -27,7 +27,7 @@ body {
 	    top: 0;
 		transition: left 0.3s ease-out;
 		-webkit-transition: left 0.3s ease-out;
-	    width: 200px;
+	    width: 170px;
 	    z-index: -1;
 	        
 	}

@@ -7,7 +7,7 @@
    </div>
    <div id="fatal" class="panel-collapse collapse">
       <div class="panel-body">
-          <form>
+         
             <div class="row">
                <div class="col-lg-4 col-md-4">
                   <div class="form-group">
@@ -34,7 +34,7 @@
                   </div>
                </div>
             </div>
-         </form>
+         
       </div>
    </div>
 </article>

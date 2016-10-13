@@ -9,8 +9,7 @@
          <div class="panel-body">
             <div class="row">
                <div class="col-lg-12">
-                  <!-- Form 1 -->
-                  <form>
+
                      <div class="form-wrapper row">
                         <div class="col-lg-6">
                            <div class="row">
@@ -275,7 +274,7 @@
                            </div>
                         </div>
                      </div>
-                  </form>
+                  
                </div>
             </div>
          </div>

@@ -5,5 +5,7 @@ form {
 	    box-shadow: 0 1px 1px rgba($k-blue, 0.075) inset, 0 0 8px rgba($k-blue, 0.6);
 	    outline: 0 none;
 	}
-
+	label {
+		font-weight: 600;
+	}
 }

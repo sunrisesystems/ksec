@@ -14,14 +14,9 @@
         </div>
         
         <article>
-    		<div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
             <div class="row">
             	<div class="col-lg-12">
+                    <form>
             		@include('voice.templates.inbondprocess')
                     <div class="panel-group" id="accordion">
                 		@include('voice.templates.fatal')
@@ -30,6 +25,11 @@
 
                 		@include('voice.templates.quality')
             		</div>
+                    <div class="form-action text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    </form>
             	</div>
             </div>
         </article>

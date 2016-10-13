@@ -6,7 +6,7 @@
         <h4 class="panel-title">Inbond</h4>
       </div>        
       <div class="panel-body">
-        <form>
+        
            <div class="row">
               <div class="col-lg-3 col-md-4">
                  <div class="form-group">
@@ -98,7 +98,7 @@
                  </div>
               </div>
            </div>
-        </form>
+       
       </div><!-- .panel-body -->   
     </article>
   </div>

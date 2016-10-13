@@ -1,0 +1,18 @@
+.panel {
+	.panel-score {
+		.table>tbody>tr>td {
+			padding: 8px 14px;
+		}
+	}
+	form {
+		input, select, textarea {
+			border-radius: 0;
+		}
+		textarea {
+			resize: none;
+		}
+	}
+}
+.inner-form-wrapper .page-header {
+	margin-top: 0;
+}
