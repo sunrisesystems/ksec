@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
 use ksec\Services\VoiceService;
+use ksec\Http\Requests\VoiceRequest;
 
 class VoiceController extends Controller
 {
@@ -43,9 +44,10 @@ class VoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VoiceRequest $voiceRequest)
     {
-        //
+        $input = $voiceRequest->all();
+        Lib::pr($input); exit;
     }
 
     /**

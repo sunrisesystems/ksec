@@ -16,7 +16,7 @@
         <article>
             <div class="row">
             	<div class="col-lg-12">
-                    <form>
+                    {!! Form::open(array('route' => 'voice.store' , 'onSubmit' => 'return validateVoiceForm()')) !!}
             		@include('voice.templates.inbondprocess')
                     <div class="panel-group" id="accordion">
                 		@include('voice.templates.fatal')
@@ -26,10 +26,12 @@
                 		@include('voice.templates.quality')
             		</div>
                     <div class="form-action text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
+                        {!! Form::button('Cancel', ['class' => 'btn btn-secondary','onclick'=>'redirectUrl()']) !!} 
+                       <!--  <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button> -->
                     </div>
-                    </form>
+                    {!! Form::close() !!}
             	</div>
             </div>
         </article>
@@ -43,6 +45,10 @@
         $("body").toggleClass("mini-navbar");
        // SmoothlyMenu();
     })
+
+    function redirectUrl () {
+        doCancel("{!! URL::to('voice') !!}")
+    }
 
     function getSubCallType(callTypeId) {
         if(callTypeId != ''){
