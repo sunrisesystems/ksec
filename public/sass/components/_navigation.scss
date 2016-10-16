@@ -37,6 +37,12 @@ body {
 				color: #fff;
 				font-weight: 400;
 				font-size: 14px;
+				position: relative;
+				.fa-angle-right {
+					position: absolute;
+					right: 8px;
+					top: 13px;
+				}
 				&:focus, &:hover {
 					background-color: rgba($k-blue, 1);
 				}
