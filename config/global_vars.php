@@ -26,7 +26,15 @@ return [
         'qualityAuditor' => 4,
         'employeeCategory' => 1,
         'callDuration' => 2,
+        'fatalReason' => 3,
     ],
+
+    'ADHERENCE' => [
+        'Yes' => 'Yes',
+        'No' => 'No',
+        'NA' => 'NA',
+    ],
+
     'ADMIN_ROLE_ID' => 1,
 
     'DEFAULT_PERMISSIONS' => [
@@ -51,4 +59,6 @@ return [
     'available_hrs_downtime_reasons' => [3,4],
     'mold_change_over_id' => 4, 
     'preventive_maintenance_id' => 3,   
+
+
 ];

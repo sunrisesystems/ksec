@@ -30,6 +30,8 @@ class VoiceService {
         $data['callDuration'] = Lib::addSelect($this->codeValue->getDataByCodeId(Config::get("global_vars.HARD_CODED_ID.callDuration")));
         $data['callType'] = Lib::addSelect($this->callType->getActiveCallTypeList());
         $data['subCallType'] = Lib::addSelect([]);
+        $data['fatalReason'] = Lib::addSelect($this->codeValue->getDataByCodeId(Config::get("global_vars.HARD_CODED_ID.fatalReason")));
+        $data['adherence'] = Lib::addSelect(Config::get('global_vars.ADHERENCE'));
         return $data;
         //Lib::pr($data); exit;
     }
