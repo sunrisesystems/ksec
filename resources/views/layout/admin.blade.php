@@ -29,6 +29,7 @@ $currentCA          = $currentController ."_".$currentAction;
     {!! HTML::script('js/jquery-migrate-1.2.1.js')!!}
     {!! HTML::script('js/admins/jquery.datetimepicker.full.js')!!}
     {!! HTML::script('js/admins/jquery.dynotable.js')!!}
+    {!! HTML::script('js/admins/jquery.matchHeight.js')!!}
     
     <script type="text/javascript">
     function doCancel(url) {

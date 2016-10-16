@@ -20,7 +20,6 @@
                     {!! HTML::decode(Form::label('process', 'Process <small class="mandatory">*</small>')) !!}
                     {!! Form::select('process',$data['process'],null,['id'=>'process','class'=>'form-control']) !!}
                     <div id="process_alert" class="error validationAlert validationError">{!!$errors->first('process')!!}</div>
-
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
@@ -128,6 +127,10 @@
   $(document).ready(function(){
     var $panelInbond = $('.panel-inbond').outerHeight();
     $('.panel-score').css('height',$panelInbond);
+    $('.panel-inbond .row > div[class*="col-"]').matchHeight();
+    $(window).resize(function(){
+      $('.panel-inbond .row > div[class*="col-"]').matchHeight();
+    })
   });
 </script>
 </section>
