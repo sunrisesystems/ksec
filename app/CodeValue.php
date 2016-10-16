@@ -13,7 +13,7 @@ class CodeValue extends Model
 
     public function getDataByCodeId($codeId)
     {
-    	return $this->where('code_id',$codeId)->where('status','A')->lists('code_value','id')->toArray();
+    	return $this->where('code_id',$codeId)->where('status','A')->orderBy('code_value','asc')->lists('code_value','id')->toArray();
     }
 
     public function saveCodeValue($insert)

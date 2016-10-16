@@ -12,6 +12,6 @@ class CallTypeSub extends Model
 
     public function getSubCallTypeByCallId($callTypeId)
     {
-    	return $this->where('status','A')->where('call_type_id',$callTypeId)->lists('subcall_type','id')->toArray();
+    	return $this->where('status','A')->where('call_type_id',$callTypeId)->orderBy('subcall_type','asc')->lists('subcall_type','id')->toArray();
     }
 }

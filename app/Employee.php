@@ -481,35 +481,35 @@ class Employee extends Model implements RoleableInterface, PermissibleInterface,
 
     public function getActiveManagerEmployeeList()
     {
-        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->where('status','A')->lists('emp_name','id')->toArray();
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->where('status','A')->orderBy('emp_name','asc')->lists('emp_name','id')->toArray();
 
     }
 
     public function getManagerEmployeeList()
     {
-        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->lists('emp_name','id')->toArray();
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.managerId"))->orderBy('emp_name','asc')->lists('emp_name','id')->toArray();
     }
 
     public function getActiveTeamLeadEmployeeList()
     {
-        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->where('status','A')->lists('emp_name','id')->toArray()    ;
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->where('status','A')->orderBy('emp_name','asc')->lists('emp_name','id')->toArray()    ;
         
     }
 
     public function getTeamLeadEmployeeList()
     {
-        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->lists('emp_name','id')->toArray()    ;
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.teamLead"))->orderBy('emp_name','asc')->lists('emp_name','id')->toArray()    ;
         
     }
 
     public function getActiveEmployeeEmailList()
     {
-        return $this->where('status','A')->lists('email','id')->toArray();
+        return $this->where('status','A')->orderBy('emp_name','asc')->lists('email','id')->toArray();
     }
 
     public function getActiveAgentEmployeeList()
     {
-        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.agent"))->where('status','A')->lists('emp_name','id')->toArray()    ;
+        return $this->where("emp_type_id",Config::get("global_vars.HARD_CODED_ID.agent"))->where('status','A')->orderBy('emp_name','asc')->lists('emp_name','id')->toArray()    ;
         
     }
 }

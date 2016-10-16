@@ -30,6 +30,6 @@ class CallType extends Model
 
     public function getActiveCallTypeList()
     {
-        return $this->where('status','A')->lists('call_type','id')->toArray();
+        return $this->where('status','A')->orderBy('call_type','asc')->lists('call_type','id')->toArray();
     }
 }
