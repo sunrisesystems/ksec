@@ -9,8 +9,8 @@ body {
 	}
 }
 .navigation {
-    background-color: $k-blue;
-    margin-top: 55px;
+    background-color: rgba($k-blue,0.75);
+    margin-top: 45px;
 	width: 170px;
 	position: absolute;
 	left: 0;
@@ -19,7 +19,7 @@ body {
 	transition: left 0.3s ease-out;
 	-webkit-transition: left 0.3s ease-out;
     &::before {
-	    background-color: $k-blue;
+	    background-color: rgba($k-blue,0.75);
 	    bottom: 0;
 	    content: "";
 	    left: 0;
@@ -31,12 +31,26 @@ body {
 	    z-index: -1;
 	        
 	}
-	.nav > li > a {
-		color: #fff;
-		font-weight: 400;
-		font-size: 14px;
-		&:focus, &:hover {
-			background-color: rgba($k-red, 0.1);
+	.nav {
+		li {
+			> a {
+				color: #fff;
+				font-weight: 400;
+				font-size: 14px;
+				&:focus, &:hover {
+					background-color: rgba($k-blue, 1);
+				}
+			}
+			&.active {
+				> a  {
+					background-color: rgba($k-blue, 1);
+				}
+			}
+		    
+		}
+		> li li > a {
+			padding-top: 6px;
+			padding-bottom: 6px;
 		}
 	}
 }

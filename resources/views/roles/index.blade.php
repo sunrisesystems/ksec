@@ -3,24 +3,20 @@
 
 <!-- Container Start -->
 <div id="main-container" class="main-container ">
-	<div class="breadcrumb-wrapper container-fluid white-bg">
-		<div class="row">
-			<div class="col-lg-10 col-md-10">
-				<ol class="breadcrumb">
-					<li>
-						Product
-					</li>
-					<li class="active">
-						<strong>Manage Roles</strong>
-					</li>				
-				</ol>
-			</div>
-			<!-- <div class="col-lg-2 col-md-2 align-right">
-				<a title="Close Filter" class="btn btn-white close-filter" style="display:none;" href="javascript:void(0)">
-					<span class="label label-default"><i class="glyphicon glyphicon-remove"></i> Close</span>
-				</a>
-			</div> -->
-		</div>
+	<div class="breadcrumb-wrapper">		
+		<ol class="breadcrumb">
+			<li>
+				Product
+			</li>
+			<li class="active">
+				<strong>Manage Roles</strong>
+			</li>				
+		</ol>			
+		<!-- <div class="col-lg-2 col-md-2 align-right">
+			<a title="Close Filter" class="btn btn-white close-filter" style="display:none;" href="javascript:void(0)">
+				<span class="label label-default"><i class="glyphicon glyphicon-remove"></i> Close</span>
+			</a>
+		</div> -->		
 	</div>
 
 	<div class="pageHeading container-fluid">

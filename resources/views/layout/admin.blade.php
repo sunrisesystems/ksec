@@ -151,7 +151,7 @@ $currentCA          = $currentController ."_".$currentAction;
 							</li>							
 						</ul>
 					</li>
-                    <li <?php if($currentCA == 'calltype_index' || $currentCA == 'calltype_create' || $currentCA == 'calltype_edit') { ?> class="active" <?php } ?>>
+                    <li <?php if($currentCA == 'voice' || $currentCA == 'voice_create' || $currentCA == 'voice_edit') { ?> class="dropdown active" <?php }  else {?> class="dropdown" <?php }?> >
 						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
 						<ul class="nav nav-second-level ">												
 												
@@ -164,7 +164,7 @@ $currentCA          = $currentController ."_".$currentAction;
 							<li <?php if($currentCA == 'offers_index' || $currentCA == 'offers_create' || $currentCA == 'offers_edit') { ?> class="active" <?php } ?>>
 								<a href="{!! route('offers.index') !!}">Offers</a>
 							</li>
-							<li <?php if($currentCA == 'search_index' || $currentCA == 'search_create' || $currentCA == 'search_edit') { ?> class="active" <?php } ?>>
+							<li <?php if($currentCA == 'voice' || $currentCA == 'voice_create' || $currentCA == 'voice_edit') { ?> class="active" <?php } ?>>
 								<a href="{!! route('voice.create') !!}">Voice</a>
 							</li>						
 						</ul>						
