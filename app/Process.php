@@ -10,6 +10,6 @@ class Process extends Model
 
     public function getAllActiveProcessList()
     {
-    	return $this->where("status",'A')->->orderBy('process','asc')->lists('process','id')->toArray();
+    	return $this->where("status",'A')->orderBy('process','asc')->lists('process','id')->toArray();
     }
 }
