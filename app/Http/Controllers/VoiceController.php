@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 
 use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
+use ksec\Services\VoiceService;
 
 class VoiceController extends Controller
 {
-    public function __construct()
+    public function __construct(VoiceService $voiceService)
     {
         $this->middleware('sentinel');
         $this->middleware('timeout');
+        $this->voiceService = $voiceService;
     }
     /**
      * Display a listing of the resource.
@@ -31,7 +33,8 @@ class VoiceController extends Controller
      */
     public function create()
     {
-        return view('voice.create');
+        $data = $this->voiceService->getAllActiveData();
+        return view('voice.create',compact('data'));
     }
 
     /**

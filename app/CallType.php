@@ -27,4 +27,9 @@ class CallType extends Model
     {
     	return $this->paginate($input['limit']);
     }
+
+    public function getActiveCallTypeList()
+    {
+        return $this->where('status','A')->lists('call_type','id')->toArray();
+    }
 }

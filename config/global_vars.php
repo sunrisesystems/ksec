@@ -25,6 +25,7 @@ return [
         'agent' => 3,
         'qualityAuditor' => 4,
         'employeeCategory' => 1,
+        'callDuration' => 2,
     ],
     'ADMIN_ROLE_ID' => 1,
 

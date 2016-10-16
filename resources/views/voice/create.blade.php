@@ -43,5 +43,39 @@
         $("body").toggleClass("mini-navbar");
        // SmoothlyMenu();
     })
+
+    function getSubCallType(callTypeId) {
+        if(callTypeId != ''){
+            $.ajax({
+                url : base_url+"/getCSubCallTypes",
+                method : "get",
+                data : { 'callType' : callTypeId },
+                cache : false,
+                beforeSend : function(){
+                    
+                },
+                success:function(data){
+                    $("#subCallTypeDiv").html(data);
+                },
+                done : function (data){
+                },
+                error :function (xhr, status, err) {
+                    var responseJSON = JSON.parse(xhr.responseText);
+                    for (var key in responseJSON) 
+                    {
+                        $("#"+key+"_alert").html(responseJSON[key]).show();
+                    }   
+                }
+            });
+        }else{
+            $("#subCallType").html('');
+            $('#subCallType').append(
+                $('<option />')
+                    .text('Select')
+                    .val('')
+            );
+
+        }
+    }
 </script>
 @stop

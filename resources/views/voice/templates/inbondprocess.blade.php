@@ -17,85 +17,77 @@
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label>Process</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('process', 'Process <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('process',$data['process'],null,['id'=>'process','class'=>'form-control']) !!}
+                    <div id="process_alert" class="error validationAlert validationError">{!!$errors->first('process')!!}</div>
+
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label>Agent</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('agent', 'Agent <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('agent',$data['agent'],null,['id'=>'agent','class'=>'form-control']) !!}
+                    <div id="agent_alert" class="error validationAlert validationError">{!!$errors->first('agent')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label>Team Leader</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('teamLead', 'Team Leader <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('agent',$data['teamLead'],null,['id'=>'teamLead','class'=>'form-control']) !!}
+                    <div id="teamLead_alert" class="error validationAlert validationError">{!!$errors->first('teamLead')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label>Manager</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('manager', 'Manager <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('manager',$data['manager'],null,['id'=>'manager','class'=>'form-control']) !!}
+                    <div id="manager_alert" class="error validationAlert validationError">{!!$errors->first('manager')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label>Category</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('category', 'Category <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('category',$data['category'],null,['id'=>'category','class'=>'form-control']) !!}
+                    <div id="category_alert" class="error validationAlert validationError">{!!$errors->first('category')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label for="client-id">Client ID</label>
+                    {!! HTML::decode(Form::label('clientId', 'Client ID <small class="mandatory">*</small>')) !!}
                     <!-- only alpha numeric-->
-                    <input class="form-control" type="text" id="clientID" placeholder="Client ID" maxlength="5">
+                   {!! Form::text('clientId',null,array("placeholder"=>"Client ID",'id'=>'clientId','class'=>'form-control')) !!} 
+                    <div id="clientId_alert" class="error validationAlert validationError">{!!$errors->first('clientId')!!}</div>
+                    
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
-                    <label for="call-id">Call ID</label>
-                    <input class="form-control" type="text" id="callID" placeholder="Call ID">
+                     {!! HTML::decode(Form::label('callId', 'Call ID <small class="mandatory">*</small>')) !!}
+                    <!-- only alpha numeric-->
+                   {!! Form::text('callId',null,array("placeholder"=>"Call ID",'id'=>'callId','class'=>'form-control')) !!} 
+                    <div id="callId_alert" class="error validationAlert validationError">{!!$errors->first('callId')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4">                
                  <div class="form-group">
-                    <label for="duration">Duration</label>
-                    <input class="form-control" type="text" id="duration" placeholder="Duration">
+                    {!! HTML::decode(Form::label('duration', 'Duration <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('duration',$data['callDuration'],null,['id'=>'duration','class'=>'form-control']) !!}
+                    <div id="duration_alert" class="error validationAlert validationError">{!!$errors->first('duration')!!}</div>
                  </div>
               </div>
               <div class="col-lg-3 col-md-4"> 
                 <div class="form-group">
-                    <label>Call Type</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
+                    {!! HTML::decode(Form::label('callType', 'Call Type <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('callType',$data['callType'],null,['id'=>'callType','class'=>'form-control','onchange' => 'getSubCallType(this.value)']) !!}
+                    <div id="callType_alert" class="error validationAlert validationError">{!!$errors->first('callType')!!}</div>
                  </div>
               </div>
-              <div class="col-lg-3 col-md-4">
+              <div class="col-lg-3 col-md-4" id="subCallTypeDiv">
                 <div class="form-group">
-                    <label>Sub-Call Type</label>
-                    <select class="form-control">
-                       <option>1</option>
-                       <option>2</option>
-                    </select>
-                 </div>
+                    {!! HTML::decode(Form::label('subCallType', 'Sub-Call Type <small class="mandatory">*</small>')) !!}
+                    {!! Form::select('callType',$data['subCallType'],null,['id'=>'subCallType','class'=>'form-control']) !!}
+                  <div id="subCallType_alert" class="error validationAlert validationError">{!!$errors->first('subCallType')!!}</div>
+                </div>
               </div>
            </div>
        

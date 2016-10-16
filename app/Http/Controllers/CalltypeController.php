@@ -9,6 +9,7 @@ use ksec\Libraries\Lib;
 
 use Request,Lang,Config,Excel;
 use ksec\Http\Requests\CallTypeRequest;
+use ksec\Http\Requests\SubTypeCallIdRequest;
 
 
 class CalltypeController extends Controller
@@ -120,5 +121,14 @@ class CalltypeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // get call subtype
+    public function getCallSubTypeByCallId(SubTypeCallIdRequest $request)
+    {
+        $input = $request->all();
+        $result = $this->callService->getCallSubTypeByCallId($input['callType']);
+        return view('general.subCallType',compact('result'));
+
     }
 }

@@ -13,6 +13,11 @@
 
 // new routes
 Route::get('/','AdminController@getLogin');
+
+// single routes
+Route::get('/getCSubCallTypes','CalltypeController@getCallSubTypeByCallId');
+
+// controller routes
 Route::resource('dashboard','DashboardController');
 Route::controller('admin','AdminController');
 Route::resource('codeValue', 'CodevalueController');

@@ -3,12 +3,15 @@ namespace ksec\Services;
 
 use Lib,Config,Lang;
 use ksec\CallType;
+use ksec\CallTypeSub;
 
 class CallService {
 
-    public function __construct(CallType $callType)
+    public function __construct(CallType $callType,
+                                CallTypeSub $subCallType)
     {
         $this->callType = $callType;  
+        $this->subCallType = $subCallType;
 	}
 
     public function getCallTypeAllData()
@@ -79,6 +82,31 @@ class CallService {
         $input['limit'] = Config::get('global_vars.PAGINATION_LIMIT');
 
         return $this->callType->getCallTypes($input);
+    }
+
+    public function getCallSubTypeByCallId($callTypeId)
+    {
+        try {
+            $response = [
+                'success' => 0,
+                'data' => Lang::get('messages.PROCESS_FAIL'),
+            ];
+
+            // subtype list
+            $subCallTypes = $this->subCallType->getSubCallTypeByCallId($callTypeId);
+            if(!empty($subCallTypes)){
+                $response = [
+                    'success' => 1,
+                    'data' => Lib::addSelect($subCallTypes),
+                ];
+            }else{
+                $response['data'] = [];
+            }
+        } catch (Exception $e) {
+            
+        }finally{
+            return $response;
+        }
     }
     
 }
