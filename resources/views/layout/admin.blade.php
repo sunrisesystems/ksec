@@ -154,16 +154,6 @@ $currentCA          = $currentController ."_".$currentAction;
                     <li <?php if($currentCA == 'voice' || $currentCA == 'voice_create' || $currentCA == 'voice_edit') { ?> class="dropdown active" <?php }  else {?> class="dropdown" <?php }?> >
 						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
 						<ul class="nav nav-second-level ">												
-												
-							<li <?php if($currentCA == 'productcategory_index' || $currentCA == 'productcategory_create' || $currentCA == 'productcategory_edit') { ?> class="active" <?php } ?>>
-								<a href="{!! route('product-category.index') !!}">Category</a>
-							</li>
-							<li <?php if($currentCA == 'productsubcategory_index' || $currentCA == 'productsubcategory_create' || $currentCA == 'productsubcategory_edit') { ?> class="active" <?php } ?>>
-								<a href="{!! route('product-subcategory.index') !!}">Subcategory</a>
-							</li>
-							<li <?php if($currentCA == 'offers_index' || $currentCA == 'offers_create' || $currentCA == 'offers_edit') { ?> class="active" <?php } ?>>
-								<a href="{!! route('offers.index') !!}">Offers</a>
-							</li>
 							<li <?php if($currentCA == 'voice' || $currentCA == 'voice_create' || $currentCA == 'voice_edit') { ?> class="active" <?php } ?>>
 								<a href="{!! route('voice.create') !!}">Voice</a>
 							</li>						

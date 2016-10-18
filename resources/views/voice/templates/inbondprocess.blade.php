@@ -103,19 +103,19 @@
         <tbody>
           <tr>
             <td><strong>Fatal</strong></td>
-            <td>Yes/No</td>
+           <!--  <td>Yes/No</td> -->
           </tr>
           <tr>
             <td><strong>Adherence</strong></td>
-            <td>Yes/No</td>
+            <!-- <td>Yes/No</td> -->
           </tr>
           <tr>
             <td><strong>Quality</strong></td>
-            <td>%</td>
+            <!-- <td>%</td> -->
           </tr>
           <tr>
             <td><strong>Appreciation</strong></td>
-            <td>Yes/No</td>
+           <!--  <td>Yes/No</td> -->
           </tr>
         </tbody>
       </table>
@@ -125,12 +125,12 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
-    var $panelInbond = $('.panel-inbond').outerHeight();
-    $('.panel-score').css('height',$panelInbond);
-    $('.panel-inbond .row > div[class*="col-"]').matchHeight();
-    $(window).resize(function(){
+      var $panelInbond = $('.panel-inbond').outerHeight();
+      $('.panel-score').css('height',$panelInbond);
       $('.panel-inbond .row > div[class*="col-"]').matchHeight();
-    })
+      $(window).resize(function(){
+         $('.panel-inbond .row > div[class*="col-"]').matchHeight();
+      })
   });
 </script>
 </section>

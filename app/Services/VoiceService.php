@@ -7,6 +7,7 @@ use ksec\Process;
 use ksec\CodeValue;
 use ksec\CallType;
 use ksec\SqHead;
+use ksec\SqFatal;
 
 class VoiceService {
 
@@ -14,7 +15,8 @@ class VoiceService {
                                 Process $process,
                                 CodeValue $codeValue,
                                 CallType $callType,
-                                SqHead $sqHead)
+                                SqHead $sqHead,
+                                SqFatal $sqFatal)
     {
         $this->employee = $employee;
         $this->process = $process;
@@ -22,6 +24,7 @@ class VoiceService {
         $this->callType = $callType; 
         $this->user = Sentinel::getUser();
         $this->sqHead = $sqHead;
+        $this->sqFatal = $sqFatal;
 	}
 
     public function getAllActiveData()
@@ -72,10 +75,38 @@ class VoiceService {
             // insert data into sq_head table
             $headInsertResult = $this->sqHead->saveSqHead($headInsert);
             if(count($headInsertResult)){
-                DB::commit();
-                $response = [
-                    'success' => 1,
-                ];
+
+                // now check for fatal and insert data
+                if(!empty($input['fatalReason1']) || !empty($input['fatalReason2']) || !empty($input['fatalComment'])){
+                    // fatal insert
+                    $fatalInsert = [
+                        'sq_head_id' => $headInsertResult->id,
+                    ];
+                    if(!empty($input['fatalReason1'])){
+                        $fatalInsert['reason1_id'] = $input['fatalReason1'];
+                    }
+
+                    if(!empty($input['fatalReason2'])){
+                        $fatalInsert['reason2_id'] = $input['fatalReason2'];
+                    }
+
+                    if(!empty($input['fatalComment'])){
+                        $fatalInsert['comment'] = $input['fatalComment'];
+                    }
+
+                    $fatalInsertResult = $this->sqFatal->saveFatal($fatalInsert);
+                    if(count($fatalInsertResult)){
+                        DB::commit();
+                        $response = [
+                            'success' => 1,
+                        ];
+                    }
+                }else{
+                    DB::commit();
+                    $response = [
+                        'success' => 1,
+                    ];
+                }
             }
             return $response;
         /*} catch (Exception $e) {

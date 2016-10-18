@@ -1,5 +1,6 @@
 @extends('layout.admin')
 @section('content')
+
 <section class="inner-form-wrapper">
 	<div id="inner-wrapper">
         <div class="breadcrumb-wrapper white-bg">
@@ -28,8 +29,7 @@
                     <div class="form-action text-center">
                         {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
                         {!! Form::button('Cancel', ['class' => 'btn btn-secondary','onclick'=>'redirectUrl()']) !!} 
-                       <!--  <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-secondary">Cancel</button> -->
+                      
                     </div>
                     {!! Form::close() !!}
             	</div>
@@ -43,7 +43,16 @@
     $(document).ready(function () {
         //$("#side-menu").hide();
         $("body").toggleClass("mini-navbar");
-       // SmoothlyMenu();
+        @if($errors->first('fatalComment'))
+            $('#fatalAnchorTag').trigger('click');
+        @endif
+
+        @if(!empty($errors))
+            $("#callType").trigger("change");
+            setTimeout(function(){
+                $("#subCallType").val({!! Request::old('subCallType') !!})
+            }, 2000);
+        @endif        
     })
 
     function redirectUrl () {
