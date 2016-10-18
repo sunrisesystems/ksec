@@ -44,7 +44,7 @@ class EmployeeRequest extends Request
                     'password' => 'required|between:6,20',
                     'profile' => 'required|exists:profiles,id',
                     'status' => 'required|in:A,I',
-                    'city' => 'required|exists:cities',
+                    'city' => 'required|exists:cities,id',
                     'allowLogin' => 'required|in:Y,N',
                     'department' => 'required|exists:departments,id,status,A',
 

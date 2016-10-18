@@ -8,6 +8,7 @@ use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
 use ksec\Services\VoiceService;
 use ksec\Http\Requests\VoiceRequest;
+use Lib,Lang;
 
 class VoiceController extends Controller
 {
@@ -47,7 +48,12 @@ class VoiceController extends Controller
     public function store(VoiceRequest $voiceRequest)
     {
         $input = $voiceRequest->all();
-        Lib::pr($input); exit;
+        $result = $this->voiceService->saveVoiceData($input);
+        if($result['success']){
+            return redirect('voice')->with('message',Lang::get('messages.ADDED_SUCC'))->with('class','alert alert-success');
+        }else{
+            return redirect()->back()->with('message',$result['data'])->with('class','alert alert-danger');
+        }
     }
 
     /**

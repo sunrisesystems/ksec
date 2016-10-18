@@ -32,7 +32,7 @@
               <div class="col-lg-3 col-md-4">
                 <div class="form-group">
                     {!! HTML::decode(Form::label('teamLead', 'Team Leader <small class="mandatory">*</small>')) !!}
-                    {!! Form::select('agent',$data['teamLead'],null,['id'=>'teamLead','class'=>'form-control']) !!}
+                    {!! Form::select('teamLead',$data['teamLead'],null,['id'=>'teamLead','class'=>'form-control']) !!}
                     <div id="teamLead_alert" class="error validationAlert validationError">{!!$errors->first('teamLead')!!}</div>
                  </div>
               </div>
@@ -84,7 +84,7 @@
               <div class="col-lg-3 col-md-4" id="subCallTypeDiv">
                 <div class="form-group">
                     {!! HTML::decode(Form::label('subCallType', 'Sub-Call Type <small class="mandatory">*</small>')) !!}
-                    {!! Form::select('callType',$data['subCallType'],null,['id'=>'subCallType','class'=>'form-control']) !!}
+                    {!! Form::select('subCallType',$data['subCallType'],null,['id'=>'subCallType','class'=>'form-control']) !!}
                   <div id="subCallType_alert" class="error validationAlert validationError">{!!$errors->first('subCallType')!!}</div>
                 </div>
               </div>

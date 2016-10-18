@@ -40,6 +40,12 @@ class VoiceRequest extends Request
                     'agent' => 'required|exists:employees,id,status,A,emp_type_id,'.Config::get("global_vars.HARD_CODED_ID.agent"),
                     'teamLead' => 'required|exists:employees,id,status,A,emp_type_id,'.Config::get("global_vars.HARD_CODED_ID.teamLead"),
                     'manager' => 'required|exists:employees,id,status,A,emp_type_id,'.Config::get("global_vars.HARD_CODED_ID.managerId"),
+                    'category' => 'required|exists:code_values,id,status,A,code_id,'.Config::get("global_vars.HARD_CODED_ID.employeeCategory"),
+                    'clientId' => 'required',
+                    'callId' => 'required',
+                    'duration' => 'required|exists:code_values,id,status,A,code_id,'.Config::get("global_vars.HARD_CODED_ID.callDuration"),
+                    'callType' => 'required|exists:call_types,id,status,A',
+                    'subCallType' => 'required|exists:call_types_sub,id,status,A',
                   /*  'date' => 'required|unique:call_types,call_type,NULL,id,deleted_at,NULL',
                     'status' => 'required|in:A,I',
                     'description' => 'required',*/
