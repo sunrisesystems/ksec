@@ -103,7 +103,7 @@
         <tbody>
           <tr>
             <td><strong>Fatal</strong></td>
-           <!--  <td>Yes/No</td> -->
+            <td id="fatalTd"></td>
           </tr>
           <tr>
             <td><strong>Adherence</strong></td>

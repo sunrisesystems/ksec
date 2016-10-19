@@ -1,13 +1,15 @@
 <?php 
 namespace ksec\Services;
 
-use Lib,Config,Lang,Sentinel,DB;
+use Lib,Config,Lang,Sentinel,DB,Request;
 use ksec\Employee;
 use ksec\Process;
 use ksec\CodeValue;
 use ksec\CallType;
 use ksec\SqHead;
 use ksec\SqFatal;
+use ksec\Dto\SqHeadDTO;
+use ksec\Dto\MasterDTO;
 
 class VoiceService {
 
@@ -70,8 +72,14 @@ class VoiceService {
                 'subcalltype_id' => $input['subCallType'],
                 'created_by' => $loggedInUser->id,
                 'updated_by' => $loggedInUser->id,
+                'form_id' => Config::get("global_vars.FORM_ID.VOCIE"),
             ];
 
+            if(!empty($input['fatalReason1']) || !empty($input['fatalReason2'])){
+                $headInsert['fatal'] = 'Y';
+            }else{
+                $headInsert['fatal'] = 'N';
+            }
             // insert data into sq_head table
             $headInsertResult = $this->sqHead->saveSqHead($headInsert);
             if(count($headInsertResult)){
@@ -114,5 +122,37 @@ class VoiceService {
         }finally{
             return $response;
         }*/
+    }
+
+    public function getVoiceSqHead($input)
+    {
+        $input['paginationLimit'] = Config::get("global_vars.PAGINATION_LIMIT");
+        $input['form_id'] = Config::get('global_vars.FORM_ID.VOCIE');
+
+        $sqHeadData = $this->sqHead->getSqHeadByFormId($input);
+        $listArr = [];
+        $masterDTO = new MasterDTO();
+
+        if(count($sqHeadData)){
+            foreach ($sqHeadData as $key => $value) {
+                $dto = new SqHeadDTO();
+                $dto->setId($value->id);
+                $dto->setDate(Lib::convertDateFormat("Y-m-d",$value->trdate,"d-M-Y"));
+                $dto->setProcess($value->process_id);
+                $dto->setAgent($value->agent_id);
+                $dto->setManager($value->manager_id);
+                $dto->setTl($value->tl_id);
+                $dto->setAgentCategory($value->cat_id);
+                $dto->setFatal($value->fatal);
+                $dto->setAdherence($value->adherence);
+                $dto->setQualityPer($value->quality_per);
+                $listArr[] = $dto;
+            }
+        }
+        $masterDTO->setListDTO($listArr);
+        $masterDTO->setCount($sqHeadData->currentPage());
+        $sqHeadData->appends(Request::except('page'))->render();
+        $masterDTO->setLinks($sqHeadData->render());
+        return $masterDTO;
     }
 }

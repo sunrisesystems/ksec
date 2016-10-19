@@ -155,7 +155,7 @@ $currentCA          = $currentController ."_".$currentAction;
 						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Service Quality <i class="fa fa-angle-right"></i></a>						
 						<ul class="nav nav-second-level ">												
 							<li <?php if($currentCA == 'voice' || $currentCA == 'voice_create' || $currentCA == 'voice_edit') { ?> class="active" <?php } ?>>
-								<a href="{!! route('voice.create') !!}">Voice</a>
+								<a href="{!! route('voice.index') !!}">Voice</a>
 							</li>						
 						</ul>						
 					</li>					

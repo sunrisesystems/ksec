@@ -23,9 +23,13 @@ class VoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $input = $request->all();
+        $data = $this->voiceService->getAllActiveData();
+        $sqHead = $this->voiceService->getVoiceSqHead($input);
+
+        return view('voice.index',compact('data','sqHead'));
     }
 
     /**

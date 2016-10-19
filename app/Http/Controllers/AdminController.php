@@ -26,8 +26,8 @@ class AdminController extends Controller
     {
 
         /*$credentials = [
-            'system_id'    => '123456',
-            'password' => 'Idfc@2016',
+            'system_id'    => 'ksecadmin',
+            'password' => 'ksec@2016',
             'department_id' => 1,
             'emp_type_id' => 1,
         ];
@@ -36,8 +36,8 @@ class AdminController extends Controller
 
         $role = Sentinel::findRoleBySlug('admin');
 
-        $role->users()->attach($user);
-*/
+        $role->users()->attach($user);*/
+
         if (Sentinel::check())
         {
             return redirect('dashboard');

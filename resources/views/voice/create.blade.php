@@ -1,12 +1,11 @@
 @extends('layout.admin')
 @section('content')
-
 <section class="inner-form-wrapper">
 	<div id="inner-wrapper">
         <div class="breadcrumb-wrapper white-bg">
             <ol class="breadcrumb">
                 <li>
-                    Voice
+                    <a href="{!! URL::to('voice') !!}">Voice</a>
                 </li>
                 <li class="active">
                     <strong>Create Voice</strong>
@@ -47,13 +46,29 @@
             $('#fatalAnchorTag').trigger('click');
         @endif
 
-        @if(!empty($errors))
+        @if(count($errors))
+        
             $("#callType").trigger("change");
             setTimeout(function(){
                 $("#subCallType").val({!! Request::old('subCallType') !!})
             }, 2000);
+            
+            checkFatal()
+
         @endif        
-    })
+    });
+
+    function checkFatal() {
+      var reason1 = $("#fatalReason1").val();
+      var reason2 = $("#fatalReason2").val();
+      console.log(reason1);
+      console.log(reason2);
+      if(reason1 != '' || reason2 != ''){
+         $("#fatalTd").html("Yes");
+      }else{
+         $("#fatalTd").html("No");
+      }
+   }
 
     function redirectUrl () {
         doCancel("{!! URL::to('voice') !!}")
@@ -91,6 +106,10 @@
             );
 
         }
+    }
+
+    function validateVoiceForm() {
+        return true;
     }
 </script>
 @stop

@@ -30,9 +30,13 @@ return [
     ],
 
     'ADHERENCE' => [
-        'Yes' => 'Yes',
-        'No' => 'No',
+        'Y' => 'Yes',
+        'N' => 'No',
         'NA' => 'NA',
+    ],
+
+    'FORM_ID' => [
+        'VOCIE' => 1,
     ],
 
     'ADMIN_ROLE_ID' => 1,

@@ -14,4 +14,11 @@ class SqHead extends Model
     {
     	return $this->create($insert);
     }
+
+    public function getSqHeadByFormId($input)
+    {
+    	$query = $this;
+    	$result = $query->where('form_id',$input['form_id'])->paginate($input['paginationLimit']);
+    	return $result;
+    }
 }
