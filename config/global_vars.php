@@ -30,8 +30,8 @@ return [
     ],
 
     'ADHERENCE' => [
-        'Y' => 'Yes',
-        'N' => 'No',
+        'Yes' => 'Yes',
+        'No' => 'No',
         'NA' => 'NA',
     ],
 
@@ -63,6 +63,17 @@ return [
     'available_hrs_downtime_reasons' => [3,4],
     'mold_change_over_id' => 4, 
     'preventive_maintenance_id' => 3,   
+
+    'quality' => [
+        'tm' => 'Tone Manner',
+        'communication' => 'Communication',
+        'chp' => 'Correct Hold Procedure',
+        'pao' => 'Personal Accountability and Ownership',
+        'delighter' => 'Delighters used on the call',
+        'su' => 'System Usage',
+        'sct' => 'Correct CT and SCT',
+        'ocr' => 'OCR',
+    ],
 
 
 ];

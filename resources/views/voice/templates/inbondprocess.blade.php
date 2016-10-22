@@ -103,19 +103,19 @@
         <tbody>
           <tr>
             <td><strong>Fatal</strong></td>
-            <td id="fatalTd"></td>
+            <td id="fatalTd">No</td>
           </tr>
           <tr>
             <td><strong>Adherence</strong></td>
-            <!-- <td>Yes/No</td> -->
+            <td id="adherenceTd">Yes</td>
           </tr>
           <tr>
             <td><strong>Quality</strong></td>
-            <!-- <td>%</td> -->
+            <td id="qualityTd">0.0%</td>
           </tr>
           <tr>
             <td><strong>Appreciation</strong></td>
-           <!--  <td>Yes/No</td> -->
+            <td id="appreciationTd">No</td>
           </tr>
         </tbody>
       </table>

@@ -3,7 +3,7 @@
 namespace ksec\Http\Requests;
 
 use ksec\Http\Requests\Request;
-use Config;
+use Config,Lib,Lang;
 
 
 class VoiceRequest extends Request
@@ -34,7 +34,7 @@ class VoiceRequest extends Request
             }
             case 'POST':
             {
-                return [
+                $rules =  [
                     'date' => 'required|date_format:d-M-Y',
                     'process' => 'required|exists:processes,id,status,A',
                     'agent' => 'required|exists:employees,id,status,A,emp_type_id,'.Config::get("global_vars.HARD_CODED_ID.agent"),
@@ -49,7 +49,17 @@ class VoiceRequest extends Request
                     'fatalReason1' => 'exists:code_values,id,status,A,code_id,'.Config::get("global_vars.HARD_CODED_ID.fatalReason"),
                     'fatalReason2' => 'exists:code_values,id,status,A,code_id,'.Config::get("global_vars.HARD_CODED_ID.fatalReason"),
                     'fatalComment' => 'required_with:fatalReason1,fatalReason2',
+                    'knowledge' => 'required|in:Yes,No,NA',
+                    'securityVerification' => 'required|in:Yes,No,NA',
+                    'callBackSeverity' => 'required|in:Yes,No,NA',
+                    'adherenceOther' => 'required|in:Yes,No,NA',
                 ];
+                
+                if($this->input('knowledge') == 'No' || $this->input('securityVerification') == 'No' || $this->input('callBackSeverity') == 'No' || $this->input('adherenceOther') == 'No'){
+                    $rules['adherenceComment'] = 'required';
+                }
+
+                return $rules;
             }
             case 'PUT':
             case 'PATCH':
@@ -62,5 +72,12 @@ class VoiceRequest extends Request
             }
             default:break;
         }
+    }
+
+    public function messages()
+    {
+        return [
+            'adherenceComment.required' => Lang::get('messages.adherence_comment'),
+        ];
     }
 }

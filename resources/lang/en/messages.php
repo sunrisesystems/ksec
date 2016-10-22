@@ -14,6 +14,7 @@ return [
     'PROCESS_FAIL' => 'There is some error while processing your request. Please try after some time.',
     'ERROR' => 'There is some error while processing your request. Please try after some time.',
     'LOGOUT'       => 'You have successfully logged out.',
+    'adherence_comment' => "Comment is complusary for 'No' adherence",
 
 
     // old messages

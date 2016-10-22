@@ -8,8 +8,10 @@ use ksec\CodeValue;
 use ksec\CallType;
 use ksec\SqHead;
 use ksec\SqFatal;
+use ksec\SqAdherence;
 use ksec\Dto\SqHeadDTO;
 use ksec\Dto\MasterDTO;
+use ksec\Services\SqQualityService;
 
 class VoiceService {
 
@@ -18,7 +20,9 @@ class VoiceService {
                                 CodeValue $codeValue,
                                 CallType $callType,
                                 SqHead $sqHead,
-                                SqFatal $sqFatal)
+                                SqFatal $sqFatal,
+                                SqAdherence $sqAdherence,
+                                SqQualityService $sqQualityService)
     {
         $this->employee = $employee;
         $this->process = $process;
@@ -27,6 +31,9 @@ class VoiceService {
         $this->user = Sentinel::getUser();
         $this->sqHead = $sqHead;
         $this->sqFatal = $sqFatal;
+        $this->sqAdherence = $sqAdherence;
+        $this->sqQualityService = $sqQualityService;
+        $this->formName = 'sq_quality_voice';
 	}
 
     public function getAllActiveData()
@@ -41,6 +48,16 @@ class VoiceService {
         $data['subCallType'] = Lib::addSelect([]);
         $data['fatalReason'] = Lib::addSelect($this->codeValue->getDataByCodeId(Config::get("global_vars.HARD_CODED_ID.fatalReason")));
         $data['adherence'] = Lib::addSelect(Config::get('global_vars.ADHERENCE'));
+
+        $data['tmData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.tm'));
+        $data['cmData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.communication'));
+        $data['chpData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.chp'));
+        $data['paoData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.pao'));
+        $data['delighterData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.delighter'));
+        $data['suData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.su'));
+        $data['sctData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.sct'));
+        $data['ocrData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.ocr'));
+
         return $data;
         //Lib::pr($data); exit;
     }
@@ -80,6 +97,12 @@ class VoiceService {
             }else{
                 $headInsert['fatal'] = 'N';
             }
+
+            if($input['knowledge'] == 'No' || $input['securityVerification'] == 'No' || $input['callBackSeverity'] == 'No' || $input['adherenceOther'] == 'No' ){
+                $headInsert ['adherence'] = 'N';
+            }else{
+                $headInsert ['adherence'] = 'Y';
+            }
             // insert data into sq_head table
             $headInsertResult = $this->sqHead->saveSqHead($headInsert);
             if(count($headInsertResult)){
@@ -103,18 +126,31 @@ class VoiceService {
                     }
 
                     $fatalInsertResult = $this->sqFatal->saveFatal($fatalInsert);
-                    if(count($fatalInsertResult)){
-                        DB::commit();
-                        $response = [
-                            'success' => 1,
-                        ];
+                    if(! count($fatalInsertResult)){
+                        DB::rollback();
+                        return $response;
                     }
-                }else{
-                    DB::commit();
-                    $response = [
-                        'success' => 1,
-                    ];
                 }
+
+                $adherenceInsert = [
+                    'sq_head_id' => $headInsertResult->id,
+                    'aik' => $input['knowledge'],
+                    'sv' => $input['securityVerification'],
+                    'cbs' => $input['callBackSeverity'],
+                    'other' => $input['adherenceOther'],
+                    'comment' => $input['adherenceComment'],
+                ];
+
+                $adherenceInsertResult = $this->sqAdherence->saveAdherence($adherenceInsert);
+                if(! count($adherenceInsertResult)){
+                    DB::rollback();
+                    return $response;
+                }
+                DB::commit();
+                $response = [
+                    'success' => 1,
+                ];
+                
             }
             return $response;
         /*} catch (Exception $e) {

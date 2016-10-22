@@ -46,6 +46,10 @@
             $('#fatalAnchorTag').trigger('click');
         @endif
 
+        @if($errors->first('knowledge') || $errors->first('securityVerification') || $errors->first('callBackSeverity') || $errors->first('adherenceOther') || $errors->first('adherenceComment'))
+            $('#adherenceAnchorTag').trigger('click');
+        @endif        
+
         @if(count($errors))
         
             $("#callType").trigger("change");
@@ -54,6 +58,7 @@
             }, 2000);
             
             checkFatal()
+            checkAdherence();
 
         @endif        
     });
@@ -61,14 +66,12 @@
     function checkFatal() {
       var reason1 = $("#fatalReason1").val();
       var reason2 = $("#fatalReason2").val();
-      console.log(reason1);
-      console.log(reason2);
       if(reason1 != '' || reason2 != ''){
          $("#fatalTd").html("Yes");
       }else{
          $("#fatalTd").html("No");
       }
-   }
+    }
 
     function redirectUrl () {
         doCancel("{!! URL::to('voice') !!}")
@@ -110,6 +113,19 @@
 
     function validateVoiceForm() {
         return true;
+    }
+
+    function checkAdherence() {
+        var knowledge = $("#knowledge").val();
+        var securityVerification = $("#securityVerification").val();
+        var callBackSeverity = $("#callBackSeverity").val();
+        var adherenceOther = $("#adherenceOther").val();
+       
+        if(knowledge == 'No' || securityVerification == 'No' || callBackSeverity == 'No' || adherenceOther == 'No'){
+            $("#adherenceTd").html("No");
+        }else{
+            $("#adherenceTd").html("Yes");
+        }
     }
 </script>
 @stop
