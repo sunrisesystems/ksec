@@ -80,7 +80,10 @@ class VoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = $this->voiceService->getAllActiveData();
+        $voice = $this->voiceService->getVoiceById($id);
+      //  Lib::pr($voice->toArray()); exit;
+        return view('voice.edit',compact('data','voice'));
     }
 
     /**
@@ -90,7 +93,7 @@ class VoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VoiceRequest $voiceRequest, $id)
     {
         //
     }

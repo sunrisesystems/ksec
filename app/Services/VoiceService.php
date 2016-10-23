@@ -130,6 +130,7 @@ class VoiceService {
 
         return $data;
     }
+
     public function saveVoiceData($input)
     {
         
@@ -324,6 +325,11 @@ class VoiceService {
         $sqHeadData->appends(Request::except('page'))->render();
         $masterDTO->setLinks($sqHeadData->render());
         return $masterDTO;
+    }
+
+    public function getVoiceById($voiceId)
+    {
+        return $this->sqHead->getSqHeadById($voiceId);
     }
 
     
