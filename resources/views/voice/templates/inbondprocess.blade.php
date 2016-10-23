@@ -112,6 +112,14 @@
           <tr>
             <td><strong>Quality</strong></td>
             <td id="qualityTd">0.0%</td>
+              <tr>
+                <td>Max</td>
+                <td id="maxQuality"></td>
+              </tr>
+              <tr>
+                <td>Achieve</td>
+                <td id="achQuality"></td>
+              </tr>
           </tr>
           <tr>
             <td><strong>Appreciation</strong></td>

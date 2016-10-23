@@ -53,6 +53,18 @@ class VoiceRequest extends Request
                     'securityVerification' => 'required|in:Yes,No,NA',
                     'callBackSeverity' => 'required|in:Yes,No,NA',
                     'adherenceOther' => 'required|in:Yes,No,NA',
+                    'tm' => 'required',
+                    'cm' => 'required',
+                    'chp' => 'required',
+                    'poa' => 'required',
+                    'delighter' => 'required',
+                    'su' => 'required',
+                    'sct' => 'required',
+                    'ocr' => 'required',
+                    'pg' => 'required',
+                    'osat' => 'required',
+                    'rsat' => 'required',
+                    'appreciation' => 'required',
                 ];
                 
                 if($this->input('knowledge') == 'No' || $this->input('securityVerification') == 'No' || $this->input('callBackSeverity') == 'No' || $this->input('adherenceOther') == 'No'){
@@ -78,6 +90,14 @@ class VoiceRequest extends Request
     {
         return [
             'adherenceComment.required' => Lang::get('messages.adherence_comment'),
+            'tm.required' => Lang::get('messages.tm_required'),
+            'cm.required' => Lang::get('messages.cm_required'),
+            'chp.required' => Lang::get('messages.chp_required'),
+            'su.required' => Lang::get('messages.su_required'),
+            'sct.required' => Lang::get('messages.sct_required'),
+            'delighter.required' => Lang::get('messages.delighter_required'),
+            'poa.required' => Lang::get('messages.poa_required'),
+            'pg.required' => Lang::get('messages.pg_required'),
         ];
     }
 }

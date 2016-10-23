@@ -48,7 +48,13 @@
 
         @if($errors->first('knowledge') || $errors->first('securityVerification') || $errors->first('callBackSeverity') || $errors->first('adherenceOther') || $errors->first('adherenceComment'))
             $('#adherenceAnchorTag').trigger('click');
-        @endif        
+        @endif 
+
+         @if($errors->first('tm') || $errors->first('sm') || $errors->first('chp') || $errors->first('delighter') || $errors->first('pg') || $errors->first('ocr') || $errors->first('poa') || $errors->first('su') || $errors->first('sct') || $errors->first('osat') || $errors->first('rsat') || $errors->first('appreciation'))
+            $('#qualityAchorTag').trigger('click');
+        @endif 
+
+
 
         @if(count($errors))
         
@@ -112,7 +118,14 @@
     }
 
     function validateVoiceForm() {
-        return true;
+        calculateQualityScore();
+        var maxQuality = $("#maxQuality").html();
+
+        if(parseFloat(maxQuality) == 0.00){
+            jAlert("{!! Lang::get('messages.zero_quality')!!}");
+            return false;
+        }
+            return true;
     }
 
     function checkAdherence() {
@@ -126,6 +139,157 @@
         }else{
             $("#adherenceTd").html("Yes");
         }
+    }
+
+    function checkAppreciation() {
+        var appreciation = $("#appreciation").val();
+        if(appreciation == ''){
+            $("#appreciationTd").html('No')
+        }else{
+            $("#appreciationTd").html(appreciation);
+
+        }
+    }
+
+    function checkMaxSceoreAndArch(fieldId,fieldValue) {
+        if(fieldId == 'tm'){
+            var data = {!! json_encode($data['tmData']['details']) !!};
+        }
+        if(fieldId == 'cm'){
+            var data = {!! json_encode($data['cmData']['details']) !!};
+        }
+        if(fieldId == 'chp'){
+            var data = {!! json_encode($data['chpData']['details']) !!};
+        }
+        if(fieldId == 'poa'){
+            var data = {!! json_encode($data['poaData']['details']) !!};
+        }
+        if(fieldId == 'delighter'){
+            var data = {!! json_encode($data['delighterData']['details']) !!};
+        }
+        if(fieldId == 'su'){
+            var data = {!! json_encode($data['suData']['details']) !!};
+        }
+        if(fieldId == 'sct'){
+            var data = {!! json_encode($data['sctData']['details']) !!};
+        }
+        if(fieldId == 'ocr'){
+            var data = {!! json_encode($data['ocrData']['details']) !!};
+        }
+        jQuery.each(data, function( key, val ) {
+            if(key == fieldValue){
+                $("#"+fieldId+"Max").val(val.maxscore);
+                $("#"+fieldId+"Ach").val(val.achscore);
+                calculateQualityScore();
+            }
+        });
+
+    }
+
+    function updateOcr() {
+        var pg = $("#pg").val();
+        var ocr = $("#ocr").val();
+        var data = {!! json_encode($data['ocrData']['details']) !!};
+
+        if(pg == 'Yes' || ocr == 'Y'){
+            jQuery.each(data, function( key, val ) {
+                if(key == 'Y'){
+                    $("#ocrMax").val(val.maxscore);
+                    $("#ocrAch").val(val.achscore);
+                }
+            });
+        }else{
+            jQuery.each(data, function( key, val ) {
+                if(key == ocr){
+                    $("#ocrMax").val(val.maxscore);
+                    $("#ocrAch").val(val.achscore);
+                }
+            });
+        }
+        calculateQualityScore();
+    }
+
+    function calculateQualityScore() {
+        var tmMax = $("#tmMax").val();
+        var cmMax = $("#cmMax").val();
+        var chpMax = $("#chpMax").val();
+        var poaMax = $("#poaMax").val();
+        var delighterMax = $("#delighterMax").val();
+        var suMax = $("#suMax").val();
+        var sctMax = $("#sctMax").val();
+        var ocrMax = $("#ocrMax").val();
+
+        var qualityMax = 0;
+
+        if(tmMax !== ''){
+            qualityMax += parseFloat(tmMax);
+        }
+        if(cmMax !== ''){
+            qualityMax += parseFloat(cmMax);
+        }
+        if(chpMax !== ''){
+            qualityMax += parseFloat(chpMax);
+        }
+        if(poaMax !== ''){
+            qualityMax += parseFloat(poaMax);
+        }
+        if(delighterMax !== ''){
+            qualityMax += parseFloat(delighterMax);
+        }
+        if(suMax !== ''){
+            qualityMax += parseFloat(suMax);
+        }
+        if(sctMax !== ''){
+            qualityMax += parseFloat(sctMax);
+        }
+        if(ocrMax !== ''){
+            qualityMax += parseFloat(ocrMax);
+        }
+
+        $("#maxQuality").html(parseFloat(qualityMax).toFixed(2));
+
+        var tmAch = $("#tmAch").val();
+        var cmAch = $("#cmAch").val();
+        var chpAch = $("#chpAch").val();
+        var poaAch = $("#poaAch").val();
+        var delighterAch = $("#delighterAch").val();
+        var suAch = $("#suAch").val();
+        var sctAch = $("#sctAch").val();
+        var ocrAch = $("#ocrAch").val();
+
+        var qualityAch = 0;
+
+        if(tmAch !== ''){
+            qualityAch += parseFloat(tmAch);
+        }
+        if(cmAch !== ''){
+            qualityAch += parseFloat(cmAch);
+        }
+        if(chpAch !== ''){
+            qualityAch += parseFloat(chpAch);
+        }
+        if(poaAch !== ''){
+            qualityAch += parseFloat(poaAch);
+        }
+        if(delighterAch !== ''){
+            qualityAch += parseFloat(delighterAch);
+        }
+        if(suAch !== ''){
+            qualityAch += parseFloat(suAch);
+        }
+        if(sctAch !== ''){
+            qualityAch += parseFloat(sctAch);
+        }
+        if(ocrAch !== ''){
+            qualityAch += parseFloat(ocrAch);
+        }
+        $("#achQuality").html(parseFloat(qualityAch).toFixed(2));
+
+        if(parseFloat(qualityAch) != 0 && parseFloat(qualityMax) != 0){
+            var quality = (parseFloat(qualityAch) / parseFloat(qualityMax)) * 100;
+            $("#qualityTd").html(parseFloat(quality).toFixed(2)+"%");
+        }
+        
     }
 </script>
 @stop

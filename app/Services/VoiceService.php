@@ -49,14 +49,40 @@ class VoiceService {
         $data['fatalReason'] = Lib::addSelect($this->codeValue->getDataByCodeId(Config::get("global_vars.HARD_CODED_ID.fatalReason")));
         $data['adherence'] = Lib::addSelect(Config::get('global_vars.ADHERENCE'));
 
-        $data['tmData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.tm'));
-        $data['cmData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.communication'));
-        $data['chpData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.chp'));
-        $data['paoData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.pao'));
-        $data['delighterData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.delighter'));
-        $data['suData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.su'));
-        $data['sctData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.sct'));
-        $data['ocrData'] = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.ocr'));
+        $tmData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.tm'));
+        if($tmData['success']){
+            $data['tmData'] = $tmData['data'];
+        }
+        $cmData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.communication'));
+        if($cmData['success']){
+            $data['cmData'] = $cmData['data'];
+        }
+        $chpData= $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.chp'));
+        if($chpData['success']){
+            $data['chpData'] = $chpData['data'];
+        }
+        $poaData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.pao'));
+        if($poaData['success']){
+            $data['poaData'] = $poaData['data'];
+        }
+        $delighterData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.delighter'));
+        if($delighterData['success']){
+            $data['delighterData'] = $delighterData['data'];
+        }
+        $suData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.su'));
+        if($suData['success']){
+            $data['suData'] = $suData['data'];
+        }
+        $sctData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.sct'));
+        if($sctData['success']){
+            $data['sctData'] = $sctData['data'];
+        }
+        $ocrData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.ocr'));
+        if($ocrData['success']){
+            $data['ocrData'] = $ocrData['data'];
+        }
+
+        $data['otherQuality'] = Lib::addSelect(Config::get('global_vars.OTHER_QUALITY'));
 
         return $data;
         //Lib::pr($data); exit;

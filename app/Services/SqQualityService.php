@@ -29,7 +29,7 @@ class SqQualityService {
                 }
             }
             if(!empty($sqParamList)){
-                $data['list'] = $sqParamList;
+                $data['list'] = Lib::addSelect($sqParamList);
                 $data['details'] = $sqParamDetails;
                 $response = [
                     'success' =>1,

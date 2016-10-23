@@ -35,6 +35,12 @@ return [
         'NA' => 'NA',
     ],
 
+    'OTHER_QUALITY' => [
+        'Yes' => 'Yes',
+        'No' => 'No',
+        'NA' => 'NA',  
+    ],
+
     'FORM_ID' => [
         'VOCIE' => 1,
     ],

@@ -15,6 +15,15 @@ return [
     'ERROR' => 'There is some error while processing your request. Please try after some time.',
     'LOGOUT'       => 'You have successfully logged out.',
     'adherence_comment' => "Comment is complusary for 'No' adherence",
+    'zero_quality' => 'Quality max score can not be zero, kindly score atleast one quality parameter.',
+    'tm_required' => 'Tone and Manner field is required.',
+    'cm_required' => 'Communication field is required.',
+    'chp_required' => 'Correct hold field is required.',
+    'su_required' => 'System usage field is required.',
+    'sct_required' => 'Correct CT/SCT field is required.',
+    'delighter_required' => 'Delighters used field is required.',
+    'poa_required' => 'Personal Accountability and Ownership field is required.',
+    'pg_required' => 'Process gap field is required.',
 
 
     // old messages
