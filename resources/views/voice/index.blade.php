@@ -165,21 +165,16 @@
 									<td align="center"></td>
 								@endif
 
-								@if($value->getQualityPer() == 'Y')
-									<td align="center">Yes</td>
-								@elseif($value->getQualityPer() == 'N')
-									<td align="center">No</td>
-								@else
-									<td align="center"></td>
-								@endif
+									<td align="center">{!! Lib::roundOffNumber($value->getQualityPer(),2) !!}</td>
+								
 
 								<td align="center">
 									
 								</td>
 								<td align="center" class="action-icon">								
-									<!-- <a href="{!! route('voice.edit',[$value->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Voice" class="edit-user">
+									<a href="{!! route('voice.edit',[$value->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Voice" class="edit-user">
 										<i class="glyphicon glyphicon-pencil"></i> 
-									</a> -->
+									</a>
 								</td>
 								
 							</tr>

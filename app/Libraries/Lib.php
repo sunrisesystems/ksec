@@ -264,30 +264,13 @@ Class Lib {
         }
     }
 
-     public static function roundOffNumber($number,$roundOffDigit = 1)
+    public static function roundOffNumber($number,$roundOffDigit = 1)
     {
         if($roundOffDigit != 0){
             $roundOffDigit = 2;
         }
         $n = round($number,$roundOffDigit,PHP_ROUND_HALF_UP);
         return $n; 
-    }
-
-// input - minutes
-    public static function secondsToTime($minutes)
-    {
-        $returnArr = [];
-        $day = floor ($minutes / 1440);
-        $hour = floor (($minutes - $day * 1440) / 60);
-        $min = $minutes - ($day * 1440) - ($hour * 60);
-        
-        $returnArr = [
-            'days' => $day,
-            'hrs' => $hour,
-            'min' => $min,
-        ];
-        //$dtF->diff($dtT)->format('%a days, %h hours, %i minutes and %s seconds');
-        return $returnArr; 
     }
 
     public static function convertToTime($hrs,$min)
@@ -329,61 +312,7 @@ Class Lib {
         }
     }
 
-    // input - start time and end time
-    //output = difference seconds
-    public static function getShiftHrs($startTime,$endTime)
-    {
-        //convert both time to timestamp
-        $sExplode = explode(":", $startTime);
-        $eExplode = explode(":", $endTime);
-
-        $sTime = mktime($sExplode[0],$sExplode[1],$sExplode[2],0,0,0);
-        $eTime = mktime($eExplode[0],$eExplode[1],$eExplode[2],0,0,0);
-        
-        if($sTime > $eTime){
-            $diff = $sTime - $eTime;
-        }else{
-            $diff = $eTime - $sTime;
-        }
-        return $diff / 3600 ;
-    }
-
-    public static function FunctionName($value='')
-    {
-        $times = array($time1, $time2);
-        $seconds = 0;
-        foreach ($times as $time)
-        {
-            list($hour,$minute,$second) = explode(':', $time);
-            $seconds += $hour*3600;
-            $seconds += $minute*60;
-            $seconds += $second;
-        }
-        $hours = floor($seconds/3600);
-        $seconds -= $hours*3600;
-        $minutes  = floor($seconds/60);
-        $seconds -= $minutes*60;
-      // return "{$hours}:{$minutes}:{$seconds}";
-        return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
-
-    }
-
-    public static function getShiftStartEndTime($givenDate,$startTime,$shiftHrs)
-    {
-        $returnArr = [];
-        $dateExplode = explode("-", $givenDate);
-        $timeExplode = explode(":", $startTime);
-
-        $startDateTime = $date = new DateTime($dateExplode[2]."-".$dateExplode[1]."-".$dateExplode[0]." ".$timeExplode[0].":".$timeExplode[1].":".$timeExplode[2]);
-
-        $returnArr['startDateTime'] = $date->format("Y-m-d H:i:s");
-
-        $startDateTime->add(new DateInterval('PT'.$shiftHrs.'H'));
-
-        $returnArr['endDateTime'] = $startDateTime->format("Y-m-d H:i:s"); 
-        return  $returnArr;
-    }
-
+   
     public static function formatAllowDateAndTime($shiftTiming)
     {
         $returnArr = $dates = [];
@@ -414,30 +343,6 @@ Class Lib {
     //    Lib::pr([$datetime1,$datetime2,$interval]); exit;
         $elapsed = $interval->format('%H:%i:%s');
         return $elapsed;
-    }
-
-    public static function getShiftTiming($startTime,$endTime)
-    {
-        $returnArr = $dates = [];
-        if($startTime < $endTime){
-            $startDate = date("Y-m-d")." ".$startTime;
-            $endDate = date("Y-m-d")." ".$endTime;;
-        }else{
-            $startDate = date("Y-m-d")." ".$startTime;
-            $endDate = date("Y-m-d",strtotime("tomorrow"))." ".$endTime;
-        }
-        $period = new DatePeriod(
-                    new DateTime($startDate),
-                    new DateInterval('PT30M'),
-                    new DateTime($endDate)
-        );
-        foreach ($period as $key => $date) {
-            $dates[] = $date->format("H:i");
-        }  
-      
-        return $dates;
-
-        return $data;
     }
 
     public static function isAdmin()

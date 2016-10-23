@@ -17,13 +17,13 @@
             <div class="row">
             	<div class="col-lg-12">
                     {!! Form::open(array('route' => 'voice.store' , 'onSubmit' => 'return validateVoiceForm()')) !!}
-            		@include('voice.templates.inbondprocess')
+            		@include('addTemplates.inbondprocess')
                     <div class="panel-group" id="accordion">
-                		@include('voice.templates.fatal')
+                		@include('addTemplates.fatal')
     			
-    					@include('voice.templates.adherence')
+    					@include('addTemplates.adherence')
 
-                		@include('voice.templates.quality')
+                		@include('addTemplates.quality')
             		</div>
                     <div class="form-action text-center">
                         {!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
@@ -63,6 +63,8 @@
                 $("#subCallType").val({!! Request::old('subCallType') !!})
             }, 2000);
             
+            $("#tm,#cm,#chp,#poa,#delighter,#su,#sct,#ocr,#pg").trigger("change");
+
             checkFatal()
             checkAdherence();
 

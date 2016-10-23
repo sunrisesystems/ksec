@@ -8,6 +8,7 @@ use ksec\CodeValue;
 use ksec\CallType;
 use ksec\SqHead;
 use ksec\SqFatal;
+use ksec\SqQualityVoice;
 use ksec\SqAdherence;
 use ksec\Dto\SqHeadDTO;
 use ksec\Dto\MasterDTO;
@@ -22,7 +23,8 @@ class VoiceService {
                                 SqHead $sqHead,
                                 SqFatal $sqFatal,
                                 SqAdherence $sqAdherence,
-                                SqQualityService $sqQualityService)
+                                SqQualityService $sqQualityService,
+                                SqQualityVoice $sqQualityVoice)
     {
         $this->employee = $employee;
         $this->process = $process;
@@ -34,6 +36,7 @@ class VoiceService {
         $this->sqAdherence = $sqAdherence;
         $this->sqQualityService = $sqQualityService;
         $this->formName = 'sq_quality_voice';
+        $this->sqQualityVoice = $sqQualityVoice;
 	}
 
     public function getAllActiveData()
@@ -88,9 +91,49 @@ class VoiceService {
         //Lib::pr($data); exit;
     }
 
+    public function getQualityScoreMatrix()
+    {
+        $tmData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.tm'));
+        if($tmData['success']){
+            $data['tmData'] = $tmData['data'];
+        }
+        $cmData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.communication'));
+        if($cmData['success']){
+            $data['cmData'] = $cmData['data'];
+        }
+        $chpData= $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.chp'));
+        if($chpData['success']){
+            $data['chpData'] = $chpData['data'];
+        }
+        $poaData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.pao'));
+        if($poaData['success']){
+            $data['poaData'] = $poaData['data'];
+        }
+        $delighterData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.delighter'));
+        if($delighterData['success']){
+            $data['delighterData'] = $delighterData['data'];
+        }
+        $suData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.su'));
+        if($suData['success']){
+            $data['suData'] = $suData['data'];
+        }
+        $sctData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.sct'));
+        if($sctData['success']){
+            $data['sctData'] = $sctData['data'];
+        }
+        $ocrData = $this->sqQualityService->getQualityParameters($this->formName,Config::get('global_vars.quality.ocr'));
+        if($ocrData['success']){
+            $data['ocrData'] = $ocrData['data'];
+        }
+
+        $data['otherQuality'] = Lib::addSelect(Config::get('global_vars.OTHER_QUALITY'));
+
+        return $data;
+    }
     public function saveVoiceData($input)
     {
-        //try {
+        
+        try {
             $response = [
                 'success' => 0,
                 'data' => Lang::get('messages.PROCESS_FAIL'),
@@ -129,6 +172,30 @@ class VoiceService {
             }else{
                 $headInsert ['adherence'] = 'Y';
             }
+
+            if($input['appreciation'] == 'Yes'){
+                $appreciation = 'Y';
+            }else{
+                $appreciation = 'N';
+            }
+
+            // calculate quality details
+            $qualityMax = $input['tmMax'] + $input['cmMax'] + $input['chpMax'] + $input['poaMax'] + $input['delighterMax'] + $input['suMax'] + $input['sctMax'] + $input['ocrMax'];
+
+            $qualityAch = $input['tmAch'] + $input['cmAch'] + $input['chpAch'] + $input['poaAch'] + $input['delighterAch'] + $input['suAch'] + $input['sctAch'] + $input['ocrAch'];
+
+            $headInsert['quality_max'] = $qualityMax;
+            $headInsert['quality_ach'] = $qualityAch;
+
+            if($qualityAch > 0 && $qualityMax > 0){
+                $qualityPer = $qualityAch / $qualityMax;
+            }else{
+                $qualityPer = 0;
+            }
+            $headInsert['quality_per'] = $qualityPer;
+
+            $headInsert['appr'] = $appreciation;
+
             // insert data into sq_head table
             $headInsertResult = $this->sqHead->saveSqHead($headInsert);
             if(count($headInsertResult)){
@@ -172,18 +239,59 @@ class VoiceService {
                     DB::rollback();
                     return $response;
                 }
+
+                // save quality record
+                $qualityInsert = [
+                    'sq_head_id' => $headInsertResult->id,
+                    'tm' => $input['tm'],
+                    'tm_max' => $input['tmMax'],
+                    'tm_ach' => $input['tmAch'],
+                    'comm' => $input['cm'],
+                    'comm_max' => $input['cmMax'],
+                    'comm_ach' => $input['cmAch'],
+                    'chp' => $input['chp'],
+                    'chp_max' => $input['chpMax'],
+                    'chp_ach' => $input['chpAch'],
+                    'pao' => $input['poa'],
+                    'pao_max' => $input['poaMax'],
+                    'pao_ach' => $input['poaAch'],
+                    'du' => $input['delighter'],
+                    'du_max' => $input['delighterMax'],
+                    'du_ach' => $input['delighterAch'],
+                    'su' => $input['su'],
+                    'su_max' => $input['suMax'],
+                    'su_ach' => $input['suAch'],
+                    'cct' => $input['sct'],
+                    'cct_max' => $input['sctMax'],
+                    'cct_ach' => $input['sctAch'],
+                    'ocr' => $input['ocr'],
+                    'ocr_max' => $input['ocrMax'],
+                    'ocr_ach' => $input['ocrAch'],
+                    'pg' => $input['pg'],
+                    'osat' => $input['osat'],
+                    'rsat' => $input['rsat'],
+                    'appr' => $input['appreciation'],
+                    'comment1' => $input['qualityComment1'],
+                    'comment2' => $input['qualityComment2'],
+                ];
+
+                $qualityInsertResult = $this->sqQualityVoice->saveQualityVoice($qualityInsert);
+                if(! count($qualityInsertResult)){
+                    DB::rollback();
+                    return $response;
+                }
                 DB::commit();
                 $response = [
                     'success' => 1,
                 ];
                 
             }
-            return $response;
-        /*} catch (Exception $e) {
+        //    return $response;
+        } catch (Exception $e) {
             DB::rollback();
         }finally{
             return $response;
-        }*/
+        }
     }
 
     public function getVoiceSqHead($input)
@@ -217,4 +325,6 @@ class VoiceService {
         $masterDTO->setLinks($sqHeadData->render());
         return $masterDTO;
     }
+
+    
 }
