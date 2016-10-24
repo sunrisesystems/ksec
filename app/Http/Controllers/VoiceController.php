@@ -95,7 +95,14 @@ class VoiceController extends Controller
      */
     public function update(VoiceRequest $voiceRequest, $id)
     {
-        //
+        $input = $voiceRequest->all();
+      //  Lib::pr($input); exit;
+        $result = $this->voiceService->updateVoiceData($input,$id);
+        if($result['success']){
+            return redirect('voice')->with('message',Lang::get('messages.UPDATED_SUCC'))->with('class','alert alert-success');
+        }else{
+            return redirect()->back()->with('message',$result['data'])->with('class','alert alert-danger');
+        }
     }
 
     /**

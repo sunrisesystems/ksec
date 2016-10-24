@@ -14,4 +14,10 @@ class SqFatal extends Model
     {
     	return $this->create($insert);
     }
+
+    public function saveOrUpdateFatal($update,$existData)
+    {
+    	$sqFatal = $this->firstOrCreate($existData);
+    	return $sqFatal->update($update);
+    }
 }

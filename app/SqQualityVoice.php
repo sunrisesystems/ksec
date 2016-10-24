@@ -14,4 +14,9 @@ class SqQualityVoice extends Model
     {
     	return $this->create($insert);
     }
+
+    public function updateQualityVoice($update,$sqHeadId)
+    {
+    	return $this->where('sq_head_id',$sqHeadId)->update($update);
+    }
 }

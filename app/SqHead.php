@@ -42,4 +42,9 @@ class SqHead extends Model
     {
         return $this->with('sqFatal')->with('sqAdherence')->with('sqQualityVoice')->find($id);
     }
+
+    public function updateSqHead($update,$id)
+    {
+        return $this->find($id)->update($update);
+    }
 }

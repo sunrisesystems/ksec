@@ -332,5 +332,164 @@ class VoiceService {
         return $this->sqHead->getSqHeadById($voiceId);
     }
 
+    public function updateVoiceData($input,$id)
+    {
+
+        try {
+            $response = [
+                'success' => 0,
+                'data' => Lang::get('messages.PROCESS_FAIL'),
+            ];
+
+            DB::beginTransaction();
+
+            $loggedInUser = $this->user;
+
+            $updateSqHead = [
+                'trdate' => Lib::convertDateFormat("d-M-Y",$input['date'],"Y-m-d"),
+                'process_id' => $input['process'],
+                'agent_id' => $input['agent'],
+                'tl_id' => $input['teamLead'],
+                'manager_id' => $input['manager'],
+                'cat_id' => $input['category'],
+                'client_id' => $input['clientId'],
+                'call_id' => $input['callId'],
+                'duration_id' => $input['duration'],
+                'calltype_id' => $input['callType'],
+                'subcalltype_id' => $input['subCallType'],
+                'updated_by' => $loggedInUser->id,
+            ];
+
+            if(!empty($input['fatalReason1']) || !empty($input['fatalReason2'])){
+                $updateSqHead['fatal'] = 'Y';
+            }else{
+                $updateSqHead['fatal'] = 'N';
+            }
+
+            if($input['knowledge'] == 'No' || $input['securityVerification'] == 'No' || $input['callBackSeverity'] == 'No' || $input['adherenceOther'] == 'No' ){
+                $updateSqHead ['adherence'] = 'N';
+            }else{
+                $updateSqHead ['adherence'] = 'Y';
+            }
+
+            if($input['appreciation'] == 'Yes'){
+                $appreciation = 'Y';
+            }else{
+                $appreciation = 'N';
+            }
+
+            // calculate quality details
+            $qualityMax = $input['tmMax'] + $input['cmMax'] + $input['chpMax'] + $input['poaMax'] + $input['delighterMax'] + $input['suMax'] + $input['sctMax'] + $input['ocrMax'];
+
+            $qualityAch = $input['tmAch'] + $input['cmAch'] + $input['chpAch'] + $input['poaAch'] + $input['delighterAch'] + $input['suAch'] + $input['sctAch'] + $input['ocrAch'];
+
+            $updateSqHead['quality_max'] = $qualityMax;
+            $updateSqHead['quality_ach'] = $qualityAch;
+
+            if($qualityAch > 0 && $qualityMax > 0){
+                $qualityPer = $qualityAch / $qualityMax;
+            }else{
+                $qualityPer = 0;
+            }
+            $updateSqHead['quality_per'] = $qualityPer;
+
+            $updateSqHead['appr'] = $appreciation;
+
+            $updateSqHeadResult = $this->sqHead->updateSqHead($updateSqHead,$id);
+            if($updateSqHeadResult){
+                // check for fatal now
+                if(!empty($input['fatalReason1']) || !empty($input['fatalReason2']) || !empty($input['fatalComment'])){
+                    // fatal insert
+                    $fatalExists = [
+                        'sq_head_id' => $id,
+                    ];
+                    if(!empty($input['fatalReason1'])){
+                        $fatalInsert['reason1_id'] = $input['fatalReason1'];
+                    }
+
+                    if(!empty($input['fatalReason2'])){
+                        $fatalInsert['reason2_id'] = $input['fatalReason2'];
+                    }
+
+                    if(!empty($input['fatalComment'])){
+                        $fatalInsert['comment'] = $input['fatalComment'];
+                    }
+
+                    $fatalInsertResult = $this->sqFatal->saveOrUpdateFatal($fatalInsert,$fatalExists);
+                    if(! count($fatalInsertResult)){
+                        DB::rollback();
+                        return $response;
+                    }
+                }
+
+                // update sq adherence
+                $adherenceUpdate = [
+                    'aik' => $input['knowledge'],
+                    'sv' => $input['securityVerification'],
+                    'cbs' => $input['callBackSeverity'],
+                    'other' => $input['adherenceOther'],
+                    'comment' => $input['adherenceComment'],
+                ];
+
+                $adherenceUpdateResult = $this->sqAdherence->updateAdherence($adherenceUpdate,$id);
+                if(! count($adherenceUpdateResult)){
+                    DB::rollback();
+                    return $response;
+                }
+
+                // save quality record
+                $qualityUpdate = [
+                    'tm' => $input['tm'],
+                    'tm_max' => $input['tmMax'],
+                    'tm_ach' => $input['tmAch'],
+                    'comm' => $input['cm'],
+                    'comm_max' => $input['cmMax'],
+                    'comm_ach' => $input['cmAch'],
+                    'chp' => $input['chp'],
+                    'chp_max' => $input['chpMax'],
+                    'chp_ach' => $input['chpAch'],
+                    'pao' => $input['poa'],
+                    'pao_max' => $input['poaMax'],
+                    'pao_ach' => $input['poaAch'],
+                    'du' => $input['delighter'],
+                    'du_max' => $input['delighterMax'],
+                    'du_ach' => $input['delighterAch'],
+                    'su' => $input['su'],
+                    'su_max' => $input['suMax'],
+                    'su_ach' => $input['suAch'],
+                    'cct' => $input['sct'],
+                    'cct_max' => $input['sctMax'],
+                    'cct_ach' => $input['sctAch'],
+                    'ocr' => $input['ocr'],
+                    'ocr_max' => $input['ocrMax'],
+                    'ocr_ach' => $input['ocrAch'],
+                    'pg' => $input['pg'],
+                    'osat' => $input['osat'],
+                    'rsat' => $input['rsat'],
+                    'appr' => $input['appreciation'],
+                    'comment1' => $input['qualityComment1'],
+                    'comment2' => $input['qualityComment2'],
+                ];
+
+                $qualityUpdateResult = $this->sqQualityVoice->updateQualityVoice($qualityUpdate,$id);
+                if(! count($qualityUpdateResult)){
+                    DB::rollback();
+                    return $response;
+                }
+                DB::commit();
+                $response = [
+                    'success' => 1,
+                ];                                
+
+            }else{
+                DB::rollback();
+            }
+        } catch (Exception $e) {
+            
+        }finally{
+            return $response;
+        }
+    }
+
     
 }

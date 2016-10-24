@@ -14,4 +14,9 @@ class SqAdherence extends Model
     {
     	return $this->create($insert);
     }
+
+    public function updateAdherence($update,$sqHeadId)
+    {
+    	return $this->where('sq_head_id',$sqHeadId)->update($update);
+    }
 }
