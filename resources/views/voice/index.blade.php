@@ -36,11 +36,11 @@
 				<strong>Manage Voice</strong>
 			</li>				
 		</ol>			
-		<!-- <div class="col-lg-2 col-md-2 align-right">
+		<div class="col-lg-2 col-md-2 align-right">
 			<a title="Close Filter" class="close-filter" style="display:none;" href="javascript:void(0)">
 				<span class="label label-default"><i class="glyphicon glyphicon-remove"></i> Close</span>
 			</a>
-		</div> -->		
+		</div>		
 	</div>
 	<div class="searchForm " style="display:none;">
 		<div class="container-fluid">
@@ -96,9 +96,9 @@
 						<a title="Create Voice" class="btn btn-white add-user" href="{!! route('voice.create')!!}">
 							<i class="glyphicon glyphicon-plus"></i> Create Voice
 						</a>
-						<!-- <a title="Search Filter" class="btn btn-white search-filter" href="javascript:void(0)">
+						<a title="Search Filter" class="btn btn-white search-filter" href="javascript:void(0)">
 							<i class="glyphicon glyphicon-filter"></i> Search
-						</a> -->
+						</a>
 					</div>
 				</div>				
 			</div>			
