@@ -55,7 +55,6 @@ $process = [
 		</div>	 -->	
 	</div>
 	<div class="searchForm " style="display:block;">
-		<div class="container-fluid">
 		<div class="form-container">
 		{!! Form::open(array('route' => 'audit.index','method'=>'GET','onSubmit' => 'return validateSearch()')) !!}
 		<div class="form-control-wrapper">
@@ -72,8 +71,7 @@ $process = [
 					<div class="col-sm-4">											
 						{!! HTML::decode(Form::label('agent', 'Agent')) !!}
 						{!! Form::select('agent',[],Request::get('agent'), ['id'=>'agent','class'=>'form-control']) !!}
-					</div>
-					
+					</div>					
 				</div>
 			</div>	
 			<div class="form-group">
@@ -107,38 +105,21 @@ $process = [
 			<div id="error_alert" class="error validationAlert validationError"></div>	
 
 			<!-- action wrapper -->
-			<div class="form-group action">
-				<div class="col-lg-12 pull-center buttons"> 
-					{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
-                   	{!! Form::button('Cancel', ['class' => 'btn btn-secondary','onclick'=>'redirectUrl()']) !!} 
-				</div>									
+			<div class="form-action text-center">				
+				{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
+               	{!! Form::button('Cancel', ['class' => 'btn btn-secondary','onclick'=>'redirectUrl()']) !!} 		
 			</div><!-- action end -->
 		</div><!-- Form control wrapper end -->
 		{!! Form::close() !!}
 		</div>
-		</div>
 	</div><!-- Search Form end -->
-	<!-- <div class="pageHeading container-fluid">
-		<div class="row ">			
-			<div class="page-title-wrapper">			
-				<div class="col-lg-8">
-					<h2 class="page-header">Manage Audit</h2>					
-				</div>			
-			</div>			
-		</div>
-	</div> --><!-- pageHeading end -->
 	
-	<div class="main-container-inner container-fluid">			
+	<div class="main-container-inner">			
 		@if(Session::has('message'))
-		<div class="{!! Session::get('class') !!}" id="message">
-			<div class="row pageHeading">
-				<div class="col-xs-12">
-					{!! Session::get('message') !!}
-				</div>
-			</div>
+		<div class="{!! Session::get('class') !!}" id="message">			
+			{!! Session::get('message') !!}			
 		</div>
-		@endif
-		
+		@endif		
 	</div><!-- main-container-inner end -->
 </div><!-- container end -->	
 <script>
