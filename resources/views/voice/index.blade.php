@@ -130,14 +130,14 @@
 					<tr>
 						<th class="center">#</th>
 						<th class="center">Id</th>
-						<th class="center">Date</th>  
-						<th class="center">Process</th> 
-						<th class="center">Agent</th>
-						<th class="center">Manager</th>
-						<th class="center">Team Lead</th>
-						<th class="center">Category</th>
-						<th class="center">Fatal</th>
-						<th class="center">Adherence</th>
+						<th class="left">Date</th>  
+						<th class="left">Process</th> 
+						<th class="left">Agent</th>
+						<th class="left">Manager</th>
+						<th class="left">Team Lead</th>
+						<th class="left">Category</th>
+						<th class="left">Fatal</th>
+						<th class="left">Adherence</th>
 						<th class="center">Quality %</th>
 						<th class="center">Actions</th>
 					</tr>
@@ -149,26 +149,26 @@
 					<tr>
 						<td align="center">{!! $count++ !!}</td>
 						<td align="center">{!! $value->getId() !!}</td>
-						<td align="center">{!! $value->getDate() !!}</td>
-						<td align="center">{!! $data['process'][$value->getProcess()]!!}</td>
-						<td align="center">{!! $data['agent'][$value->getAgent()]!!}</td>
-						<td align="center">{!! $data['manager'][$value->getManager()]!!}</td>
-						<td align="center">{!! $data['teamLead'][$value->getTl()]!!}</td>
-						<td align="center">{!! $data['category'][$value->getAgentCategory()]!!}</td>
+						<td align="left">{!! $value->getDate() !!}</td>
+						<td align="left">{!! $data['process'][$value->getProcess()]!!}</td>
+						<td align="left">{!! $data['agent'][$value->getAgent()]!!}</td>
+						<td align="left">{!! $data['manager'][$value->getManager()]!!}</td>
+						<td align="left">{!! $data['teamLead'][$value->getTl()]!!}</td>
+						<td align="left">{!! $data['category'][$value->getAgentCategory()]!!}</td>
 						@if($value->getFatal() == 'Y')
-							<td align="center">Yes</td>
+							<td align="left">Yes</td>
 						@elseif($value->getFatal() == 'N')
-							<td align="center">No</td>
+							<td align="left">No</td>
 						@else
-							<td align="center"></td>
+							<td align="left"></td>
 						@endif
 
 						@if($value->getAdherence() == 'Y')
-							<td align="center">Yes</td>
+							<td align="left">Yes</td>
 						@elseif($value->getAdherence() == 'N')
-							<td align="center">No</td>
+							<td align="left">No</td>
 						@else
-							<td align="center"></td>
+							<td align="left"></td>
 						@endif
 
 						<td align="center">{!! Lib::roundOffNumber($value->getQualityPer(),2) !!}</td>

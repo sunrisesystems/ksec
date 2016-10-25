@@ -114,13 +114,13 @@
 				<thead>
 					<tr>
 						<th class="center">#</th>
-						<th class="center">System ID</th>
-						<th class="center">Emp Code</th>  
-						<th class="center">Name</th> 
-						<th class="center">Allow Login</th>
-						<th class="center">Emp Type</th>
-						<th class="center">Department</th>
-						<th class="center">Status</th>
+						<th class="left">System ID</th>
+						<th class="left">Emp Code</th>  
+						<th class="left">Name</th> 
+						<th class="left">Allow Login</th>
+						<th class="left">Emp Type</th>
+						<th class="left">Department</th>
+						<th class="left">Status</th>
 						<th class="center">Actions</th>
 					</tr>
 				</thead>
@@ -130,17 +130,17 @@
 					@foreach($employees->getListDTO() as $key)
 					<tr>
 						<td align="center">{!! $count++ !!}</td>
-						<td align="center">{!! $key->getSystemId() !!}</td>
-						<td align="center">{!! $key->getEmpCode() !!}</td>
-						<td align="center">{!! $key->getName() !!}</td>
+						<td align="left">{!! $key->getSystemId() !!}</td>
+						<td align="left">{!! $key->getEmpCode() !!}</td>
+						<td align="left">{!! $key->getName() !!}</td>
 						@if($key->getAllowLogin() == 'Y')
-						<td align="center">Yes</td>
+						<td align="left">Yes</td>
 						@else
-						<td align="center">No</td>
+						<td align="left">No</td>
 						@endif
-						<td align="center">{!! $data['empType'][$key->getEmpType()]!!}</td>
-						<td align="center">{!! $data['department'][$key->getDepartment()]!!}</td>
-						<td align="center" class="status">
+						<td align="left">{!! $data['empType'][$key->getEmpType()]!!}</td>
+						<td align="left">{!! $data['department'][$key->getDepartment()]!!}</td>
+						<td align="left" class="status">
 							@if($key->getStatus() == 'A')
 							<span class="label-status label-warning-active">active</span>
 							@else

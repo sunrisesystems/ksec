@@ -52,7 +52,7 @@
 						<tbody>
 							<tr>
 								<td align="right">{!! $count++ !!}</td>
-								<td>{!! $key->name !!}</td>
+								<td align="left">{!! $key->name !!}</td>
 								<td align="center" class="action-icon">	
 								@if($key->id != 1)
 								<!-- <a href="{!! URL::to('roles/'.$key->id.'/edit') !!}" class="space"> 
