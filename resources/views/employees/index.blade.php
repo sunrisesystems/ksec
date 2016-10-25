@@ -85,27 +85,19 @@
 		</div>
 		</div>
 	</div><!-- Search Form end -->
-	<div class="pageHeading container-fluid">
-		<div class="row ">			
-			<div class="page-title-wrapper">			
-				<div class="col-lg-8">
-					<h2 class="page-header">Manage Employees</h2>					
-				</div>
-				<div class="col-lg-4">
-					<div class="title-action">
-						<a title="Add Employee" class="btn btn-white add-user" href="{!! route('employees.create')!!}">
-							<i class="glyphicon glyphicon-plus"></i> Add Employee
-						</a>
-						<!-- <a title="Search Filter" class="btn btn-white search-filter" href="javascript:void(0)">
-							<i class="glyphicon glyphicon-filter"></i> Search
-						</a> -->
-					</div>
-				</div>				
-			</div>			
+	<header class="page-header-wrapper">
+		<div class="page-heading">
+			<h2>Manage Employees</h2>
 		</div>
-	</div><!-- pageHeading end -->
+		<div class="header-actions">
+			<a title="Add Employee" class="btn btn-white add-user" href="{!! route('employees.create')!!}">
+				<i class="glyphicon glyphicon-plus"></i> Add Employee
+			</a>
+		</div>
+	</header>
+	<div class="clearfix"></div>
 	
-	<div class="main-container-inner container-fluid">			
+	<div class="main-container-inner">			
 		@if(Session::has('message'))
 		<div class="{!! Session::get('class') !!}" id="message">
 			<div class="row pageHeading">
@@ -115,67 +107,65 @@
 			</div>
 		</div>
 		@endif
-		<div class="row">
-			<div class="col-xs-12">
-				@if(count($employees->getListDTO()))
-				<div class="table-responsive">
-					<table id="drawingList" class="category table table-hover">
-						<thead>
-							<tr>
-								<th class="center">#</th>
-								<th class="center">System ID</th>
-								<th class="center">Emp Code</th>  
-								<th class="center">Name</th> 
-								<th class="center">Allow Login</th>
-								<th class="center">Emp Type</th>
-								<th class="center">Department</th>
-								<th class="center">Status</th>
-								<th class="center">Actions</th>
-							</tr>
-						</thead>
-					  <?php $count = ($employees->getCount() * Config::get('global_vars.PAGINATION_LIMIT')) - Config::get('global_vars.PAGINATION_LIMIT') + 1;
-					 	?>
-						<tbody>
-							@foreach($employees->getListDTO() as $key)
-							<tr>
-								<td align="center">{!! $count++ !!}</td>
-								<td align="center">{!! $key->getSystemId() !!}</td>
-								<td align="center">{!! $key->getEmpCode() !!}</td>
-								<td align="center">{!! $key->getName() !!}</td>
-								@if($key->getAllowLogin() == 'Y')
-								<td align="center">Yes</td>
-								@else
-								<td align="center">No</td>
-								@endif
-								<td align="center">{!! $data['empType'][$key->getEmpType()]!!}</td>
-								<td align="center">{!! $data['department'][$key->getDepartment()]!!}</td>
-								<td align="center" class="status">
-									@if($key->getStatus() == 'A')
-									<span class="label-status label-warning-active">active</span>
-									@else
-									<span class="label-status label-warning-inactive">inactive</span>
-									@endif
-								</td>
-								<td align="center" class="action-icon">								
-									<a href="{!! route('employees.edit',[$key->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Employee" class="edit-user">
-										<i class="glyphicon glyphicon-pencil"></i> 
-									</a>
-									<!-- <a href="{!! URL::to('employees/reset-password/'.$key->getId()) !!}" data-toggle="tooltip" data-placement="bottom" title="Reset Password" class="resetPass">
-										<i class="glyphicon glyphicon-lock"></i> 
-									</a> -->
-								</td>
-								
-							</tr>
-							@endforeach
-						</tbody>
-				  </table><!-- table end -->
-				  {!! $employees->getLinks() !!}
-				</div><!-- table responsive end -->
-				@else
-					<div class="alert alert-info">No Record Found</div>
-				@endif
-			</div>
-		</div>
+
+		@if(count($employees->getListDTO()))
+		<div class="table-responsive">
+			<table id="drawingList" class="category table table-hover">
+				<thead>
+					<tr>
+						<th class="center">#</th>
+						<th class="center">System ID</th>
+						<th class="center">Emp Code</th>  
+						<th class="center">Name</th> 
+						<th class="center">Allow Login</th>
+						<th class="center">Emp Type</th>
+						<th class="center">Department</th>
+						<th class="center">Status</th>
+						<th class="center">Actions</th>
+					</tr>
+				</thead>
+			  <?php $count = ($employees->getCount() * Config::get('global_vars.PAGINATION_LIMIT')) - Config::get('global_vars.PAGINATION_LIMIT') + 1;
+			 	?>
+				<tbody>
+					@foreach($employees->getListDTO() as $key)
+					<tr>
+						<td align="center">{!! $count++ !!}</td>
+						<td align="center">{!! $key->getSystemId() !!}</td>
+						<td align="center">{!! $key->getEmpCode() !!}</td>
+						<td align="center">{!! $key->getName() !!}</td>
+						@if($key->getAllowLogin() == 'Y')
+						<td align="center">Yes</td>
+						@else
+						<td align="center">No</td>
+						@endif
+						<td align="center">{!! $data['empType'][$key->getEmpType()]!!}</td>
+						<td align="center">{!! $data['department'][$key->getDepartment()]!!}</td>
+						<td align="center" class="status">
+							@if($key->getStatus() == 'A')
+							<span class="label-status label-warning-active">active</span>
+							@else
+							<span class="label-status label-warning-inactive">inactive</span>
+							@endif
+						</td>
+						<td align="center" class="action-icon">								
+							<a href="{!! route('employees.edit',[$key->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Employee" class="edit-user">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</a>
+							<!-- <a href="{!! URL::to('employees/reset-password/'.$key->getId()) !!}" data-toggle="tooltip" data-placement="bottom" title="Reset Password" class="resetPass">
+								<i class="glyphicon glyphicon-lock"></i> 
+							</a> -->
+						</td>
+						
+					</tr>
+					@endforeach
+				</tbody>
+		  </table><!-- table end -->
+		  {!! $employees->getLinks() !!}
+		</div><!-- table responsive end -->
+		@else
+			<div class="alert alert-info">No Record Found</div>
+		@endif
+			
 	</div><!-- main-container-inner end -->
 </div><!-- container end -->	
 <script>

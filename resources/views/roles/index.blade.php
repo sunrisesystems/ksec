@@ -18,19 +18,12 @@
 			</a>
 		</div> -->		
 	</div>
-
-	<div class="pageHeading container-fluid">
-		<div class="row ">			
-			<div class="page-title-wrapper">			
-				<div class="col-lg-8">
-					<h2 class="page-header">Manage Roles</h2>					
-				</div>
-				<div class="col-lg-4">
-					
-				</div>				
-			</div>			
+	<header class="page-header-wrapper">
+		<div class="page-heading">
+			<h2>Manage Roles</h2>
 		</div>
-	</div><!-- pageHeading end -->	
+	</header>
+	<div class="clearfix"></div>
 	
 	<div class="main-container-inner container-fluid">
 		@if(Session::has('message'))

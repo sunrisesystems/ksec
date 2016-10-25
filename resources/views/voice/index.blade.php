@@ -85,7 +85,18 @@
 		</div>
 		</div>
 	</div><!-- Search Form end -->
-	<div class="pageHeading container-fluid">
+	<header class="page-header-wrapper">
+		<div class="page-heading">
+			<h2>Manage Voice</h2>
+		</div>
+		<div class="header-actions">
+			<a title="Create Voice" class="btn btn-white add-user" href="{!! route('voice.create')!!}">
+				<i class="glyphicon glyphicon-plus"></i> Create Voice
+			</a>
+		</div>
+	</header>
+	<div class="clearfix"></div>
+	<!-- <div class="pageHeading">
 		<div class="row ">			
 			<div class="page-title-wrapper">			
 				<div class="col-lg-8">
@@ -96,98 +107,87 @@
 						<a title="Create Voice" class="btn btn-white add-user" href="{!! route('voice.create')!!}">
 							<i class="glyphicon glyphicon-plus"></i> Create Voice
 						</a>
-						<!-- <a title="Search Filter" class="btn btn-white search-filter" href="javascript:void(0)">
+						<a title="Search Filter" class="btn btn-white search-filter" href="javascript:void(0)">
 							<i class="glyphicon glyphicon-filter"></i> Search
-						</a> -->
+						</a>
 					</div>
 				</div>				
 			</div>			
 		</div>
-	</div><!-- pageHeading end -->
+	</div> -->
 	
-	<div class="main-container-inner container-fluid">			
+	<div class="main-container-inner">			
 		@if(Session::has('message'))
-		<div class="{!! Session::get('class') !!}" id="message">
-			<div class="row pageHeading">
-				<div class="col-xs-12">
-					{!! Session::get('message') !!}
-				</div>
-			</div>
+		<div class="{!! Session::get('class') !!}" id="message">			
+			{!! Session::get('message') !!}			
 		</div>
 		@endif
-		<div class="row">
-			<div class="col-xs-12">
-				@if(count($sqHead->getListDTO()))
-				<div class="table-responsive">
-					<table id="drawingList" class="category table table-hover">
-						<thead>
-							<tr>
-								<th class="center">#</th>
-								<th class="center">Id</th>
-								<th class="center">Date</th>  
-								<th class="center">Process</th> 
-								<th class="center">Agent</th>
-								<th class="center">Manager</th>
-								<th class="center">Team Lead</th>
-								<th class="center">Category</th>
-								<th class="center">Fatal</th>
-								<th class="center">Adherence</th>
-								<th class="center">Quality %</th>
-								<th class="center">Actions</th>
-							</tr>
-						</thead>
-					  <?php $count = ($sqHead->getCount() * Config::get('global_vars.PAGINATION_LIMIT')) - Config::get('global_vars.PAGINATION_LIMIT') + 1;
-					 	?>
-						<tbody>
-							@foreach($sqHead->getListDTO() as $key => $value)
-							<tr>
-								<td align="center">{!! $count++ !!}</td>
-								<td align="center">{!! $value->getId() !!}</td>
-								<td align="center">{!! $value->getDate() !!}</td>
-								<td align="center">{!! $data['process'][$value->getProcess()]!!}</td>
-								<td align="center">{!! $data['agent'][$value->getAgent()]!!}</td>
-								<td align="center">{!! $data['manager'][$value->getManager()]!!}</td>
-								<td align="center">{!! $data['teamLead'][$value->getTl()]!!}</td>
-								<td align="center">{!! $data['category'][$value->getAgentCategory()]!!}</td>
-								@if($value->getFatal() == 'Y')
-									<td align="center">Yes</td>
-								@elseif($value->getFatal() == 'N')
-									<td align="center">No</td>
-								@else
-									<td align="center"></td>
-								@endif
 
-								@if($value->getAdherence() == 'Y')
-									<td align="center">Yes</td>
-								@elseif($value->getAdherence() == 'N')
-									<td align="center">No</td>
-								@else
-									<td align="center"></td>
-								@endif
+		@if(count($sqHead->getListDTO()))
+		<div class="table-responsive">
+			<table id="drawingList" class="category table table-hover">
+				<thead>
+					<tr>
+						<th class="center">#</th>
+						<th class="center">Id</th>
+						<th class="center">Date</th>  
+						<th class="center">Process</th> 
+						<th class="center">Agent</th>
+						<th class="center">Manager</th>
+						<th class="center">Team Lead</th>
+						<th class="center">Category</th>
+						<th class="center">Fatal</th>
+						<th class="center">Adherence</th>
+						<th class="center">Quality %</th>
+						<th class="center">Actions</th>
+					</tr>
+				</thead>
+			  <?php $count = ($sqHead->getCount() * Config::get('global_vars.PAGINATION_LIMIT')) - Config::get('global_vars.PAGINATION_LIMIT') + 1;
+			 	?>
+				<tbody>
+					@foreach($sqHead->getListDTO() as $key => $value)
+					<tr>
+						<td align="center">{!! $count++ !!}</td>
+						<td align="center">{!! $value->getId() !!}</td>
+						<td align="center">{!! $value->getDate() !!}</td>
+						<td align="center">{!! $data['process'][$value->getProcess()]!!}</td>
+						<td align="center">{!! $data['agent'][$value->getAgent()]!!}</td>
+						<td align="center">{!! $data['manager'][$value->getManager()]!!}</td>
+						<td align="center">{!! $data['teamLead'][$value->getTl()]!!}</td>
+						<td align="center">{!! $data['category'][$value->getAgentCategory()]!!}</td>
+						@if($value->getFatal() == 'Y')
+							<td align="center">Yes</td>
+						@elseif($value->getFatal() == 'N')
+							<td align="center">No</td>
+						@else
+							<td align="center"></td>
+						@endif
 
-									<td align="center">{!! Lib::roundOffNumber($value->getQualityPer(),2) !!}</td>
-								
+						@if($value->getAdherence() == 'Y')
+							<td align="center">Yes</td>
+						@elseif($value->getAdherence() == 'N')
+							<td align="center">No</td>
+						@else
+							<td align="center"></td>
+						@endif
 
-								<td align="center">
-									
-								</td>
-								<td align="center" class="action-icon">								
-									<a href="{!! route('voice.edit',[$value->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Voice" class="edit-user">
-										<i class="glyphicon glyphicon-pencil"></i> 
-									</a>
-								</td>
-								
-							</tr>
-							@endforeach
-						</tbody>
-				  </table><!-- table end -->
-				  {!! $sqHead->getLinks() !!}
-				</div><!-- table responsive end -->
-				@else
-					<div class="alert alert-info">No Record Found</div>
-				@endif
-			</div>
-		</div>
+						<td align="center">{!! Lib::roundOffNumber($value->getQualityPer(),2) !!}</td>
+						<td align="center" class="action-icon">								
+							<a href="{!! route('voice.edit',[$value->getId()]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Voice" class="edit-user">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</a>
+						</td>
+						
+					</tr>
+					@endforeach
+				</tbody>
+		  </table><!-- table end -->
+		  {!! $sqHead->getLinks() !!}
+		</div><!-- table responsive end -->
+		@else
+			<div class="alert alert-info">No Record Found</div>
+		@endif
+			
 	</div><!-- main-container-inner end -->
 </div><!-- container end -->	
 <script>

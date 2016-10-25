@@ -11,3 +11,12 @@
     margin-top: 6px;
     padding: 0 1px;
 }
+.action-icon {
+	.edit-user {
+	color: $k-blue;
+		i {
+			color: $k-blue;
+			font-size: 18px;
+		}
+	}
+}
