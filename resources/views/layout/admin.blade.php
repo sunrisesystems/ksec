@@ -17,6 +17,7 @@ $currentCA          = $currentController ."_".$currentAction;
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
 	<!-- custom style sheet -->
     {!! HTML::style('css/admins/ksec.css') !!}
+    {!! HTML::style('css/admins/multiple-select.css') !!}
 	
 	{!! HTML::script('js/jquery-1.11.1.min.js') !!}	
 	{!! HTML::script('js/admins/jquery-ui.min.js') !!}
@@ -30,6 +31,7 @@ $currentCA          = $currentController ."_".$currentAction;
     {!! HTML::script('js/admins/jquery.datetimepicker.full.js')!!}
     {!! HTML::script('js/admins/jquery.dynotable.js')!!}
     {!! HTML::script('js/admins/jquery.matchHeight.js')!!}
+    {!! HTML::script('js/admins/multiple-select.js')!!}
     
     <script type="text/javascript">
     function doCancel(url) {
@@ -159,6 +161,14 @@ $currentCA          = $currentController ."_".$currentAction;
 							</li>						
 						</ul>						
 					</li>					
+					<li <?php if($currentCA == 'audit_index' || $currentCA == 'audit_create' || $currentCA == 'audit_edit') { ?> class="dropdown active" <?php }  else {?> class="dropdown" <?php }?> >
+						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Reports <i class="fa fa-angle-right"></i></a>						
+						<ul class="nav nav-second-level ">												
+							<li <?php if($currentCA == 'audit_index' || $currentCA == 'audit_create' || $currentCA == 'audit_edit') { ?> class="active" <?php } ?>>
+								<a href="{!! route('audit.index') !!}">Audit Entry</a>
+							</li>						
+						</ul>						
+					</li>
 				</ul>
 			</nav>	
 		</aside>

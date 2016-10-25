@@ -26,6 +26,7 @@ Route::resource('voice', 'VoiceController');
 Route::resource('roles','RoleController');
 Route::resource('calltype','CalltypeController');
 Route::resource('subcalltype','SubcalltypeController');
+Route::resource('audit','AuditController');
 
 
 // to be remove
