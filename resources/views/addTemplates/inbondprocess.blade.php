@@ -113,11 +113,11 @@
             <td><strong>Quality</strong></td>
             <td id="qualityTd">0.0%</td>
               <tr>
-                <td>Max</td>
+                <td><strong>Max</strong></td>
                 <td id="maxQuality"></td>
               </tr>
               <tr>
-                <td>Achieve</td>
+                <td><strong>Achieve</strong></td>
                 <td id="achQuality"></td>
               </tr>
           </tr>

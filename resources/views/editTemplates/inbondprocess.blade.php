@@ -121,11 +121,11 @@
             <td><strong>Quality</strong></td>
             <td id="qualityTd">{!! Lib::roundOffNumber($voice->quality_per,2)."%" !!}</td>
               <tr>
-                <td>Max</td>
+                <td><strong>Max</strong></td>
                 <td id="maxQuality">{!! Lib::roundOffNumber($voice->quality_max,2) !!}</td>
               </tr>
               <tr>
-                <td>Achieve</td>
+                <td><strong>Achieve</strong></td>
                 <td id="achQuality">{!! Lib::roundOffNumber($voice->quality_ach,2) !!}</td>
               </tr>
           </tr>
