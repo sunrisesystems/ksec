@@ -50,7 +50,7 @@ $process = [
 		</ol>			
 			
 	</div>
-	<div class="searchForm " style="display:block;">
+	<div class="searchForm audit-form" style="display:block;">
 		<div class="form-container">
 		{!! Form::open(array('url' => 'audit/index','method'=>'POST','onSubmit' => 'return validateSearch()')) !!}
 		<div class="form-control-wrapper">
