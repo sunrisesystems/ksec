@@ -5,30 +5,22 @@
 </script>
 <!-- Container Start -->
 <div id="main-container" class="main-container">
-	<div class="breadcrumb-wrapper container-fluid white-bg">
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<ol class="breadcrumb">
-					<li>
-						Home
-					</li>
-					<li class="active">
-						<strong>Dashboard</strong>
-					</li>				
-				</ol>
-			</div>			
-		</div>
+	<div class="breadcrumb-wrapper white-bg">
+		<ol class="breadcrumb">
+			<li>
+				Home
+			</li>
+			<li class="active">
+				<strong>Dashboard</strong>
+			</li>				
+		</ol>
 	</div>
-	
-	<div class="pageHeading container-fluid">
-		<div class="row ">			
-			<div class="page-title-wrapper">			
-				<div class="col-lg-12">
-					<h2 class="page-header">Dashboard</h2>					
-				</div>								
-			</div>			
+	<header class="page-header-wrapper">
+		<div class="page-heading">
+			<h2>Dashboard</h2>
 		</div>
-	</div><!-- pageHeading end -->
+	</header>
+	<div class="clearfix"></div>
 	
 	<div class="main-container-inner container-fluid">			
 		
