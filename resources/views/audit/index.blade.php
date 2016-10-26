@@ -60,43 +60,40 @@ $process = [
 		<div class="form-control-wrapper">
 			<div class="form-group">
 				<div class="row">
-					<div class="col-sm-4"> 						
+					<div class="col-sm-3"> 						
 						{!! Form::label('startDate', 'Start Date') !!}
 						{!! Form::text('startDate',Request::get('startDate'),array("placeholder"=>"Start Date",'id'=>'startDate','class'=>'form-control')) !!}
 					</div>
-					<div class="col-sm-4"> 						
+					<div class="col-sm-3"> 						
 						{!! Form::label('endDate', 'End Date') !!}
 						{!! Form::text('endDate',Request::get('endDate'),array("placeholder"=>"End Date",'id'=>'endDate','class'=>'form-control')) !!}
 					</div>	
-					<div class="col-sm-4">											
+					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('agent', 'Agent')) !!}
 						{!! Form::select('agent',[],Request::get('agent'), ['id'=>'agent','class'=>'form-control']) !!}
-					</div>					
+					</div>	
+					<div class="col-sm-3">											
+						{!! HTML::decode(Form::label('teamLead', 'Team Lead')) !!}
+						{!! Form::select('teamLead', [], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control']) !!}
+					</div>				
 				</div>
 			</div>	
 			<div class="form-group">
 				<div class="row">	
-					<div class="col-sm-4">											
-						{!! HTML::decode(Form::label('teamLead', 'Team Lead')) !!}
-						{!! Form::select('teamLead', [], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control']) !!}
-					</div>	
-					<div class="col-sm-4">											
+						
+					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('manager', 'Manager')) !!}
 						{!! Form::select('manager', [], Request::get('manager'), ['id'=>'manager','class'=>'form-control']) !!}
 					</div>	
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						{!! Form::label('clientCode', 'Client Code') !!}
 						{!! Form::text('clientCode',Request::get('clientCode'),array("placeholder"=>"Client Code",'id'=>'clientCode','class'=>'form-control')) !!}
-					</div>		
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="row">	
-					<div class="col-sm-4">											
+					</div>	
+					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('process', 'Process')) !!}	
 						{!! Form::select('process',$process,Request::get('process'), ['id'=>'process','class'=>'form-control','multiple'=> 'multiple']) !!}
-					</div>
-					<div class="col-sm-4">											
+					</div>	
+					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('formName', 'Form')) !!}	
 						{!! Form::select('formName',[],Request::get('formName'), ['id'=>'formName','class'=>'form-control']) !!}
 					</div>
@@ -130,5 +127,20 @@ $process = [
     function redirectUrl () {
         doCancel("{!! URL::to('audit') !!}")
     }
+
+    $(document).ready(function () {
+    	$('#startDate,#endDate').datetimepicker({
+	    	format:'d-M-Y',
+	  		formatDate:'d-M-Y',
+	  		//mask: true,
+	  		//minDate : '-02-01-1970',
+	  		maxDate : 0,
+	  		timepicker:false,
+	  	/*	theme:'dark',*/
+	  		onSelectTime:function(dp,$input){
+	  			$("#startDate,#endDate").datetimepicker('hide');
+	  		}, 
+	    });
+    });
 </script>
 @stop
