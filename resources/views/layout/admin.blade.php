@@ -165,7 +165,7 @@ $currentCA          = $currentController ."_".$currentAction;
 						<a href="javascript::void(0)" ><i class="icon-left fa fa-th-large"></i> Reports <i class="fa fa-angle-right"></i></a>						
 						<ul class="nav nav-second-level ">												
 							<li <?php if($currentCA == 'audit_index' || $currentCA == 'audit_create' || $currentCA == 'audit_edit') { ?> class="active" <?php } ?>>
-								<a href="{!! route('audit.index') !!}">Audit Entry</a>
+								<a href="{!!URL::to('audit')!!}">Audit Entry</a>
 							</li>						
 						</ul>						
 					</li>

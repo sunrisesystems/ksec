@@ -48,33 +48,29 @@ $process = [
 				<strong>Manage Audit</strong>
 			</li>				
 		</ol>			
-		<!-- <div class="col-lg-2 col-md-2 align-right">
-			<a title="Close Filter" class="close-filter" style="display:none;" href="javascript:void(0)">
-				<span class="label label-default"><i class="glyphicon glyphicon-remove"></i> Close</span>
-			</a>
-		</div>	 -->	
+			
 	</div>
 	<div class="searchForm " style="display:block;">
 		<div class="form-container">
-		{!! Form::open(array('route' => 'audit.index','method'=>'GET','onSubmit' => 'return validateSearch()')) !!}
+		{!! Form::open(array('url' => 'audit/index','method'=>'POST','onSubmit' => 'return validateSearch()')) !!}
 		<div class="form-control-wrapper">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-sm-3"> 						
 						{!! Form::label('startDate', 'Start Date') !!}
-						{!! Form::text('startDate',Request::get('startDate'),array("placeholder"=>"Start Date",'id'=>'startDate','class'=>'form-control')) !!}
+						{!! Form::text('startDate',Request::get('startDate'),array("placeholder"=>"Start Date",'id'=>'startDate','class'=>'form-control','readonly'=>true)) !!}
 					</div>
 					<div class="col-sm-3"> 						
 						{!! Form::label('endDate', 'End Date') !!}
-						{!! Form::text('endDate',Request::get('endDate'),array("placeholder"=>"End Date",'id'=>'endDate','class'=>'form-control')) !!}
+						{!! Form::text('endDate',Request::get('endDate'),array("placeholder"=>"End Date",'id'=>'endDate','class'=>'form-control','readonly'=>true)) !!}
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('agent', 'Agent')) !!}
-						{!! Form::select('agent',[],Request::get('agent'), ['id'=>'agent','class'=>'form-control']) !!}
+						{!! Form::select('agent',$data['agent'],Request::get('agent'), ['id'=>'agent','class'=>'form-control']) !!}
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('teamLead', 'Team Lead')) !!}
-						{!! Form::select('teamLead', [], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control']) !!}
+						{!! Form::select('teamLead',$data['teamLead'], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control']) !!}
 					</div>				
 				</div>
 			</div>	
@@ -83,7 +79,7 @@ $process = [
 						
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('manager', 'Manager')) !!}
-						{!! Form::select('manager', [], Request::get('manager'), ['id'=>'manager','class'=>'form-control']) !!}
+						{!! Form::select('manager',$data['manager'], Request::get('manager'), ['id'=>'manager','class'=>'form-control']) !!}
 					</div>	
 					<div class="col-sm-3">
 						{!! Form::label('clientCode', 'Client Code') !!}
@@ -91,11 +87,11 @@ $process = [
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('process', 'Process')) !!}	
-						{!! Form::select('process',$process,Request::get('process'), ['id'=>'process','class'=>'form-control','multiple'=> 'multiple']) !!}
+						{!! Form::select('process',$data['process'],Request::get('process'), ['id'=>'process','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('formName', 'Form')) !!}	
-						{!! Form::select('formName',[],Request::get('formName'), ['id'=>'formName','class'=>'form-control']) !!}
+						{!! Form::select('formName',$data['sqForm'],Request::get('formName'), ['id'=>'formName','class'=>'form-control']) !!}
 					</div>
 				</div>
 			</div>
