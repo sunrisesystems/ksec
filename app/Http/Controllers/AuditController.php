@@ -8,6 +8,7 @@ use ksec\Http\Requests;
 use ksec\Http\Controllers\Controller;
 
 use ksec\Services\AuditService;
+use Lib;
 
 class AuditController extends Controller
 {
@@ -21,6 +22,13 @@ class AuditController extends Controller
     public function getIndex()
     {
         $data = $this->auditService->getIndexData();
+     //   Lib::pr($data); exit;
         return view("audit.index",compact('data'));
+    }
+
+    public function postIndex(Request $request)
+    {
+        $input = $request->all();
+        Lib::pr($$input);
     }
 }

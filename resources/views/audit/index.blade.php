@@ -66,11 +66,11 @@ $process = [
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('agent', 'Agent')) !!}
-						{!! Form::select('agent',$data['agent'],Request::get('agent'), ['id'=>'agent','class'=>'form-control']) !!}
+						{!! Form::select('agent[]',$data['agent'],Request::get('agent'), ['id'=>'agent','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('teamLead', 'Team Lead')) !!}
-						{!! Form::select('teamLead',$data['teamLead'], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control']) !!}
+						{!! Form::select('teamLead[]',$data['teamLead'], Request::get('teamLead'), ['id'=>'teamLead','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>				
 				</div>
 			</div>	
@@ -79,7 +79,7 @@ $process = [
 						
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('manager', 'Manager')) !!}
-						{!! Form::select('manager',$data['manager'], Request::get('manager'), ['id'=>'manager','class'=>'form-control']) !!}
+						{!! Form::select('manager[]',$data['manager'], Request::get('manager'), ['id'=>'manager','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>	
 					<div class="col-sm-3">
 						{!! Form::label('clientCode', 'Client Code') !!}
@@ -87,11 +87,11 @@ $process = [
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('process', 'Process')) !!}	
-						{!! Form::select('process',$data['process'],Request::get('process'), ['id'=>'process','class'=>'form-control','multiple'=> 'multiple']) !!}
+						{!! Form::select('process[]',$data['process'],Request::get('process'), ['id'=>'process','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>	
 					<div class="col-sm-3">											
 						{!! HTML::decode(Form::label('formName', 'Form')) !!}	
-						{!! Form::select('formName',$data['sqForm'],Request::get('formName'), ['id'=>'formName','class'=>'form-control']) !!}
+						{!! Form::select('formName[]',$data['sqForm'],Request::get('formName'), ['id'=>'formName','class'=>'form-control','multiple'=> 'multiple']) !!}
 					</div>
 				</div>
 			</div>
@@ -117,22 +117,21 @@ $process = [
 </div><!-- container end -->	
 <script>
     $("#message").fadeOut(5000);
-    $("select").multipleSelect({
-        filter: true
-    });
+
     function redirectUrl () {
         doCancel("{!! URL::to('audit') !!}")
     }
 
     $(document).ready(function () {
+    	$("select").multipleSelect({
+        	filter: true,
+        	//multiple: true,
+    	});
     	$('#startDate,#endDate').datetimepicker({
 	    	format:'d-M-Y',
 	  		formatDate:'d-M-Y',
-	  		//mask: true,
-	  		//minDate : '-02-01-1970',
 	  		maxDate : 0,
 	  		timepicker:false,
-	  	/*	theme:'dark',*/
 	  		onSelectTime:function(dp,$input){
 	  			$("#startDate,#endDate").datetimepicker('hide');
 	  		}, 
