@@ -1,8 +1,5 @@
 #header {
 	background: #fff none repeat scroll 0 0;
-	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 	display: block;
 	height: 45px;
 	overflow: hidden;
@@ -58,6 +55,10 @@
 		}
 		.navbar {
 			min-height: 45px;
+			-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			-o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 11px rgba(0, 0, 0, 0.1);
 		}
 		.navbar-brand {
 			width: 186px;
