@@ -37,11 +37,30 @@
 				}
 			}
 			.ms-drop {
-				li > label {
-					position: relative;
-					margin: 0;
-					padding: 5px 10px 5px 20px;
-					cursor: pointer;
+				li {
+					> label {
+						position: relative;
+						margin: 0;
+						padding: 5px 10px 5px 20px;
+						cursor: pointer;
+						input {
+							visibility: hidden;
+						}
+						&:before {
+							content: '\f096' ;
+							font-family: 'FontAwesome';
+							position: absolute;
+							left: 0;
+						}
+					}
+					&.selected {
+						> label {
+							&:before {
+								content: '\f046';
+								color: $k-blue;
+							}
+						}
+					}
 				}
 				input[type="checkbox"] {
 					margin-top: 0;
