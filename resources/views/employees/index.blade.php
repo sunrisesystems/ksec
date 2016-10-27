@@ -91,7 +91,8 @@
 		</div>
 		<div class="header-actions">
 			<a title="Add Employee" class="btn btn-white add-user" href="{!! route('employees.create')!!}">
-				<i class="glyphicon glyphicon-plus"></i> Add Employee
+				<span class="icon-wrapper"><i class="fa fa-plus" aria-hidden="true"></i></span>
+				 Add Employee
 			</a>
 		</div>
 	</header>

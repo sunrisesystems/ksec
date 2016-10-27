@@ -91,7 +91,7 @@
 		</div>
 		<div class="header-actions">
 			<a title="Create Voice" class="btn btn-white add-user" href="{!! route('voice.create')!!}">
-				<i class="glyphicon glyphicon-plus"></i> Create Voice
+				<span class="icon-wrapper"><i class="fa fa-plus" aria-hidden="true"></i></span> Create Voice
 			</a>
 		</div>
 	</header>
