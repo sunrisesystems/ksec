@@ -189,7 +189,7 @@ class VoiceService {
             $headInsert['quality_ach'] = $qualityAch;
 
             if($qualityAch > 0 && $qualityMax > 0){
-                $qualityPer = $qualityAch / $qualityMax;
+                $qualityPer = ($qualityAch / $qualityMax) * 100;
             }else{
                 $qualityPer = 0;
             }
@@ -387,7 +387,7 @@ class VoiceService {
             $updateSqHead['quality_ach'] = $qualityAch;
 
             if($qualityAch > 0 && $qualityMax > 0){
-                $qualityPer = $qualityAch / $qualityMax;
+                $qualityPer = ($qualityAch / $qualityMax) * 100;
             }else{
                 $qualityPer = 0;
             }

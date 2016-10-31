@@ -22,13 +22,13 @@ class AuditController extends Controller
     public function getIndex()
     {
         $data = $this->auditService->getIndexData();
-     //   Lib::pr($data); exit;
         return view("audit.index",compact('data'));
     }
 
     public function postIndex(Request $request)
     {
         $input = $request->all();
-        Lib::pr($$input);
+        $audit = $this->auditService->getAuditData($input);
+        return view('audit.resultTable',compact('audit'));
     }
 }

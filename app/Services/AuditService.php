@@ -42,4 +42,26 @@ class AuditService
         $data['sqForm'] = $this->sqForm->getFormList();
         return $data;
 	}
+
+    public function getAuditData($input)
+    {
+        try {
+            $response = [
+                'success' => 0,
+                'data' => Lang::get("messages.PROCESS_FAIL"),
+            ];
+            $input['paginationLimit'] = Config::get("global_vars.PAGINATION_LIMIT");
+
+            $auditData = $this->sqHead->getAuditData($input);
+            $response = [
+                'success' => 1,
+                'data' => $auditData,
+            ];
+            
+        } catch (Exception $e) {
+            
+        }finally{
+            return $response;
+        }
+    }
 }

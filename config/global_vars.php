@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'PAGINATION_LIMIT' => 20,
+    'PAGINATION_LIMIT' => 1,
     'STATUS_ARR' => ['A'=>'Active','I'=>'Inactive'],
     'PRIORITY_ARR' => ['P'=>'Primary','S'=>'Secondary'],
     'IMAGE_PATH' => base_path()."/public/data",
@@ -80,6 +80,8 @@ return [
         'sct' => 'Correct CT and SCT',
         'ocr' => 'OCR',
     ],
+
+    'DATEPICKER_MONTH_SPAN' => 31 , // its in days
 
 
 ];

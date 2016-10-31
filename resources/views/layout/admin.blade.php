@@ -32,6 +32,7 @@ $currentCA          = $currentController ."_".$currentAction;
     {!! HTML::script('js/admins/jquery.dynotable.js')!!}
     {!! HTML::script('js/admins/jquery.matchHeight.js')!!}
     {!! HTML::script('js/admins/multiple-select.js')!!}
+    {!! HTML::script('js/admins/moment.js')!!}
     
     <script type="text/javascript">
     function doCancel(url) {
