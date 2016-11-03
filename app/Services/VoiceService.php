@@ -159,7 +159,7 @@ class VoiceService {
                 'subcalltype_id' => $input['subCallType'],
                 'created_by' => $loggedInUser->id,
                 'updated_by' => $loggedInUser->id,
-                'form_id' => Config::get("global_vars.FORM_ID.VOCIE"),
+                'form_id' => Config::get("global_vars.FORM_ID.VOICE"),
             ];
 
             if(!empty($input['fatalReason1']) || !empty($input['fatalReason2'])){
@@ -298,7 +298,7 @@ class VoiceService {
     public function getVoiceSqHead($input)
     {
         $input['paginationLimit'] = Config::get("global_vars.PAGINATION_LIMIT");
-        $input['form_id'] = Config::get('global_vars.FORM_ID.VOCIE');
+        $input['form_id'] = Config::get('global_vars.FORM_ID.VOICE');
 
         $sqHeadData = $this->sqHead->getSqHeadByFormId($input);
         $listArr = [];

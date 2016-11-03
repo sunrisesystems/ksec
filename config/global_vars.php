@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'PAGINATION_LIMIT' => 1,
+    'PAGINATION_LIMIT' => 20,
     'STATUS_ARR' => ['A'=>'Active','I'=>'Inactive'],
     'PRIORITY_ARR' => ['P'=>'Primary','S'=>'Secondary'],
     'IMAGE_PATH' => base_path()."/public/data",
@@ -42,7 +42,7 @@ return [
     ],
 
     'FORM_ID' => [
-        'VOCIE' => 1,
+        'VOICE' => 1,
     ],
 
     'ADMIN_ROLE_ID' => 1,

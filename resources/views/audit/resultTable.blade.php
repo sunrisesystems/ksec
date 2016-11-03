@@ -65,12 +65,13 @@
 						@endif
 
 						<td align="center">{!! Lib::roundOffNumber($value->quality_per,2) !!}</td>
-						<td align="center" class="action-icon">								
+						<td align="center" class="action-icon">	
+							@if($value->form_id == Config::get('global_vars.FORM_ID.VOICE'))							
 							<a href="{!! route('voice.edit',[$value->id]) !!}" data-toggle="tooltip" data-placement="bottom" title="Edit Audit" class="edit-user">
 								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							</a>
+							@endif
 						</td>
-						
 					</tr>
 					@endforeach
 				</tbody>
@@ -89,7 +90,7 @@
 		$('.pagination a').on('click', function(e){
 		    e.preventDefault();
 		    var url = $(this).attr('href');
-		   
+		   	
 		    $.post(url, $('#auditForm').serialize(), function(data){
 		        $("#auditTable").html(data);
 		    });
