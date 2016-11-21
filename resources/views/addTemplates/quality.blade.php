@@ -223,14 +223,14 @@
                               </div>
                               <div class="form-group">
                                  {!! HTML::decode(Form::label('osat', 'OSAT <small class="mandatory">*</small>')) !!}
-                                 {!! Form::select('osat',$data['otherQuality'],null,['id'=>'osat','class'=>'form-control']) !!}
+                                 {!! Form::select('osat',$data['osat'],null,['id'=>'osat','class'=>'form-control']) !!}
                                  <div id="osat_alert" class="error validationAlert validationError">{!!$errors->first('osat')!!}</div>
                               </div>
-                              <div class="form-group">
+                             <!--  <div class="form-group">
                                  {!! HTML::decode(Form::label('rsat', 'RSAT <small class="mandatory">*</small>')) !!}
                                  {!! Form::select('rsat',$data['otherQuality'],null,['id'=>'rsat','class'=>'form-control']) !!}
                                  <div id="rsat_alert" class="error validationAlert validationError">{!!$errors->first('rsat')!!}</div>
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                  {!! HTML::decode(Form::label('appreciation', 'Appreciation <small class="mandatory">*</small>')) !!}
                                  {!! Form::select('appreciation',$data['otherQuality'],null,['id'=>'appreciation','class'=>'form-control','onchange'=>'checkAppreciation()']) !!}

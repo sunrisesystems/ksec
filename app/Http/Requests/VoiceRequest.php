@@ -63,7 +63,7 @@ class VoiceRequest extends Request
                     'ocr' => 'required',
                     'pg' => 'required',
                     'osat' => 'required',
-                    'rsat' => 'required',
+                   /* 'rsat' => 'required',*/
                     'appreciation' => 'required',
                 ];
                 
@@ -105,7 +105,7 @@ class VoiceRequest extends Request
                     'ocr' => 'required',
                     'pg' => 'required',
                     'osat' => 'required',
-                    'rsat' => 'required',
+                   /* 'rsat' => 'required',*/
                     'appreciation' => 'required',
                 ];
                 

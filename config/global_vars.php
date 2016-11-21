@@ -40,7 +40,11 @@ return [
         'No' => 'No',
         'NA' => 'NA',  
     ],
-
+    'OSAT' => [
+        'Smiley' => 'Smiley',
+        'Neutral' => 'Neutral',
+        'Frowny' => 'Frowny',
+    ],
     'FORM_ID' => [
         'VOICE' => 1,
     ],

@@ -86,7 +86,8 @@ class VoiceService {
         }
 
         $data['otherQuality'] = Lib::addSelect(Config::get('global_vars.OTHER_QUALITY'));
-
+        $data['osat'] = Lib::addSelect(Config::get('global_vars.OSAT'));
+        
         return $data;
         //Lib::pr($data); exit;
     }
@@ -127,6 +128,7 @@ class VoiceService {
         }
 
         $data['otherQuality'] = Lib::addSelect(Config::get('global_vars.OTHER_QUALITY'));
+        $data['osat'] = Lib::addSelect(Config::get('global_vars.OSAT'));
 
         return $data;
     }
@@ -270,7 +272,7 @@ class VoiceService {
                     'ocr_ach' => $input['ocrAch'],
                     'pg' => $input['pg'],
                     'osat' => $input['osat'],
-                    'rsat' => $input['rsat'],
+                    'rsat' => "Yes",
                     'appr' => $input['appreciation'],
                     'comment1' => $input['qualityComment1'],
                     'comment2' => $input['qualityComment2'],
@@ -465,7 +467,7 @@ class VoiceService {
                     'ocr_ach' => $input['ocrAch'],
                     'pg' => $input['pg'],
                     'osat' => $input['osat'],
-                    'rsat' => $input['rsat'],
+                    'rsat' => "Yes",
                     'appr' => $input['appreciation'],
                     'comment1' => $input['qualityComment1'],
                     'comment2' => $input['qualityComment2'],

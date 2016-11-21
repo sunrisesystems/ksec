@@ -223,14 +223,14 @@
                               </div>
                               <div class="form-group">
                                  {!! HTML::decode(Form::label('osat', 'OSAT <small class="mandatory">*</small>')) !!}
-                                 {!! Form::select('osat',$data['otherQuality'],@$voice->sqQualityVoice->osat,['id'=>'osat','class'=>'form-control']) !!}
+                                 {!! Form::select('osat',$data['osat'],@$voice->sqQualityVoice->osat,['id'=>'osat','class'=>'form-control']) !!}
                                  <div id="osat_alert" class="error validationAlert validationError">{!!$errors->first('osat')!!}</div>
                               </div>
-                              <div class="form-group">
+                            <!--   <div class="form-group">
                                  {!! HTML::decode(Form::label('rsat', 'RSAT <small class="mandatory">*</small>')) !!}
                                  {!! Form::select('rsat',$data['otherQuality'],@$voice->sqQualityVoice->rsat,['id'=>'rsat','class'=>'form-control']) !!}
                                  <div id="rsat_alert" class="error validationAlert validationError">{!!$errors->first('rsat')!!}</div>
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                  {!! HTML::decode(Form::label('appreciation', 'Appreciation <small class="mandatory">*</small>')) !!}
                                  {!! Form::select('appreciation',$data['otherQuality'],@$voice->sqQualityVoice->appr,['id'=>'appreciation','class'=>'form-control','onchange'=>'checkAppreciation()']) !!}
