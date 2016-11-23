@@ -120,6 +120,9 @@ $currentCA          = $currentController ."_".$currentAction;
 								<i class="fa fa-bars" aria-hidden="true"></i>
 							</a>
 						</div>
+						<div class="welcomeWrapper center-content">
+						<span class="m-r-sm text-muted welcome-message">Welcome {{@Sentinel::getUser()->first_name .' '.@Sentinel::getUser()->last_name }} | <span class="extracontent"> Type: {!! Session::get('userRole')!!} | Last Login: {!! Lib::convertDateFormat("Y-m-d H:i:s",@Sentinel::getUser()->last_login,"d-m-Y h:i A")!!}</span></span>
+						</div>
 		                <ul class="nav navbar-nav navbar-right">
 		                    <li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript::void(0)">
